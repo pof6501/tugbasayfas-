@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyetisyen Tuğba Şeker Ağaç | Hakkımda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f8f9fa;
+            padding-top: 70px; /* Header için boşluk */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 80px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .whatsapp-btn, .call-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* About Hero */
+        .about-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .profile-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            height: 500px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .profile-badge {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .profile-content h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .profile-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .specialization {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .specialization i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Education & Certificates */
+        .education-section {
+            margin: 80px 0;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .edu-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+        }
+
+        .edu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+
+        .edu-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .edu-card h4 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .edu-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Approach Section */
+        .approach-section {
+            margin: 80px 0;
+            background: white;
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .approach-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .approach-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(76, 175, 80, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .approach-item:hover {
+            transform: translateY(-5px);
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .approach-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .approach-item h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Philosophy Section */
+        .philosophy-section {
+            margin: 80px 0;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .philosophy-text {
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: 20px;
+        }
+
+        .philosophy-text h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .philosophy-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .philosophy-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .philosophy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            margin: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 25px;
+            padding: 60px;
+        }
+
+        .stats-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 25px;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 70px;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: 25px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            gap: 10px;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .phone-number {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .phone-number strong {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .profile-image {
+                height: 400px;
+            }
+            
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .about-section {
+                padding: 50px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .profile-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            .approach-section {
+                padding: 40px 25px;
+            }
+            
+            .philosophy-text {
+                padding: 25px;
+            }
+            
+            .stats-section {
+                padding: 40px 25px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-image {
+                height: 300px;
+            }
+            
+            .profile-badge {
+                bottom: 15px;
+                left: 15px;
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .edu-card {
+                padding: 25px;
+            }
+            
+            .edu-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .edu-card, .approach-item {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .edu-card:nth-child(1) { animation-delay: 0.1s; }
+        .edu-card:nth-child(2) { animation-delay: 0.2s; }
+        .edu-card:nth-child(3) { animation-delay: 0.3s; }
+        .approach-item:nth-child(1) { animation-delay: 0.1s; }
+        .approach-item:nth-child(2) { animation-delay: 0.2s; }
+        .approach-item:nth-child(3) { animation-delay: 0.3s; }
+        .approach-item:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul id="mainMenu">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" style="color: var(--primary);">Hakkımda</a></li>
+                    <li><a href="hizmetler.html">Hizmetler</a></li>
+                    <li><a href="yorumlar.html">Yorumlar</a></li>
+                    <li><a href="tarifler.html">Tarifler</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html" style="color: var(--primary);">Hakkımda</a></li>
+                <li><a href="hizmetler.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="container">
+        <section class="about-section">
+            <div class="section-title">
+                <h2>Hakkımda</h2>
+                <p>Sağlıklı beslenme ve yaşam tarzı değişikliği konusunda uzmanlaşmış diyetisyenim</p>
+            </div>
+
+            <!-- About Hero -->
+            <div class="about-hero">
+                <div class="profile-image">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Diyetisyen Tuğba Şeker Ağaç">
+                    <div class="profile-badge">
+                        <i class="fas fa-award"></i> Uzman Diyetisyen
+                    </div>
+                </div>
+                
+                <div class="profile-content">
+                    <h3>Diyetisyen Tuğba Şeker Ağaç</h3>
+                    <p>Merhaba, ben Diyetisyen Tuğba Şeker Ağaç. Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarıma kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim.</p>
+                    
+                    <p>Fonksiyonel tıp yaklaşımıyla çalışıyorum. Bu yaklaşımda sadece semptomları değil, sorunların kök nedenlerini ele alarak kalıcı çözümler sunuyorum. Her danışanımın metabolizması, yaşam tarzı, genetik yapısı ve sağlık geçmişi birbirinden farklıdır.</p>
+                    
+                    <div class="specialization">
+                        <i class="fas fa-heartbeat"></i>
+                        <div>
+                            <h4>Fonksiyonel Tıp Yaklaşımı</h4>
+                            <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education & Certificates -->
+            <div class="education-section">
+                <div class="section-title">
+                    <h2>Eğitim ve Sertifikalar</h2>
+                    <p>Mesleki gelişim için sürekli eğitim ve sertifika programlarına katılıyorum</p>
+                </div>
+                
+                <div class="education-grid">
+                    <div class="edu-card">
+                        <div class="edu-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Lisans Derecesi</h4>
+                        <p>Beslenme ve Diyetetik bölümünden mezun oldum. Üniversite eğitimim sırasında teorik bilgilerin yanı sıra klinik deneyimler de kazandım.</p>
+                    </div>
+                    
+                    <div class="edu-card">
+                        <div class="edu-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>Obezite ve Metabolik Hastalıklar</h4>
+                        <p>Obezite, diyabet, metabolik sendrom ve tiroid hastalıklarında uzmanlaştım. Bu alanda birçok başarılı vaka yönettim.</p>
+                    </div>
+                    
+                    <div class="edu-card">
+                        <div class="edu-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Fonksiyonel Tıp</h4>
+                        <p>Bütünsel sağlık yaklaşımı konusunda eğitim aldım. Kök neden analizi ve fonksiyonel beslenme protokolleri üzerine çalışıyorum.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Approach -->
+            <div class="approach-section">
+                <h3 class="approach-title">Çalışma Yaklaşımım</h3>
+                <div class="approach-grid">
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h4>Kişiye Özel</h4>
+                        <p>Her danışanım için özel beslenme programları hazırlıyorum. Standart diyet listeleri yerine kişiye özel çözümler sunuyorum.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Bilimsel Veriler</h4>
+                        <p>Beslenme programlarını en güncel bilimsel araştırmalar ışığında hazırlıyorum. Her yaklaşımım kanıta dayalıdır.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Bütünsel Yaklaşım</h4>
+                        <p>Sadece kilo değil, genel sağlık durumunu iyileştirmeye odaklanıyorum. Beden ve ruh sağlığını birlikte ele alıyorum.</p>
+                    </div>
+                    
+                    <div class="approach-item">
+                        <div class="approach-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>Destek ve Takip</h4>
+                        <p>Süreç boyunca danışanlarımla düzenli iletişim halindeyim. Motivasyon ve takip için sürekli destek sağlıyorum.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Philosophy -->
+            <div class="philosophy-section">
+                <div class="philosophy-content">
+                    <div class="philosophy-text">
+                        <h3>Beslenme Felsefem</h3>
+                        <p>Beslenme, sadece fiziksel ihtiyaçlarımızı karşılamak değil, aynı zamanda bedenimizle kurduğumuz bir iletişim şeklidir. Sağlıklı beslenme, sevgiyle ve bilinçle yapılan bir tercihtir.</p>
+                        
+                        <p>Danışanlarıma sadece "ne yemeleri gerektiğini" değil, "neden öyle yemeleri gerektiğini" de öğretiyorum. Böylece beslenme alışkanlıklarını kalıcı olarak değiştirebiliyorlar.</p>
+                        
+                        <p>Amacım, danışanlarımın sadece kilo vermesini değil, aynı zamanda enerjik, mutlu ve sağlıklı bir yaşam sürmesini sağlamaktır.</p>
+                    </div>
+                    
+                    <div class="philosophy-image">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sağlıklı Beslenme">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-section">
+                <h3 class="stats-title">Başarı İstatistiklerim</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Mutlu Danışan</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">86</span>
+                        <span class="stat-label">5 Yıldızlı Yorum</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Yıllık Deneyim</span>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Kilo Başarısı</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3 class="cta-title">Siz de Sağlıklı Yaşam Yolculuğuna Çıkın</h3>
+                <p class="cta-subtitle">Size özel hazırlayacağım beslenme programıyla hayatınızı değiştirelim. Ücretsiz ön görüşme için hemen iletişime geçin!</p>
+                
+                <div class="btn-group">
+                    <a href="tel:05070361859" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Hemen Ara
+                    </a>
+                    <a href="https://wa.me/905070361859" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                    </a>
+                </div>
+                
+                <div class="phone-number">
+                    <i class="fas fa-info-circle"></i> Ücretsiz ön görüşme için: 
+                    <strong>0507 036 18 59</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile Menu JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Card hover effects
+            const eduCards = document.querySelectorAll('.edu-card');
+            eduCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Approach item hover effects
+            const approachItems = document.querySelectorAll('.approach-item');
+            approachItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Button click animations
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Tıklama efekti
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+            
+            // Profile image hover effect
+            const profileImage = document.querySelector('.profile-image');
+            if (profileImage) {
+                profileImage.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('img');
+                    img.style.transform = 'scale(1.05)';
+                });
+                
+                profileImage.addEventListener('mouseleave', function() {
+                    const img = this.querySelector('img');
+                    img.style.transform = 'scale(1)';
+                });
+            }
+            
+            // Stats animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(number => {
+                const finalValue = parseInt(number.textContent);
+                let startValue = 0;
+                const duration = 2000;
+                const increment = finalValue / (duration / 16);
+                
+                const timer = setInterval(() => {
+                    startValue += increment;
+                    if (startValue >= finalValue) {
+                        number.textContent = finalValue + (number.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        number.textContent = Math.floor(startValue) + (number.textContent.includes('+') ? '+' : '');
+                    }
+                }, 16);
+            });
+        });
+    </script>
+</body>
+</html>

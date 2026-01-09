@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyetisyen Tuğba Şeker Ağaç | Hizmetlerim</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f8f9fa;
+            padding-top: 70px; /* Header için boşluk */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - ANA SAYFADAKİ GİBİ */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Services Section Styles */
+        .services-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 15%;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Service Card */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .service-content h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            min-height: 50px;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* Service Features */
+        .service-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .feature-tag {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primary-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .feature-tag i {
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+
+        /* CTA Button */
+        .service-cta {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), #2E7D32);
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        .phone-cta {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .phone-cta strong {
+            color: var(--primary);
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 80px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .whatsapp-btn, .call-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-card {
+                padding: 25px;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .service-content h3 {
+                font-size: 1.2rem;
+                min-height: auto;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-features {
+                flex-direction: column;
+            }
+            
+            .feature-tag {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .service-card:nth-child(7) { animation-delay: 0.7s; }
+        .service-card:nth-child(8) { animation-delay: 0.8s; }
+        .service-card:nth-child(9) { animation-delay: 0.9s; }
+        .service-card:nth-child(10) { animation-delay: 1.0s; }
+        .service-card:nth-child(11) { animation-delay: 1.1s; }
+        .service-card:nth-child(12) { animation-delay: 1.2s; }
+        .service-card:nth-child(13) { animation-delay: 1.3s; }
+        .service-card:nth-child(14) { animation-delay: 1.4s; }
+        .service-card:nth-child(15) { animation-delay: 1.5s; }
+        .service-card:nth-child(16) { animation-delay: 1.6s; }
+        .service-card:nth-child(17) { animation-delay: 1.7s; }
+        .service-card:nth-child(18) { animation-delay: 1.8s; }
+        .service-card:nth-child(19) { animation-delay: 1.9s; }
+        .service-card:nth-child(20) { animation-delay: 2.0s; }
+    </style>
+</head>
+<body>
+    <!-- HEADER EKLENDİ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul id="mainMenu">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımda</a></li>
+                    <li><a href="hizmetlerimiz.html" style="color: var(--primary);">Hizmetler</a></li>
+                    <li><a href="yorumlar.html">Yorumlar</a></li>
+                    <li><a href="tarifler.html">Tarifler</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html" style="color: var(--primary);">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="container">
+        <section class="services-section">
+            <div class="section-title">
+                <h2>Hizmetlerim</h2>
+                <p>Size özel hazırlanan profesyonel beslenme programları</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Kilo Verme Diyeti -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-weight-scale"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>KİLO VERME DİYETİ</h3>
+                        <p>Kişiye özel hazırlanmış beslenme programları ile sağlıklı ve kalıcı kilo verme. Vücut analizi sonuçlarınıza göre planlanan program.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Vücut analizi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Haftalık takip</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Öğün planlaması</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kilo Alma Diyeti -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-weight-scale"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>KİLO ALMA DİYETİ</h3>
+                        <p>Sağlıklı bir şekilde kilo almak için özel beslenme programları. Kas kütlesini artırmaya yönelik beslenme planı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kas kütlesi artırma</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Protein ağırlıklı beslenme</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Düzenli takip</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Diyet -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ONLİNE DİYET</h3>
+                        <p>Ev konforunda online diyet danışmanlığı hizmeti. Yüz yüze görüşme imkanı olmayanlar için ideal çözüm.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Online görüşme</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> WhatsApp takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Digital program</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hastalıklarda Beslenme -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>HASTALIKLARDA BESLENME</h3>
+                        <p>Çeşitli hastalıklara yönelik özel beslenme programları. Doktor tavsiyeleri ile uyumlu beslenme planları.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Hastalığa özel program</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Doktor işbirliği</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> İlaç-besin etkileşimi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eliminasyon Diyeti -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ELİMİNASYON DİYETİ</h3>
+                        <p>Gıda intoleranslarına yönelik eliminasyon diyet programları. Hangi gıdalara intoleransınız olduğunu belirleme.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Gıda intolerans testi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Eliminasyon süreci</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Yeniden ekleme planı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glutensiz Diyet -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>GLUTENSİZ DİYET</h3>
+                        <p>Çölyak ve gluten hassasiyeti için özel beslenme planları. Glutensiz yaşam tarzına uyum sağlama rehberliği.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Glutensiz beslenme eğitimi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Market alışveriş rehberi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Dışarıda yemek tüyoları</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aralıklı Oruç -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock-rotate-left"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ARALIKLI ORUÇ & IF</h3>
+                        <p>Intermittent Fasting (Aralıklı Oruç) programları. Vücudunuzun saatine göre beslenme düzeni oluşturma.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> IF programı</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Öğün zamanlaması</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Enerji takibi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diyabet Diyeti -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>DİYABET DİYETİ</h3>
+                        <p>Diyabet hastaları için özel beslenme planlaması. Kan şekeri kontrolü sağlayan beslenme programı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kan şekeri takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Karbonhidrat sayımı</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Glisemik indeks eğitimi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İnsülin Direnci -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>İNSÜLİN DİRENCİNDE BESLENME</h3>
+                        <p>İnsülin direnci için etkili beslenme programları. İnsülin duyarlılığını artıran beslenme yaklaşımı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> İnsülin seviyesi takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Metabolizma hızlandırma</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Hormonal denge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tiroid Hastalıkları -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>TİROİD HASTALIKLARINDA BESLENME</h3>
+                        <p>Tiroid problemleri için özel beslenme yaklaşımları. Hashimoto, hipotiroidi ve hipertiroidi beslenmesi.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Tiroid fonksiyon testi analizi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> İyot dengesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Anti-inflamatuar beslenme</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PCOS -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-venus"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>POLİKİSTİK OVER (PCOS)</h3>
+                        <p>PCOS hastaları için özel beslenme tedavisi. Hormonal dengeyi sağlayan beslenme programı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Hormonal dengeleme</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> İnsülin direnci yönetimi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Adet düzeni takibi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIBO Diyeti -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>SİBO DİYETİ</h3>
+                        <p>İnce bağırsakta aşırı bakteri üremesi için beslenme programı. Semptomları azaltan özel diyet protokolü.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> SIBO testi değerlendirmesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> FODMAP diyeti</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Bağırsak sağlığı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Histamin İntoleransı -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>HİSTAMİN İNTOLERANSI DİYETİ</h3>
+                        <p>Histamin intoleransı için düşük histaminli beslenme. Histamin içeren gıdaları belirleme ve sınırlama.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Histamin seviyesi takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Düşük histamin gıda listesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Semptom yönetimi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Anti-inflamatuar Diyet -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ANTİİNFLAMATUAR DİYET</h3>
+                        <p>Enflamasyonu azaltmaya yönelik beslenme programı. Kronik enflamasyonla mücadele eden beslenme planı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Enflamasyon belirteçleri takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Antioksidan zengini beslenme</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Omega-3 ağırlıklı program</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kalp Damar Hastalıkları -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>KALP DAMAR HASTALIKLARI VE BESLENME</h3>
+                        <p>Kalp sağlığını koruyucu beslenme planları. Kolesterol ve tansiyon kontrolü sağlayan beslenme programı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kan lipit profili analizi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Tansiyon kontrolü</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Damar sağlığı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sporcu Beslenmesi -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>SPORCU BESLENMESİ</h3>
+                        <p>Performans artırıcı beslenme programları. Antrenman öncesi ve sonrası beslenme planlaması.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Antrenman beslenmesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Protein timing</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Hidrasyon planı</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gebelik ve Emzirme -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>GEBELİK VE EMZİRME DÖNEMİ</h3>
+                        <p>Anne ve bebek sağlığı için özel beslenme programları. Gebelik süreci ve emzirme dönemi beslenmesi.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Gebelik beslenmesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Emzirme dönemi beslenmesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Bebek gelişimi takibi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Çocuk ve Ergen Beslenmesi -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>ÇOCUK VE ERGEN BESLENMESİ</h3>
+                        <p>Büyüme ve gelişme dönemine özel beslenme programları. Sağlıklı beslenme alışkanlığı kazandırma.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Büyüme takibi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Okul çağı beslenmesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Sağlıklı atıştırmalıklar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vejetaryen/Vegan Beslenme -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>VEJETARYEN/VEGAN BESLENME</h3>
+                        <p>Bitkisel beslenme programları. Vejetaryen ve veganlar için dengeli beslenme planı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Bitkisel protein kaynakları</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Vitamin/mineral takviyesi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Dengeli öğün planlaması</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fonksiyonel Tıp Beslenmesi -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>FONKSİYONEL TIP BESLENMESİ</h3>
+                        <p>Kök neden analizi ile beslenme programı. Vücudu bütünsel olarak ele alan beslenme yaklaşımı.</p>
+                        <div class="service-features">
+                            <span class="feature-tag"><i class="fas fa-check"></i> Detaylı sağlık analizi</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Kök neden araştırması</span>
+                            <span class="feature-tag"><i class="fas fa-check"></i> Bütünsel iyileşme</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-cta">
+                <a href="iletisim.html" class="btn">
+                    <i class="fas fa-calendar-check"></i> Randevu Al ve Hemen Başla
+                </a>
+                <p class="phone-cta">
+                    📞 <strong>Ücretsiz ön görüşme için:</strong> 0507 036 18 59
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile Menu JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Hover efekti için ek JavaScript
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Tıklama animasyonu
+            const ctaButton = document.querySelector('.btn');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        // İletişim sayfasına yönlendirme
+                        window.location.href = "iletisim.html";
+                    }, 200);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+

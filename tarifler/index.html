@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyetisyen Tuğba Şeker Ağaç | Sağlıklı Tarifler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f8f9fa;
+            padding-top: 70px; /* Header için boşluk */
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 80px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .whatsapp-btn, .call-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Recipes Section */
+        .recipes-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 15%;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            margin-top: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Recipe Filters */
+        .recipe-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 30px;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        /* Recipes Grid */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Recipe Card */
+        .recipe-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(76, 175, 80, 0.1);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-color: var(--primary);
+        }
+
+        /* Recipe Image */
+        .recipe-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .recipe-card:hover .recipe-image img {
+            transform: scale(1.05);
+        }
+
+        .recipe-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Recipe Info */
+        .recipe-info {
+            padding: 30px;
+        }
+
+        .recipe-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .recipe-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        /* Recipe Details */
+        .recipe-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .detail-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .detail-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        /* Recipe Ingredients */
+        .recipe-ingredients {
+            margin-bottom: 25px;
+        }
+
+        .ingredients-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ingredients-title i {
+            color: var(--secondary);
+        }
+
+        .ingredients-list {
+            list-style: none;
+        }
+
+        .ingredients-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ingredients-list li:last-child {
+            border-bottom: none;
+        }
+
+        .ingredients-list li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Recipe Instructions */
+        .recipe-instructions {
+            background: rgba(76, 175, 80, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .instructions-title {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions-title i {
+            color: var(--secondary);
+        }
+
+        .instructions-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .instructions-list li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 40px;
+            position: relative;
+        }
+
+        .instructions-list li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Video Section */
+        .recipe-video-section {
+            margin-top: 60px;
+        }
+
+        .video-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 70px;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
+            border-radius: 25px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            gap: 10px;
+            min-width: 200px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .youtube-btn {
+            background: linear-gradient(135deg, #FF0000, #CC0000);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+        }
+
+        .youtube-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .phone-number {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .phone-number strong {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .recipes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .recipes-section {
+                padding: 50px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .recipe-filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .recipes-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .recipe-info {
+                padding: 20px;
+            }
+            
+            .recipe-title {
+                font-size: 1.3rem;
+                min-height: auto;
+            }
+            
+            .recipe-details {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .detail-item {
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .detail-item {
+                flex: 0 0 100%;
+            }
+            
+            .instructions-list li {
+                padding-left: 35px;
+            }
+            
+            .instructions-list li:before {
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recipe-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .recipe-card:nth-child(1) { animation-delay: 0.1s; }
+        .recipe-card:nth-child(2) { animation-delay: 0.2s; }
+        .recipe-card:nth-child(3) { animation-delay: 0.3s; }
+        .recipe-card:nth-child(4) { animation-delay: 0.4s; }
+        .recipe-card:nth-child(5) { animation-delay: 0.5s; }
+        .recipe-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Category Colors */
+        .breakfast-badge { background: linear-gradient(135deg, #FF9800, #F57C00); }
+        .smoothie-badge { background: linear-gradient(135deg, #4CAF50, #388E3C); }
+        .salad-badge { background: linear-gradient(135deg, #2196F3, #1976D2); }
+        .snack-badge { background: linear-gradient(135deg, #9C27B0, #7B1FA2); }
+        .dinner-badge { background: linear-gradient(135deg, #FF5722, #E64A19); }
+    </style>
+</head>
+<body>
+    <!-- HEADER EKLENDİ -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul id="mainMenu">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımda</a></li>
+                    <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                    <li><a href="yorumlar.html">Yorumlar</a></li>
+                    <li><a href="tarifler.html" style="color: var(--primary);">Tarifler</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html" style="color: var(--primary);">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <div class="container">
+        <section class="recipes-section">
+            <div class="section-title">
+                <h2>Sağlıklı Tarifler</h2>
+                <p>Diyetisyen Tuğba Şeker Ağaç'ın danışanları için hazırladığı pratik ve lezzetli tarifler</p>
+            </div>
+
+            <!-- Recipe Filters -->
+            <div class="recipe-filters">
+                <button class="filter-btn active" data-filter="all">Tüm Tarifler</button>
+                <button class="filter-btn" data-filter="smoothie">Smoothieler</button>
+                <button class="filter-btn" data-filter="breakfast">Kahvaltı</button>
+                <button class="filter-btn" data-filter="salad">Salatalar</button>
+                <button class="filter-btn" data-filter="snack">Ara Öğün</button>
+                <button class="filter-btn" data-filter="dinner">Ana Yemek</button>
+            </div>
+
+            <!-- Recipes Grid -->
+            <div class="recipes-grid">
+                <!-- Tarif 1: Bağırsakları Çalıştıran Smoothie -->
+                <div class="recipe-card" data-category="smoothie">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Taze İncirli Smoothie">
+                        <div class="recipe-badge smoothie-badge">SMOOTHIE</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">BAĞIRSAKLARI ÇALIŞTIRAN PRATİK SMOOTHIE</h3>
+                        <p class="recipe-description">Lif ve vitamin deposu bu smoothie ile bağırsaklarınızı harekete geçirin. Pratik ve lezzetli bir başlangıç!</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">5 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">210 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">2 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 2 adet taze incir</li>
+                                <li><i class="fas fa-check"></i> 1 su bardağı süt (bitkisel süt tercih edilebilir)</li>
+                                <li><i class="fas fa-check"></i> 2 yemek kaşığı yulaf</li>
+                                <li><i class="fas fa-check"></i> 1 tatlı kaşığı keten tohumu</li>
+                                <li><i class="fas fa-check"></i> 1 çay kaşığı tarçın</li>
+                                <li><i class="fas fa-check"></i> 4-5 adet buz küpü</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>İncirleri iyice yıkayın ve küp küp doğrayın</li>
+                                <li>Tüm malzemeleri blender kabına alın</li>
+                                <li>2-3 dakika boyunca pürüzsüz bir kıvam alana kadar karıştırın</li>
+                                <li>Hemen servis yapın, afiyet olsun! 😊😊</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarif 2: Protein Deposu Kahvaltı -->
+                <div class="recipe-card" data-category="breakfast">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Yulaflı Yumurta">
+                        <div class="recipe-badge breakfast-badge">KAHVALTI</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">PROTEİN DEPOSU YULAFLI YUMURTA</h3>
+                        <p class="recipe-description">Sabahları tok tutan, protein ve lif kaynağı bu kahvaltı ile güne enerjik başlayın.</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">10 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">280 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">1 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 2 adet yumurta</li>
+                                <li><i class="fas fa-check"></i> 3 yemek kaşığı yulaf</li>
+                                <li><i class="fas fa-check"></i> 1/2 su bardağı süt</li>
+                                <li><i class="fas fa-check"></i> 1 çay kaşığı zeytinyağı</li>
+                                <li><i class="fas fa-check"></i> 1 tutam tuz</li>
+                                <li><i class="fas fa-check"></i> Karabiber, pul biber (isteğe bağlı)</li>
+                                <li><i class="fas fa-check"></i> Taze maydanoz (servis için)</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>Bir kasede yumurtaları çırpın</li>
+                                <li>Yulaf, süt, tuz ve baharatları ekleyip karıştırın</li>
+                                <li>Teflon tavada zeytinyağını ısıtın</li>
+                                <li>Karışımı tavaya dökün, kısık ateşte pişirin</li>
+                                <li>İki tarafını da güzelce pişirin</li>
+                                <li>Taze maydanoz ile servis yapın</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarif 3: Tok Tutucu Ara Öğün -->
+                <div class="recipe-card" data-category="snack">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Muzlu Yoğurt">
+                        <div class="recipe-badge snack-badge">ARA ÖĞÜN</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">TOK TUTUCU MUZLU YOĞURT</h3>
+                        <p class="recipe-description">Ara öğünler için mükemmel bir seçenek. Protein, lif ve sağlıklı yağların dengeli birleşimi.</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">3 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">180 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">1 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 1 orta boy olgun muz</li>
+                                <li><i class="fas fa-check"></i> 1 kase yoğurt (200g)</li>
+                                <li><i class="fas fa-check"></i> 1 yemek kaşığı chia tohumu</li>
+                                <li><i class="fas fa-check"></i> 1 tatlı kaşığı bal (isteğe bağlı)</li>
+                                <li><i class="fas fa-check"></i> 1/2 çay kaşığı tarçın</li>
+                                <li><i class="fas fa-check"></i> 5-6 adet çiğ badem (üzeri için)</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>Muzu bir kasede çatalla ezin</li>
+                                <li>Yoğurt ve chia tohumunu ekleyip karıştırın</li>
+                                <li>Üzerine tarçın serpin</li>
+                                <li>İsterseniz bal ekleyin</li>
+                                <li>Çiğ bademleri üzerine kırıp ekleyin</li>
+                                <li>Hemen tüketin veya 10 dakika bekletin</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarif 4: Antioksidan Salata -->
+                <div class="recipe-card" data-category="salad">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Antioksidan Salata">
+                        <div class="recipe-badge salad-badge">SALATA</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">ANTİOKSİDAN ZENGİNİ QUINOA SALATASI</h3>
+                        <p class="recipe-description">Vitamin ve mineral deposu bu salata ile öğünlerinizi renklendirin. Tam bir sağlık bombası!</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">20 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">320 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">2 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 1 su bardağı haşlanmış quinoa</li>
+                                <li><i class="fas fa-check"></i> 1 avuç ıspanak yaprakları</li>
+                                <li><i class="fas fa-check"></i> 1/2 nar (tanelenmiş)</li>
+                                <li><i class="fas fa-check"></i> 1 avokado (küp doğranmış)</li>
+                                <li><i class="fas fa-check"></i> 10-12 adet ceviz içi</li>
+                                <li><i class="fas fa-check"></i> 1 limonun suyu</li>
+                                <li><i class="fas fa-check"></i> 1 yemek kaşığı zeytinyağı</li>
+                                <li><i class="fas fa-check"></i> Tuz, karabiber</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>Quinoayı haşlayıp soğumaya bırakın</li>
+                                <li>Ispanak yapraklarını yıkayın ve doğrayın</li>
+                                <li>Büyük bir salata kasesine tüm malzemeleri ekleyin</li>
+                                <li>Limon suyu ve zeytinyağını karıştırıp sos olarak ekleyin</li>
+                                <li>Tuz ve karabiber ile tatlandırın</li>
+                                <li>Hafifçe karıştırıp servis yapın</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarif 5: Fırında Somon -->
+                <div class="recipe-card" data-category="dinner">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fırında Somon">
+                        <div class="recipe-badge dinner-badge">ANA YEMEK</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">FIRINDA LİMONLU SOMON</h3>
+                        <p class="recipe-description">Omega-3 kaynağı somonun pratik fırın tarifi. Hem sağlıklı hem de lezzetli bir akşam yemeği.</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">25 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">350 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">2 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 2 adet somon fileto</li>
+                                <li><i class="fas fa-check"></i> 1 limon (dilimlenmiş)</li>
+                                <li><i class="fas fa-check"></i> 2 diş sarımsak (ezilmiş)</li>
+                                <li><i class="fas fa-check"></i> 1 yemek kaşığı zeytinyağı</li>
+                                <li><i class="fas fa-check"></i> 1 çay kaşığı kekik</li>
+                                <li><i class="fas fa-check"></i> 1 çay kaşığı biberiye</li>
+                                <li><i class="fas fa-check"></i> Tuz, karabiber</li>
+                                <li><i class="fas fa-check"></i> Taze dereotu (servis için)</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>Fırını 200°C'ye ısıtın</li>
+                                <li>Somon filetolarını yıkayıp kurulayın</li>
+                                <li>Bir kasede zeytinyağı, sarımsak ve baharatları karıştırın</li>
+                                <li>Karışımı somonların üzerine sürün</li>
+                                <li>Somonları fırın tepsisine yerleştirin, üzerine limon dilimleri koyun</li>
+                                <li>15-20 dakika pişirin</li>
+                                <li>Taze dereotu ile servis yapın</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarif 6: Çikolatalı Smoothie Bowl -->
+                <div class="recipe-card" data-category="smoothie">
+                    <div class="recipe-image">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Çikolatalı Smoothie Bowl">
+                        <div class="recipe-badge smoothie-badge">SMOOTHIE BOWL</div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">ÇİKOLATALI SMOOTHİE BOWL</h3>
+                        <p class="recipe-description">Sağlıklı çikolata isteyenler için mükemmel bir tarif. Tatlı krizlerini sağlıklı atıştırmalıkla bastırın.</p>
+                        
+                        <div class="recipe-details">
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="detail-label">HAZIRLAMA</div>
+                                <div class="detail-value">7 dk</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="detail-label">KALORİ</div>
+                                <div class="detail-value">240 kcal</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div class="detail-label">KIŞİ</div>
+                                <div class="detail-value">1 Kişilik</div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-ingredients">
+                            <h4 class="ingredients-title">
+                                <i class="fas fa-shopping-basket"></i> Malzemeler
+                            </h4>
+                            <ul class="ingredients-list">
+                                <li><i class="fas fa-check"></i> 1 dondurulmuş muz</li>
+                                <li><i class="fas fa-check"></i> 1 yemek kaşığı kakao tozu</li>
+                                <li><i class="fas fa-check"></i> 1/2 su bardağı süt</li>
+                                <li><i class="fas fa-check"></i> 1 tatlı kaşığı fıstık ezmesi</li>
+                                <li><i class="fas fa-check"></i> 1 tatlı kaşığı chia tohumu</li>
+                                <li><i class="fas fa-check"></i> Üzeri için: çilek, muz, badem</li>
+                                <li><i class="fas fa-check"></i> 1 çay kaşığı bal (isteğe bağlı)</li>
+                            </ul>
+                        </div>
+
+                        <div class="recipe-instructions">
+                            <h4 class="instructions-title">
+                                <i class="fas fa-list-ol"></i> Hazırlanışı
+                            </h4>
+                            <ol class="instructions-list">
+                                <li>Dondurulmuş muzu 5 dakika bekletin</li>
+                                <li>Blender'a muz, kakao, süt ve fıstık ezmesini ekleyin</li>
+                                <li>Pürüzsüz bir kıvam alana kadar karıştırın</li>
+                                <li>Bir kaseye dökün</li>
+                                <li>Üzerini chia tohumu ve meyvelerle süsleyin</li>
+                                <li>Hemen servis yapın, afiyet olsun!</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Section - YouTube Bağlantısı GÜNCELLENDİ -->
+            <div class="recipe-video-section">
+                <h3 class="video-title">YouTube Shorts'tan Tarif Videosu</h3>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <!-- GÜNCELLENMİŞ YOUTUBE BAĞLANTISI -->
+                        <iframe src="https://www.youtube.com/embed/LZkrjGwVk5I" 
+                                title="Diyetisyen Tuğba Şeker Ağaç - Sağlıklı Tarif Videosu" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3 class="cta-title">Kişiye Özel Beslenme Programı İster misiniz?</h3>
+                <p class="cta-subtitle">Bu tarifler size özel hazırlanmış beslenme programının sadece küçük bir parçası. Sizin için özel olarak hazırlanmış tarifler ve yemek planları için iletişime geçin!</p>
+                
+                <div class="btn-group">
+                    <a href="tel:05070361859" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Hemen Ara
+                    </a>
+                    <a href="https://wa.me/905070361859" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
+                    </a>
+                    <a href="https://www.youtube.com/@dyt.tugbaseker" class="btn youtube-btn" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube Kanalım
+                    </a>
+                </div>
+                
+                <div class="phone-number">
+                    <i class="fas fa-info-circle"></i> Tarifler ve beslenme programları için: 
+                    <strong>0507 036 18 59</strong>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mobile Menu JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Filtreleme Sistemi
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const recipeCards = document.querySelectorAll('.recipe-card');
+            
+            // Filtre butonlarına tıklama
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Aktif butonu güncelle
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Tarifleri filtrele
+                    recipeCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            const category = card.getAttribute('data-category');
+                            if (category === filterValue) {
+                                card.style.display = 'block';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 50);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    card.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Kart hover efektleri
+            recipeCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (this.style.display !== 'none') {
+                        this.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            // Buton tıklama animasyonları
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Tıklama efekti
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                    // Eğer # link ise sayfayı yenileme
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
+            
+            // Malzeme listesi animasyonu
+            const ingredientsLists = document.querySelectorAll('.ingredients-list li');
+            ingredientsLists.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.style.animation = 'fadeInUp 0.5s ease forwards';
+                item.style.opacity = '0';
+            });
+            
+            // Talimat listesi animasyonu
+            const instructionItems = document.querySelectorAll('.instructions-list li');
+            instructionItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.style.animation = 'fadeInUp 0.6s ease forwards';
+                item.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+
+</html>

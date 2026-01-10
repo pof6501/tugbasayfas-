@@ -548,6 +548,69 @@
             font-size: 1.4rem;
         }
 
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            width: 100%;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column p, .footer-column ul li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
         /* Responsive Design */
         @media (max-width: 991px) {
             nav ul {
@@ -635,6 +698,10 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .footer-content {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
@@ -714,7 +781,7 @@
                 <ul id="mainMenu">
                     <li><a href="index.html">Ana Sayfa</a></li>
                     <li><a href="hakkimizda.html" style="color: var(--primary);">Hakkımda</a></li>
-                    <li><a href="hizmetler.html">Hizmetler</a></li>
+                    <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
                     <li><a href="yorumlar.html">Yorumlar</a></li>
                     <li><a href="tarifler.html">Tarifler</a></li>
                     <li><a href="iletisim.html">İletişim</a></li>
@@ -727,7 +794,7 @@
             <ul>
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="hakkimizda.html" style="color: var(--primary);">Hakkımda</a></li>
-                <li><a href="hizmetler.html">Hizmetler</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
                 <li><a href="yorumlar.html">Yorumlar</a></li>
                 <li><a href="tarifler.html">Tarifler</a></li>
                 <li><a href="iletisim.html">İletişim</a></li>
@@ -915,6 +982,45 @@
         </section>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Dyt. Tuğba Şeker Ağaç</h3>
+                    <p>Sağlıklı beslenme, kaliteli yaşam felsefesiyle danışanlarına özel beslenme programları hazırlayan uzman diyetisyen.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tugbasekeragac.com/ana-sayfa" target="_blank"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hakkimizda.html" style="color: white; text-decoration: none;">Hakkımda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hizmetlerimiz.html" style="color: white; text-decoration: none;">Hizmetler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="tarifler.html" style="color: white; text-decoration: none;">Tarifler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="iletisim.html" style="color: white; text-decoration: none;">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim Bilgileri</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@tugbasekeragac.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Seyhan/Adana</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Mobile Menu JavaScript
         document.addEventListener('DOMContentLoaded', function() {
@@ -1017,7 +1123,4 @@
         });
     </script>
 </body>
-
 </html>
-
-

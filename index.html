@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -229,22 +233,12 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             min-height: 300px;
             background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .about-img .profile-placeholder {
-            font-size: 1.2rem;
-            color: var(--gray);
-            text-align: center;
-            padding: 20px;
-        }
-
-        .about-img .profile-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--primary);
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about-text {
@@ -895,11 +889,7 @@
             
             <div class="about-content">
                 <div class="about-img">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user-md"></i>
-                        <p>Diyetisyen Tuğba Şeker Ağaç</p>
-                        <p><small>"https://www.adanadiyetisyen.online/images/tugba-dyt-reklam.webp.jpg"</small></p>
-                    </div>
+                    <img src="https://www.adanadiyetisyen.online/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
                 </div>
                 
                 <div class="about-text">
@@ -1408,10 +1398,5 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
 

@@ -61,23 +61,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
 
-        .logo {
+        /* Logo Container */
+        .logo-container {
             display: flex;
             align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
-        .logo h1 {
-            font-size: 1.3rem;
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 0;
             line-height: 1.2;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--secondary);
+        }
+
+        .logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         nav ul {
@@ -681,8 +708,16 @@
 
         /* Tablet Styles */
         @media (min-width: 768px) {
-            .logo h1 {
-                font-size: 1.5rem;
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.8rem;
+            }
+            
+            .logo-img {
+                height: 55px;
             }
             
             nav ul li {
@@ -771,8 +806,16 @@
 
         /* Desktop Styles */
         @media (min-width: 992px) {
-            .logo h1 {
-                font-size: 1.7rem;
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.85rem;
+            }
+            
+            .logo-img {
+                height: 60px;
             }
             
             nav ul li {
@@ -821,6 +864,18 @@
             .mobile-menu-btn {
                 display: block;
             }
+            
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-text .tagline {
+                display: none;
+            }
+            
+            .logo-img {
+                height: 45px;
+            }
         }
     </style>
 </head>
@@ -838,8 +893,20 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-img">
+                    <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
+                    <!-- Örnek: <img src="LOGO_URL_NIZ" alt="Diyetisyen Tuğba Şeker Ağaç Logo"> -->
+                    <!-- Logo yoksa placeholder kullan -->
+                    <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+                    <div class="tagline">Sağlıklı Beslenme, Mutlu Yaşam</div>
+                </div>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -848,7 +915,7 @@
             
             <nav id="desktopNav">
                 <ul id="mainMenu">
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                <li><a href="https://www.adanadiyetisyen.online/">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
                 <li><a href="/yorumlar/">Yorumlar</a></li>
@@ -861,7 +928,7 @@
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <ul>
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                <li><a href="https://www.adanadiyetisyen.online/">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
                 <li><a href="/yorumlar/">Yorumlar</a></li>
@@ -889,7 +956,7 @@
             
             <div class="about-content">
                 <div class="about-img">
-                    <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
+                    <img src="https://www.adanadiyetisyen.online/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
                 </div>
                 
                 <div class="about-text">
@@ -1398,6 +1465,3 @@
     </script>
 </body>
 </html>
-
-
-

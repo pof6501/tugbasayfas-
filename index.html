@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hakkımda | Diyetisyen Tuğba Şeker Ağaç</title>
+    <title>Diyetisyen Tuğba Şeker Ağaç | Beslenme ve Diyet Danışmanlığı</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
     <style>
@@ -134,39 +134,27 @@
         }
 
         /* Hero Section */
-        .page-hero {
-            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8));
+        .hero {
+            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 120px 0 60px;
+            padding: 150px 0 80px;
             text-align: center;
             margin-top: 70px;
         }
 
-        .page-hero h1 {
-            font-size: 2.5rem;
+        .hero h2 {
+            font-size: 2.2rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
-        .breadcrumb {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb li:not(:last-child):after {
-            content: '>';
-            margin-left: 10px;
-        }
-
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            padding: 0 15px;
         }
 
         .btn {
@@ -305,70 +293,306 @@
             min-width: 0;
         }
 
-        /* Mission Vision Section */
-        .mission-vision {
+        /* Services Section */
+        .services {
             background-color: var(--light-gray);
-            padding: 60px 0;
         }
 
-        .mission-vision-grid {
+        .services-list {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 15px;
         }
 
-        .mission-card, .vision-card {
+        .service-item {
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
         }
 
-        .mission-card h3, .vision-card h3 {
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
             color: var(--primary);
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-item h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .client-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            color: var(--primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
-        /* Approach Section */
-        .approach-grid {
+        .client-rating {
+            color: #FFC107;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .client-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .success-story {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .success-story h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .success-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            line-height: 1.3;
+        }
+
+        /* Recipes Section */
+        .recipes-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 25px;
         }
 
-        .approach-item {
+        .recipe-card {
             background-color: white;
             border-radius: 10px;
-            padding: 25px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--primary);
         }
 
-        .approach-item h4 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Contact CTA */
-        .contact-cta {
+        .recipe-header {
             background-color: var(--primary);
             color: white;
-            padding: 60px 0;
+            padding: 15px;
             text-align: center;
         }
 
-        .contact-cta h2 {
+        .recipe-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .recipe-content {
+            padding: 20px;
+        }
+
+        .recipe-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .recipe-ingredients {
+            margin: 15px 0;
+        }
+
+        .recipe-ingredients h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .recipe-ingredients ul {
+            list-style-position: inside;
+            margin-left: 5px;
+        }
+
+        .recipe-ingredients li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .recipe-instructions {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Instagram Section */
+        .instagram {
+            background-color: var(--light-gray);
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .insta-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 150px;
+            position: relative;
+            background-color: #ddd;
+        }
+
+        .insta-item:after {
+            content: '\f16d';
+            font-family: 'Font Awesome 6 Brands';
+            position: absolute;
+            top: 10px;
+            right: 10px;
             color: white;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Youtube Section */
+        .youtube-videos {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-info {
+            width: 100%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
             margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-info-item div h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-info-item div p {
+            font-size: 0.95rem;
+        }
+
+        .map-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
         }
 
         /* Footer */
@@ -496,12 +720,16 @@
                 font-size: 1rem;
             }
             
-            .page-hero {
-                padding: 140px 0 80px;
+            .hero {
+                padding: 180px 0 100px;
             }
             
-            .page-hero h1 {
-                font-size: 3rem;
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
             }
             
             .section-title h2 {
@@ -526,14 +754,33 @@
                 flex: 1 1 calc(50% - 15px);
             }
             
-            .mission-vision-grid {
+            .services-list {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
+                gap: 20px;
             }
             
-            .approach-grid {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .recipes-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            
+            .youtube-videos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .contact-content {
+                flex-direction: row;
             }
             
             .footer-content {
@@ -542,6 +789,10 @@
             
             .footer-column {
                 flex: 1;
+            }
+            
+            .success-metrics {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -563,7 +814,27 @@
                 margin-left: 30px;
             }
             
-            .approach-grid {
+            .hero h2 {
+                font-size: 3.2rem;
+            }
+            
+            .services-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .recipes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .instagram-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .youtube-videos {
                 grid-template-columns: repeat(3, 1fr);
             }
             
@@ -621,6 +892,8 @@
             <div class="logo-container">
                 <div class="logo-img">
                     <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
+                    <!-- Örnek: <img src="LOGO_URL_NIZ" alt="Diyetisyen Tuğba Şeker Ağaç Logo"> -->
+                    <!-- Logo yoksa placeholder kullan -->
                     <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
                         <i class="fas fa-apple-alt"></i>
                     </div>
@@ -661,20 +934,22 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
-            <h1>Hakkımda</h1>
-            <ul class="breadcrumb">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li>Hakkımda</li>
-            </ul>
+            <h2>Sağlıklı Beslenme, Mutlu Yaşam</h2>
+            <p>Diyetisyen Tuğba Şeker Ağaç ile kişiye özel beslenme programları, sağlıklı tarifler ve kalıcı sonuçlar için buradayım.</p>
+            <a href="iletisim.html" class="btn">Randevu Al</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
+            <div class="section-title">
+                <h2>Hakkımda</h2>
+            </div>
+            
             <div class="about-content">
                 <div class="about-img">
                     <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
@@ -682,30 +957,25 @@
                 
                 <div class="about-text">
                     <h3>Diyetisyen Tuğba Şeker Ağaç</h3>
-                    <p>Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarına kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim. Sağlıklı yaşamın sadece kilo vermekten ibaret olmadığına inanıyorum. Fonksiyonel tıp yaklaşımıyla sadece semptomları değil, sorunun kök nedenlerini ele alıyorum.</p>
-                    
-                    <p>Her bireyin metabolizmasının, yaşam tarzının ve ihtiyaçlarının farklı olduğuna inanıyorum. Bu nedenle standart diyet listeleri yerine, kişiye özel beslenme planları oluşturuyorum. Amacım, danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırmak.</p>
+                    <p>Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarına kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim. Fonksiyonel tıp yaklaşımıyla sadece semptomları değil, sorunun kök nedenlerini ele alıyorum.</p>
                     
                     <div class="functional-medicine">
                         <h4><i class="fas fa-heartbeat"></i> Fonksiyonel Tıp Yaklaşımı</h4>
-                        <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum. Bu yaklaşımla sadece semptomları maskelemiyor, asıl sorunu kökten çözüyoruz.</p>
+                        <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum.</p>
                     </div>
                     
                     <div class="diplomas">
                         <div class="diploma-item">
                             <h4><i class="fas fa-graduation-cap"></i> Lisans Derecesi</h4>
                             <p>Beslenme ve Diyetetik</p>
-                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Üniversite Adı</p>
                         </div>
                         <div class="diploma-item">
                             <h4><i class="fas fa-certificate"></i> Uzmanlık</h4>
                             <p>Obezite ve Metabolik Hastalıklar</p>
-                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Uzmanlık Eğitimi</p>
                         </div>
                         <div class="diploma-item">
                             <h4><i class="fas fa-award"></i> Fonksiyonel Tıp</h4>
                             <p>Bütünsel Sağlık Yaklaşımı</p>
-                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Sertifikalı Eğitim</p>
                         </div>
                     </div>
                 </div>
@@ -713,64 +983,134 @@
         </div>
     </section>
 
-    <!-- Mission Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <div class="mission-vision-grid">
-                <div class="mission-card">
-                    <h3><i class="fas fa-bullseye"></i> Misyonum</h3>
-                    <p>Danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırarak, yaşam kalitelerini artırmak. Her bireyin özel ihtiyaçlarına uygun, bilimsel temelli beslenme programları sunmak.</p>
-                </div>
-                <div class="vision-card">
-                    <h3><i class="fas fa-eye"></i> Vizyonum</h3>
-                    <p>Toplumda sağlıklı beslenme bilincini yaygınlaştırmak, kronik hastalıkları önleyici beslenme modelleri geliştirmek ve herkesin sağlıklı yaşama erişimini kolaylaştırmak.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section>
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
             <div class="section-title">
-                <h2>Çalışma Yaklaşımım</h2>
+                <h2>Hizmetlerim</h2>
             </div>
             
-            <div class="approach-grid">
-                <div class="approach-item">
-                    <h4><i class="fas fa-user-md"></i> Bireysel Değerlendirme</h4>
-                    <p>Her danışanımı ayrı ayrı değerlendiriyor, sağlık geçmişi, yaşam tarzı, beslenme alışkanlıkları ve hedeflerini analiz ediyorum.</p>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3><i class="fas fa-weight"></i> KİLO VERME DİYETİ</h3>
+                    <p>Kişiye özel hazırlanmış beslenme programları ile sağlıklı kilo verme.</p>
                 </div>
-                <div class="approach-item">
-                    <h4><i class="fas fa-clipboard-check"></i> Kişiye Özel Planlama</h4>
-                    <p>Standart diyet listeleri yerine, tamamen kişiye özel beslenme programları hazırlıyorum.</p>
+                
+                <div class="service-item">
+                    <h3><i class="fas fa-weight"></i> KİLO ALMA DİYETİ</h3>
+                    <p>Sağlıklı bir şekilde kilo almak için özel beslenme programları.</p>
                 </div>
-                <div class="approach-item">
-                    <h4><i class="fas fa-chart-line"></i> Takip ve Destek</h4>
-                    <p>Süreç boyunca düzenli takip ve motivasyon desteği sağlıyor, gerektiğinde programı güncelliyorum.</p>
+                
+                <div class="service-item">
+                    <h3><i class="fas fa-laptop-house"></i> ONLİNE DİYET</h3>
+                    <p>Ev konforunda online diyet danışmanlığı hizmeti.</p>
                 </div>
-                <div class="approach-item">
-                    <h4><i class="fas fa-heartbeat"></i> Bütünsel Yaklaşım</h4>
-                    <p>Sadece beslenmeye değil, uyku düzeni, stres yönetimi ve fiziksel aktiviteye de odaklanıyorum.</p>
+                
+                <div class="service-item">
+                    <h3><i class="fas fa-stethoscope"></i> HASTALIKLARDA BESLENME</h3>
+                    <p>Çeşitli hastalıklara yönelik özel beslenme programları.</p>
                 </div>
-                <div class="approach-item">
-                    <h4><i class="fas fa-graduation-cap"></i> Eğitim ve Bilinçlendirme</h4>
-                    <p>Danışanlarıma sağlıklı beslenme konusunda bilgi ve farkındalık kazandırıyorum.</p>
+                
+                <div class="service-item">
+                    <h3><i class="fas fa-ban"></i> ELİMİNASYON DİYETİ</h3>
+                    <p>Gıda intoleranslarına yönelik eliminasyon diyet programları.</p>
                 </div>
-                <div class="approach-item">
-                    <h4><i class="fas fa-handshake"></i> Sürdürülebilirlik</h4>
-                    <p>Geçici çözümler yerine, kalıcı ve sürdürülebilir yaşam tarzı değişiklikleri hedefliyorum.</p>
+                
+                <div class="service-item">
+                    <h3><i class="fas fa-bread-slice"></i> GLUTENSİZ DİYET</h3>
+                    <p>Çölyak ve gluten hassasiyeti için özel beslenme planları.</p>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="hizmetlerimiz.html" class="btn">Tüm Hizmetlerim</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="contact-cta">
+    <!-- Testimonials Section -->
+    <section id="testimonials">
         <div class="container">
-            <h2>Size Nasıl Yardımcı Olabilirim?</h2>
-            <p>Sağlıklı beslenme yolculuğunuzda size rehberlik etmek için buradayım.</p>
-            <a href="iletisim.html" class="btn" style="background-color: white; color: var(--primary); margin-top: 20px;">Randevu Al</a>
+            <div class="section-title">
+                <h2>Danışan Yorumları</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="client-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Tuğba hanımcığım o kadar tatlı güler yüzlü ki çok seviyorum. Çok güzel başarılara imza attık çok teşekkür ediyorum kendisine 😊️"</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <h4>Büşra Üz</h4>
+                            <p>Google Yorumları</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="client-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Tuğba Hanımla 2 ay önce tanıştık, 2 ayda 10 kilo verdim çok kibar ve güler yüzlü biri. Emekleri için teşekkür ederim."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="client-details">
+                            <h4>Elanur Taşkıran</h4>
+                            <p>Google Yorumları</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="yorumlar.html" class="btn">Tüm Yorumları Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Youtube Section -->
+    <section id="youtube">
+        <div class="container">
+            <div class="section-title">
+                <h2>Youtube Videoları</h2>
+            </div>
+            
+            <div class="youtube-videos">
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/oloekxx03l8" allowfullscreen title="Youtube Video"></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/aQxB2PXoaMI" allowfullscreen title="Youtube Video"></iframe>
+                    </div>
+                </div>
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/YBt7GBfeFC8" allowfullscreen title="Youtube Video"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.youtube.com/@dyt.tugbaseker" class="btn" target="_blank">Kanalıma Abone Ol</a>
+            </div>
         </div>
     </section>
 

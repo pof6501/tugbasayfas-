@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diyetisyen Tuğba Şeker Ağaç | Hakkımda</title>
+    <title>Hakkımda | Diyetisyen Tuğba Şeker Ağaç</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
     <style>
@@ -27,8 +27,7 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            background-color: #f8f9fa;
-            padding-top: 70px; /* Header için boşluk */
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -38,6 +37,7 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -57,23 +57,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
 
-        .logo {
+        /* Logo Container */
+        .logo-container {
             display: flex;
             align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
-        .logo h1 {
-            font-size: 1.3rem;
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 0;
             line-height: 1.2;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--secondary);
+        }
+
+        .logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         nav ul {
@@ -106,60 +133,81 @@
             cursor: pointer;
         }
 
-        /* Mobile Menu */
-        .mobile-nav {
-            display: none;
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 70px;
         }
 
-        .mobile-nav.active {
-            display: block;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 999;
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        .mobile-nav ul {
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
             list-style: none;
+            gap: 10px;
+            font-size: 0.9rem;
         }
 
-        .mobile-nav ul li {
-            margin-bottom: 15px;
+        .breadcrumb li:not(:last-child):after {
+            content: '>';
+            margin-left: 10px;
         }
 
-        .mobile-nav ul li a {
+        .breadcrumb a {
+            color: white;
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
             font-size: 1rem;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         /* Fixed Buttons */
         .fixed-buttons {
             position: fixed;
             right: 15px;
-            bottom: 80px;
+            bottom: 15px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .whatsapp-btn, .call-btn {
-            width: 55px;
-            height: 55px;
+        .whatsapp-btn, .call-btn, .instagram-btn {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: white;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -174,386 +222,160 @@
             background-color: var(--primary);
         }
 
-        .whatsapp-btn:hover, .call-btn:hover {
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
             transform: scale(1.1);
         }
 
-        /* About Section */
-        .about-section {
-            padding: 80px 0;
+        /* Section Common */
+        section {
+            padding: 60px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 2rem;
             color: var(--primary);
             position: relative;
             display: inline-block;
-            padding-bottom: 15px;
+            padding: 0 20px;
         }
 
         .section-title h2:after {
             content: '';
             position: absolute;
             width: 70%;
-            height: 4px;
+            height: 3px;
             background-color: var(--secondary);
-            bottom: 0;
+            bottom: -10px;
             left: 15%;
-            border-radius: 2px;
         }
 
-        .section-title p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            margin-top: 20px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
-        /* About Hero */
-        .about-hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 80px;
-        }
-
-        .profile-image {
-            position: relative;
-            border-radius: 20px;
+        .about-img {
+            width: 100%;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            height: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 300px;
+            background-color: #f0f0f0;
         }
 
-        .profile-image img {
+        .about-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
 
-        .profile-image:hover img {
-            transform: scale(1.05);
+        .about-text {
+            width: 100%;
         }
 
-        .profile-badge {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 15px 25px;
-            border-radius: 15px;
-            font-weight: 600;
-            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
-        }
-
-        .profile-content h3 {
-            font-size: 2.2rem;
+        .about-text h3 {
             color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .profile-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--gray);
-            margin-bottom: 25px;
-        }
-
-        .specialization {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(76, 175, 80, 0.05);
-            border-radius: 15px;
-            border-left: 4px solid var(--secondary);
-        }
-
-        .specialization i {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        /* Education & Certificates */
-        .education-section {
-            margin: 80px 0;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .edu-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(76, 175, 80, 0.1);
-        }
-
-        .edu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-            border-color: var(--primary);
-        }
-
-        .edu-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            color: white;
-            font-size: 1.8rem;
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
-        }
-
-        .edu-card h4 {
-            font-size: 1.4rem;
-            color: var(--primary);
+            font-size: 1.6rem;
             margin-bottom: 15px;
         }
 
-        .edu-card p {
-            color: var(--gray);
-            line-height: 1.7;
+        .diplomas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .diploma-item {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1 1 100%;
+            min-width: 0;
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .mission-card, .vision-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         /* Approach Section */
-        .approach-section {
-            margin: 80px 0;
-            background: white;
-            border-radius: 25px;
-            padding: 60px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-        }
-
-        .approach-title {
-            font-size: 2.2rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
         .approach-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
         .approach-item {
-            text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            background: rgba(76, 175, 80, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .approach-item:hover {
-            transform: translateY(-5px);
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .approach-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
         }
 
         .approach-item h4 {
-            font-size: 1.3rem;
             color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Philosophy Section */
-        .philosophy-section {
-            margin: 80px 0;
-        }
-
-        .philosophy-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .philosophy-text {
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
-            border-radius: 20px;
-        }
-
-        .philosophy-text h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-        }
-
-        .philosophy-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .philosophy-image {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            height: 400px;
-        }
-
-        .philosophy-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            margin: 80px 0;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: 25px;
-            padding: 60px;
-        }
-
-        .stats-title {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 25px;
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            margin-top: 70px;
-            padding: 50px;
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(255, 152, 0, 0.1));
-            border-radius: 25px;
-        }
-
-        .cta-title {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .cta-subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            gap: 10px;
-            min-width: 200px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        .phone-number {
-            margin-top: 30px;
             font-size: 1.2rem;
-            color: var(--dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .phone-number strong {
-            color: var(--primary);
-            font-size: 1.4rem;
+        /* Contact CTA */
+        .contact-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
         }
 
-        /* Footer Styles */
+        .contact-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
             padding: 50px 0 25px;
-            margin-top: 80px;
         }
 
         .footer-content {
@@ -603,15 +425,158 @@
             transform: translateY(-3px);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
+        /* Functional Medicine Section */
+        .functional-medicine {
+            background-color: white;
+            border-left: 5px solid var(--secondary);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 25px;
         }
 
-        /* Responsive Design */
+        .functional-medicine h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.8rem;
+            }
+            
+            .logo-img {
+                height: 55px;
+            }
+            
+            nav ul li {
+                margin-left: 25px;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .page-hero {
+                padding: 140px 0 80px;
+            }
+            
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .about-content {
+                flex-direction: row;
+                gap: 50px;
+            }
+            
+            .about-img {
+                flex: 1;
+                min-height: 400px;
+            }
+            
+            .about-text {
+                flex: 1;
+            }
+            
+            .diploma-item {
+                flex: 1 1 calc(50% - 15px);
+            }
+            
+            .mission-vision-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+            
+            .footer-column {
+                flex: 1;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 992px) {
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.85rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 30px;
+            }
+            
+            .approach-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        /* Mobile Menu Button */
         @media (max-width: 991px) {
             nav ul {
                 display: none;
@@ -621,156 +586,49 @@
                 display: block;
             }
             
-            .about-hero {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .logo-text h1 {
+                font-size: 1rem;
             }
             
-            .profile-image {
-                height: 400px;
+            .logo-text .tagline {
+                display: none;
             }
             
-            .philosophy-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .logo-img {
+                height: 45px;
             }
         }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-            
-            .about-section {
-                padding: 50px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .profile-content h3 {
-                font-size: 1.8rem;
-            }
-            
-            .approach-section {
-                padding: 40px 25px;
-            }
-            
-            .philosophy-text {
-                padding: 25px;
-            }
-            
-            .stats-section {
-                padding: 40px 25px;
-            }
-            
-            .stat-number {
-                font-size: 2.8rem;
-            }
-            
-            .cta-section {
-                padding: 30px 20px;
-            }
-            
-            .cta-title {
-                font-size: 1.8rem;
-            }
-            
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .approach-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .profile-image {
-                height: 300px;
-            }
-            
-            .profile-badge {
-                bottom: 15px;
-                left: 15px;
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .edu-card {
-                padding: 25px;
-            }
-            
-            .edu-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .edu-card, .approach-item {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .edu-card:nth-child(1) { animation-delay: 0.1s; }
-        .edu-card:nth-child(2) { animation-delay: 0.2s; }
-        .edu-card:nth-child(3) { animation-delay: 0.3s; }
-        .approach-item:nth-child(1) { animation-delay: 0.1s; }
-        .approach-item:nth-child(2) { animation-delay: 0.2s; }
-        .approach-item:nth-child(3) { animation-delay: 0.3s; }
-        .approach-item:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
+    <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn" title="Ara">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-img">
+                    <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
+                    <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+                    <div class="tagline">Sağlıklı Beslenme, Mutlu Yaşam</div>
+                </div>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -779,12 +637,12 @@
             
             <nav id="desktopNav">
                 <ul id="mainMenu">
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
                 </ul>
             </nav>
         </div>
@@ -792,195 +650,129 @@
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <ul>
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Fixed Buttons -->
-    <div class="fixed-buttons">
-        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:05070361859" class="call-btn">
-            <i class="fas fa-phone"></i>
-        </a>
-    </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Hakkımda</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li>Hakkımda</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="container">
-        <section class="about-section">
-            <div class="section-title">
-                <h2>Hakkımda</h2>
-                <p>Sağlıklı beslenme ve yaşam tarzı değişikliği konusunda uzmanlaşmış diyetisyenim</p>
-            </div>
-
-            <!-- About Hero -->
-            <div class="about-hero">
-                <div class="profile-image">
-                    <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç">
-                    <div class="profile-badge">
-                        <i class="fas fa-award"></i> Uzman Diyetisyen
-                    </div>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
                 </div>
                 
-                <div class="profile-content">
+                <div class="about-text">
                     <h3>Diyetisyen Tuğba Şeker Ağaç</h3>
-                    <p>Merhaba, ben Diyetisyen Tuğba Şeker Ağaç. Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarıma kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim.</p>
+                    <p>Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarına kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim. Sağlıklı yaşamın sadece kilo vermekten ibaret olmadığına inanıyorum. Fonksiyonel tıp yaklaşımıyla sadece semptomları değil, sorunun kök nedenlerini ele alıyorum.</p>
                     
-                    <p>Fonksiyonel tıp yaklaşımıyla çalışıyorum. Bu yaklaşımda sadece semptomları değil, sorunların kök nedenlerini ele alarak kalıcı çözümler sunuyorum. Her danışanımın metabolizması, yaşam tarzı, genetik yapısı ve sağlık geçmişi birbirinden farklıdır.</p>
+                    <p>Her bireyin metabolizmasının, yaşam tarzının ve ihtiyaçlarının farklı olduğuna inanıyorum. Bu nedenle standart diyet listeleri yerine, kişiye özel beslenme planları oluşturuyorum. Amacım, danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırmak.</p>
                     
-                    <div class="specialization">
-                        <i class="fas fa-heartbeat"></i>
-                        <div>
-                            <h4>Fonksiyonel Tıp Yaklaşımı</h4>
-                            <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum.</p>
+                    <div class="functional-medicine">
+                        <h4><i class="fas fa-heartbeat"></i> Fonksiyonel Tıp Yaklaşımı</h4>
+                        <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum. Bu yaklaşımla sadece semptomları maskelemiyor, asıl sorunu kökten çözüyoruz.</p>
+                    </div>
+                    
+                    <div class="diplomas">
+                        <div class="diploma-item">
+                            <h4><i class="fas fa-graduation-cap"></i> Lisans Derecesi</h4>
+                            <p>Beslenme ve Diyetetik</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Üniversite Adı</p>
+                        </div>
+                        <div class="diploma-item">
+                            <h4><i class="fas fa-certificate"></i> Uzmanlık</h4>
+                            <p>Obezite ve Metabolik Hastalıklar</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Uzmanlık Eğitimi</p>
+                        </div>
+                        <div class="diploma-item">
+                            <h4><i class="fas fa-award"></i> Fonksiyonel Tıp</h4>
+                            <p>Bütünsel Sağlık Yaklaşımı</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Sertifikalı Eğitim</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Education & Certificates -->
-            <div class="education-section">
-                <div class="section-title">
-                    <h2>Eğitim ve Sertifikalar</h2>
-                    <p>Mesleki gelişim için sürekli eğitim ve sertifika programlarına katılıyorum</p>
+    <!-- Mission Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> Misyonum</h3>
+                    <p>Danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırarak, yaşam kalitelerini artırmak. Her bireyin özel ihtiyaçlarına uygun, bilimsel temelli beslenme programları sunmak.</p>
                 </div>
-                
-                <div class="education-grid">
-                    <div class="edu-card">
-                        <div class="edu-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4>Lisans Derecesi</h4>
-                        <p>Beslenme ve Diyetetik bölümünden mezun oldum. Üniversite eğitimim sırasında teorik bilgilerin yanı sıra klinik deneyimler de kazandım.</p>
-                    </div>
-                    
-                    <div class="edu-card">
-                        <div class="edu-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <h4>Obezite ve Metabolik Hastalıklar</h4>
-                        <p>Obezite, diyabet, metabolik sendrom ve tiroid hastalıklarında uzmanlaştım. Bu alanda birçok başarılı vaka yönettim.</p>
-                    </div>
-                    
-                    <div class="edu-card">
-                        <div class="edu-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h4>Fonksiyonel Tıp</h4>
-                        <p>Bütünsel sağlık yaklaşımı konusunda eğitim aldım. Kök neden analizi ve fonksiyonel beslenme protokolleri üzerine çalışıyorum.</p>
-                    </div>
+                <div class="vision-card">
+                    <h3><i class="fas fa-eye"></i> Vizyonum</h3>
+                    <p>Toplumda sağlıklı beslenme bilincini yaygınlaştırmak, kronik hastalıkları önleyici beslenme modelleri geliştirmek ve herkesin sağlıklı yaşama erişimini kolaylaştırmak.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- My Approach -->
-            <div class="approach-section">
-                <h3 class="approach-title">Çalışma Yaklaşımım</h3>
-                <div class="approach-grid">
-                    <div class="approach-item">
-                        <div class="approach-icon">
-                            <i class="fas fa-user-cog"></i>
-                        </div>
-                        <h4>Kişiye Özel</h4>
-                        <p>Her danışanım için özel beslenme programları hazırlıyorum. Standart diyet listeleri yerine kişiye özel çözümler sunuyorum.</p>
-                    </div>
-                    
-                    <div class="approach-item">
-                        <div class="approach-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4>Bilimsel Veriler</h4>
-                        <p>Beslenme programlarını en güncel bilimsel araştırmalar ışığında hazırlıyorum. Her yaklaşımım kanıta dayalıdır.</p>
-                    </div>
-                    
-                    <div class="approach-item">
-                        <div class="approach-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h4>Bütünsel Yaklaşım</h4>
-                        <p>Sadece kilo değil, genel sağlık durumunu iyileştirmeye odaklanıyorum. Beden ve ruh sağlığını birlikte ele alıyorum.</p>
-                    </div>
-                    
-                    <div class="approach-item">
-                        <div class="approach-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h4>Destek ve Takip</h4>
-                        <p>Süreç boyunca danışanlarımla düzenli iletişim halindeyim. Motivasyon ve takip için sürekli destek sağlıyorum.</p>
-                    </div>
+    <!-- Approach Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Çalışma Yaklaşımım</h2>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h4><i class="fas fa-user-md"></i> Bireysel Değerlendirme</h4>
+                    <p>Her danışanımı ayrı ayrı değerlendiriyor, sağlık geçmişi, yaşam tarzı, beslenme alışkanlıkları ve hedeflerini analiz ediyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-clipboard-check"></i> Kişiye Özel Planlama</h4>
+                    <p>Standart diyet listeleri yerine, tamamen kişiye özel beslenme programları hazırlıyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-chart-line"></i> Takip ve Destek</h4>
+                    <p>Süreç boyunca düzenli takip ve motivasyon desteği sağlıyor, gerektiğinde programı güncelliyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-heartbeat"></i> Bütünsel Yaklaşım</h4>
+                    <p>Sadece beslenmeye değil, uyku düzeni, stres yönetimi ve fiziksel aktiviteye de odaklanıyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-graduation-cap"></i> Eğitim ve Bilinçlendirme</h4>
+                    <p>Danışanlarıma sağlıklı beslenme konusunda bilgi ve farkındalık kazandırıyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-handshake"></i> Sürdürülebilirlik</h4>
+                    <p>Geçici çözümler yerine, kalıcı ve sürdürülebilir yaşam tarzı değişiklikleri hedefliyorum.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Philosophy -->
-            <div class="philosophy-section">
-                <div class="philosophy-content">
-                    <div class="philosophy-text">
-                        <h3>Beslenme Felsefem</h3>
-                        <p>Beslenme, sadece fiziksel ihtiyaçlarımızı karşılamak değil, aynı zamanda bedenimizle kurduğumuz bir iletişim şeklidir. Sağlıklı beslenme, sevgiyle ve bilinçle yapılan bir tercihtir.</p>
-                        
-                        <p>Danışanlarıma sadece "ne yemeleri gerektiğini" değil, "neden öyle yemeleri gerektiğini" de öğretiyorum. Böylece beslenme alışkanlıklarını kalıcı olarak değiştirebiliyorlar.</p>
-                        
-                        <p>Amacım, danışanlarımın sadece kilo vermesini değil, aynı zamanda enerjik, mutlu ve sağlıklı bir yaşam sürmesini sağlamaktır.</p>
-                    </div>
-                    
-                    <div class="philosophy-image">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sağlıklı Beslenme">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats -->
-            <div class="stats-section">
-                <h3 class="stats-title">Başarı İstatistiklerim</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Mutlu Danışan</span>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <span class="stat-number">86</span>
-                        <span class="stat-label">5 Yıldızlı Yorum</span>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Yıllık Deneyim</span>
-                    </div>
-                    
-                    <div class="stat-item">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Kilo Başarısı</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Section -->
-            <div class="cta-section">
-                <h3 class="cta-title">Siz de Sağlıklı Yaşam Yolculuğuna Çıkın</h3>
-                <p class="cta-subtitle">Size özel hazırlayacağım beslenme programıyla hayatınızı değiştirelim. Ücretsiz ön görüşme için hemen iletişime geçin!</p>
-                
-                <div class="btn-group">
-                    <a href="tel:05070361859" class="btn btn-primary">
-                        <i class="fas fa-phone"></i> Hemen Ara
-                    </a>
-                    <a href="https://wa.me/905070361859" class="btn btn-secondary" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                    </a>
-                </div>
-                
-                <div class="phone-number">
-                    <i class="fas fa-info-circle"></i> Ücretsiz ön görüşme için: 
-                    <strong>0507 036 18 59</strong>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Size Nasıl Yardımcı Olabilirim?</h2>
+            <p>Sağlıklı beslenme yolculuğunuzda size rehberlik etmek için buradayım.</p>
+            <a href="iletisim.html" class="btn" style="background-color: white; color: var(--primary); margin-top: 20px;">Randevu Al</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -992,7 +784,7 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tugbasekeragac.com/ana-sayfa" target="_blank"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
                     </div>
                 </div>
                 
@@ -1021,8 +813,8 @@
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu -->
     <script>
-        // Mobile Menu JavaScript
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
@@ -1052,84 +844,24 @@
                 });
             });
             
-            // Card hover effects
-            const eduCards = document.querySelectorAll('.edu-card');
-            eduCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Approach item hover effects
-            const approachItems = document.querySelectorAll('.approach-item');
-            approachItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Button click animations
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Tıklama efekti
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
-                });
-            });
-            
-            // Profile image hover effect
-            const profileImage = document.querySelector('.profile-image');
-            if (profileImage) {
-                profileImage.addEventListener('mouseenter', function() {
-                    const img = this.querySelector('img');
-                    img.style.transform = 'scale(1.05)';
-                });
-                
-                profileImage.addEventListener('mouseleave', function() {
-                    const img = this.querySelector('img');
-                    img.style.transform = 'scale(1)';
-                });
-            }
-            
-            // Stats animation
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(number => {
-                const finalValue = parseInt(number.textContent);
-                let startValue = 0;
-                const duration = 2000;
-                const increment = finalValue / (duration / 16);
-                
-                const timer = setInterval(() => {
-                    startValue += increment;
-                    if (startValue >= finalValue) {
-                        number.textContent = finalValue + (number.textContent.includes('+') ? '+' : '');
-                        clearInterval(timer);
-                    } else {
-                        number.textContent = Math.floor(startValue) + (number.textContent.includes('+') ? '+' : '');
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
                     }
-                }, 16);
+                });
             });
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-

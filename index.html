@@ -1,13 +1,9 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diyetisyen Tuğba Şeker Ağaç | Beslenme ve Diyet Danışmanlığı</title>
+    <title>Hakkımda | Diyetisyen Tuğba Şeker Ağaç</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
     <style>
@@ -138,27 +134,39 @@
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+        .page-hero {
+            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8));
             color: white;
-            padding: 150px 0 80px;
+            padding: 120px 0 60px;
             text-align: center;
             margin-top: 70px;
         }
 
-        .hero h2 {
-            font-size: 2.2rem;
+        .page-hero h1 {
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            padding: 0 15px;
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb li:not(:last-child):after {
+            content: '>';
+            margin-left: 10px;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
         }
 
         .btn {
@@ -185,21 +193,21 @@
         .fixed-buttons {
             position: fixed;
             right: 15px;
-            bottom: 80px;
+            bottom: 15px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .whatsapp-btn, .call-btn {
-            width: 55px;
-            height: 55px;
+        .whatsapp-btn, .call-btn, .instagram-btn {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: white;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -214,7 +222,11 @@
             background-color: var(--primary);
         }
 
-        .whatsapp-btn:hover, .call-btn:hover {
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
             transform: scale(1.1);
         }
 
@@ -293,306 +305,70 @@
             min-width: 0;
         }
 
-        /* Services Section */
-        .services {
+        /* Mission Vision Section */
+        .mission-vision {
             background-color: var(--light-gray);
+            padding: 60px 0;
         }
 
-        .services-list {
+        .mission-vision-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        .service-item {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            border-left: 4px solid var(--primary);
-            transition: transform 0.3s;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-item h3 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .service-item h3 i {
-            margin-right: 10px;
-            color: var(--secondary);
-            font-size: 1rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary);
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .client-img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .client-rating {
-            color: #FFC107;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .client-details h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .success-story {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 25px 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-
-        .success-story h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .success-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .metric-item {
-            text-align: center;
-            padding: 10px;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            line-height: 1.3;
-        }
-
-        /* Recipes Section */
-        .recipes-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .recipe-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .recipe-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .recipe-header h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0;
-        }
-
-        .recipe-content {
-            padding: 20px;
-        }
-
-        .recipe-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .recipe-ingredients {
-            margin: 15px 0;
-        }
-
-        .recipe-ingredients h4 {
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1rem;
-        }
-
-        .recipe-ingredients ul {
-            list-style-position: inside;
-            margin-left: 5px;
-        }
-
-        .recipe-ingredients li {
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-        }
-
-        .recipe-instructions {
-            background-color: var(--light-gray);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-size: 0.95rem;
-        }
-
-        /* Instagram Section */
-        .instagram {
-            background-color: var(--light-gray);
-        }
-
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .insta-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 150px;
-            position: relative;
-            background-color: #ddd;
-        }
-
-        .insta-item:after {
-            content: '\f16d';
-            font-family: 'Font Awesome 6 Brands';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
-        /* Youtube Section */
-        .youtube-videos {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            background-color: #f0f0f0;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .contact .section-title h2 {
-            color: white;
-        }
-
-        .contact-content {
-            display: flex;
-            flex-direction: column;
             gap: 30px;
         }
 
-        .contact-info {
-            width: 100%;
+        .mission-card, .vision-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
         }
 
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
+        .mission-card h3, .vision-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            gap: 10px;
         }
 
-        .contact-info-item div h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+        /* Approach Section */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
         }
 
-        .contact-info-item div p {
-            font-size: 0.95rem;
-        }
-
-        .map-container {
-            width: 100%;
+        .approach-item {
+            background-color: white;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
+        .approach-item h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            color: white;
+            margin-bottom: 20px;
         }
 
         /* Footer */
@@ -647,14 +423,6 @@
         .social-links a:hover {
             background-color: var(--primary);
             transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
         }
 
         /* Functional Medicine Section */
@@ -728,16 +496,12 @@
                 font-size: 1rem;
             }
             
-            .hero {
-                padding: 180px 0 100px;
+            .page-hero {
+                padding: 140px 0 80px;
             }
             
-            .hero h2 {
-                font-size: 2.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
+            .page-hero h1 {
+                font-size: 3rem;
             }
             
             .section-title h2 {
@@ -762,33 +526,14 @@
                 flex: 1 1 calc(50% - 15px);
             }
             
-            .services-list {
+            .mission-vision-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                gap: 40px;
             }
             
-            .testimonials-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-            
-            .recipes-grid {
+            .approach-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
-            }
-            
-            .instagram-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-            
-            .youtube-videos {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-            
-            .contact-content {
-                flex-direction: row;
             }
             
             .footer-content {
@@ -797,10 +542,6 @@
             
             .footer-column {
                 flex: 1;
-            }
-            
-            .success-metrics {
-                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -822,27 +563,7 @@
                 margin-left: 30px;
             }
             
-            .hero h2 {
-                font-size: 3.2rem;
-            }
-            
-            .services-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .recipes-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .instagram-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
-            
-            .youtube-videos {
+            .approach-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
             
@@ -880,13 +601,16 @@
     </style>
 </head>
 <body>
-    <!-- Sabit WhatsApp ve Arama Butonları -->
+    <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
     <div class="fixed-buttons">
-        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:05070361859" class="call-btn">
+        <a href="tel:05070361859" class="call-btn" title="Ara">
             <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
         </a>
     </div>
 
@@ -897,8 +621,6 @@
             <div class="logo-container">
                 <div class="logo-img">
                     <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
-                    <!-- Örnek: <img src="LOGO_URL_NIZ" alt="Diyetisyen Tuğba Şeker Ağaç Logo"> -->
-                    <!-- Logo yoksa placeholder kullan -->
                     <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
                         <i class="fas fa-apple-alt"></i>
                     </div>
@@ -915,12 +637,12 @@
             
             <nav id="desktopNav">
                 <ul id="mainMenu">
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
                 </ul>
             </nav>
         </div>
@@ -928,32 +650,31 @@
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <ul>
-                <li><a href="https://www.tugbasekeragac.com//">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımda</a></li>
+                <li><a href="hizmetlerimiz.html">Hizmetler</a></li>
+                <li><a href="yorumlar.html">Yorumlar</a></li>
+                <li><a href="tarifler.html">Tarifler</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+                <li><a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- Page Hero -->
+    <section class="page-hero">
         <div class="container">
-            <h2>Sağlıklı Beslenme, Mutlu Yaşam</h2>
-            <p>Diyetisyen Tuğba Şeker Ağaç ile kişiye özel beslenme programları, sağlıklı tarifler ve kalıcı sonuçlar için buradayım.</p>
-            <a href="#contact" class="btn">Randevu Al</a>
+            <h1>Hakkımda</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li>Hakkımda</li>
+            </ul>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <div class="section-title">
-                <h2>Hakkımda</h2>
-            </div>
-            
             <div class="about-content">
                 <div class="about-img">
                     <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç" loading="lazy">
@@ -961,25 +682,30 @@
                 
                 <div class="about-text">
                     <h3>Diyetisyen Tuğba Şeker Ağaç</h3>
-                    <p>Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarına kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim. Fonksiyonel tıp yaklaşımıyla sadece semptomları değil, sorunun kök nedenlerini ele alıyorum.</p>
+                    <p>Beslenme ve diyetetik alanında uzmanlaşmış, danışanlarına kişiye özel beslenme programları hazırlayan deneyimli bir diyetisyenim. Sağlıklı yaşamın sadece kilo vermekten ibaret olmadığına inanıyorum. Fonksiyonel tıp yaklaşımıyla sadece semptomları değil, sorunun kök nedenlerini ele alıyorum.</p>
+                    
+                    <p>Her bireyin metabolizmasının, yaşam tarzının ve ihtiyaçlarının farklı olduğuna inanıyorum. Bu nedenle standart diyet listeleri yerine, kişiye özel beslenme planları oluşturuyorum. Amacım, danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırmak.</p>
                     
                     <div class="functional-medicine">
                         <h4><i class="fas fa-heartbeat"></i> Fonksiyonel Tıp Yaklaşımı</h4>
-                        <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum.</p>
+                        <p>Vücudu bir bütün olarak ele alarak, hastalıkların temel nedenlerini bulmaya ve kişiye özel tedavi planları oluşturmaya odaklanıyorum. Bu yaklaşımla sadece semptomları maskelemiyor, asıl sorunu kökten çözüyoruz.</p>
                     </div>
                     
                     <div class="diplomas">
                         <div class="diploma-item">
                             <h4><i class="fas fa-graduation-cap"></i> Lisans Derecesi</h4>
                             <p>Beslenme ve Diyetetik</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Üniversite Adı</p>
                         </div>
                         <div class="diploma-item">
                             <h4><i class="fas fa-certificate"></i> Uzmanlık</h4>
                             <p>Obezite ve Metabolik Hastalıklar</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Uzmanlık Eğitimi</p>
                         </div>
                         <div class="diploma-item">
                             <h4><i class="fas fa-award"></i> Fonksiyonel Tıp</h4>
                             <p>Bütünsel Sağlık Yaklaşımı</p>
+                            <p style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">Sertifikalı Eğitim</p>
                         </div>
                     </div>
                 </div>
@@ -987,390 +713,64 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <!-- Mission Vision Section -->
+    <section class="mission-vision">
         <div class="container">
-            <div class="section-title">
-                <h2>Hizmetlerim</h2>
-            </div>
-            
-            <div class="services-list">
-                <!-- Hizmetler buraya eklendi -->
-                <div class="service-item">
-                    <h3><i class="fas fa-weight"></i> KİLO VERME DİYETİ</h3>
-                    <p>Kişiye özel hazırlanmış beslenme programları ile sağlıklı kilo verme.</p>
+            <div class="mission-vision-grid">
+                <div class="mission-card">
+                    <h3><i class="fas fa-bullseye"></i> Misyonum</h3>
+                    <p>Danışanlarıma sürdürülebilir sağlıklı beslenme alışkanlıkları kazandırarak, yaşam kalitelerini artırmak. Her bireyin özel ihtiyaçlarına uygun, bilimsel temelli beslenme programları sunmak.</p>
                 </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-weight"></i> KİLO ALMA DİYETİ</h3>
-                    <p>Sağlıklı bir şekilde kilo almak için özel beslenme programları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-laptop-house"></i> ONLİNE DİYET</h3>
-                    <p>Ev konforunda online diyet danışmanlığı hizmeti.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-stethoscope"></i> HASTALIKLARDA BESLENME</h3>
-                    <p>Çeşitli hastalıklara yönelik özel beslenme programları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-ban"></i> ELİMİNASYON DİYETİ</h3>
-                    <p>Gıda intoleranslarına yönelik eliminasyon diyet programları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-bread-slice"></i> GLUTENSİZ DİYET</h3>
-                    <p>Çölyak ve gluten hassasiyeti için özel beslenme planları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-clock"></i> ARALIKLI ORUÇ & IF</h3>
-                    <p>Intermittent Fasting (Aralıklı Oruç) programları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-syringe"></i> DİYABET DİYETİ</h3>
-                    <p>Diyabet hastaları için özel beslenme planlaması.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-chart-line"></i> İNSÜLİN DİRENCİNDE BESLENME</h3>
-                    <p>İnsülin direnci için etkili beslenme programları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-tachometer-alt"></i> TİROİD HASTALIKLARINDA BESLENME</h3>
-                    <p>Tiroid problemleri için özel beslenme yaklaşımları.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-female"></i> POLİKİSTİK OVER (PCOS)</h3>
-                    <p>PCOS hastaları için özel beslenme tedavisi.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-bacteria"></i> SİBO DİYETİ</h3>
-                    <p>İnce bağırsakta aşırı bakteri üremesi için beslenme programı.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-allergies"></i> HİSTAMİN İNTOLERANSI DİYETİ</h3>
-                    <p>Histamin intoleransı için düşük histaminli beslenme.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-leaf"></i> ANTİİNFLAMATUAR DİYET</h3>
-                    <p>Enflamasyonu azaltmaya yönelik beslenme programı.</p>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-heart"></i> KALP DAMAR HASTALIKLARI VE BESLENME</h3>
-                    <p>Kalp sağlığını koruyucu beslenme planları.</p>
+                <div class="vision-card">
+                    <h3><i class="fas fa-eye"></i> Vizyonum</h3>
+                    <p>Toplumda sağlıklı beslenme bilincini yaygınlaştırmak, kronik hastalıkları önleyici beslenme modelleri geliştirmek ve herkesin sağlıklı yaşama erişimini kolaylaştırmak.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
+    <!-- Approach Section -->
+    <section>
         <div class="container">
             <div class="section-title">
-                <h2>Danışan Yorumları</h2>
+                <h2>Çalışma Yaklaşımım</h2>
             </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Tuğba hanımcığım o kadar tatlı güler yüzlü ki çok seviyorum. Çok güzel başarılara imza attık çok teşekkür ediyorum kendisine 😊️"</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="client-details">
-                            <h4>Büşra Üz</h4>
-                            <p>Google Yorumları</p>
-                        </div>
-                    </div>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h4><i class="fas fa-user-md"></i> Bireysel Değerlendirme</h4>
+                    <p>Her danışanımı ayrı ayrı değerlendiriyor, sağlık geçmişi, yaşam tarzı, beslenme alışkanlıkları ve hedeflerini analiz ediyorum.</p>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Tuğba Hanımla 2 ay önce tanıştık, 2 ayda 10 kilo verdim çok kibar ve güler yüzlü biri. Emekleri için teşekkür ederim."</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="client-details">
-                            <h4>Elanur Taşkıran</h4>
-                            <p>Google Yorumları</p>
-                        </div>
-                    </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-clipboard-check"></i> Kişiye Özel Planlama</h4>
+                    <p>Standart diyet listeleri yerine, tamamen kişiye özel beslenme programları hazırlıyorum.</p>
                 </div>
-                
-                <div class="testimonial-card">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Diyetisyenim Tuğba Hanım sadece beslenme alışkanlıklarımı değiştirmemde yardımcı olmakla kalmadı, aynı zamanda sağlığımı da büyük ölçüde iyileştirdi."</p>
-                    <div class="client-info">
-                        <div class="client-img">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="client-details">
-                            <h4>Gamze Aras</h4>
-                            <p>Google Yorumları</p>
-                        </div>
-                    </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-chart-line"></i> Takip ve Destek</h4>
+                    <p>Süreç boyunca düzenli takip ve motivasyon desteği sağlıyor, gerektiğinde programı güncelliyorum.</p>
                 </div>
-            </div>
-            
-            <!-- Başarı Hikayesi -->
-            <div class="success-story">
-                <h3><i class="fas fa-trophy"></i> Başarı Hikayesi: Eda Hanım</h3>
-                <p>Eda ablayla -11 kg verdik bunun -10 kg yağdan gitti 😊</p>
-                
-                <div class="success-metrics">
-                    <div class="metric-item">
-                        <span class="metric-value">55 → 43</span>
-                        <span class="metric-label">Metabolizma Yaşı</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">40 paket</span>
-                        <span class="metric-label">Margarin Attık</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">44 → 95</span>
-                        <span class="metric-label">Fitlik Puanı</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-value">15 Hafta</span>
-                        <span class="metric-label">Süreç</span>
-                    </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-heartbeat"></i> Bütünsel Yaklaşım</h4>
+                    <p>Sadece beslenmeye değil, uyku düzeni, stres yönetimi ve fiziksel aktiviteye de odaklanıyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-graduation-cap"></i> Eğitim ve Bilinçlendirme</h4>
+                    <p>Danışanlarıma sağlıklı beslenme konusunda bilgi ve farkındalık kazandırıyorum.</p>
+                </div>
+                <div class="approach-item">
+                    <h4><i class="fas fa-handshake"></i> Sürdürülebilirlik</h4>
+                    <p>Geçici çözümler yerine, kalıcı ve sürdürülebilir yaşam tarzı değişiklikleri hedefliyorum.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recipes Section -->
-    <section id="recipes">
+    <!-- Contact CTA -->
+    <section class="contact-cta">
         <div class="container">
-            <div class="section-title">
-                <h2>Sağlıklı Tarifler</h2>
-            </div>
-            
-            <div class="recipes-grid">
-                <div class="recipe-card">
-                    <div class="recipe-header">
-                        <h3>BAĞIRSAKLARI ÇALIŞTIRAN PRATİK SMOOTHIE</h3>
-                    </div>
-                    <div class="recipe-content">
-                        <h4>TAZE İNCİRLİ SMOOTHIE</h4>
-                        
-                        <div class="recipe-ingredients">
-                            <h4>Malzemeler:</h4>
-                            <ul>
-                                <li>2 adet incir</li>
-                                <li>1 su bardağı süt</li>
-                                <li>2 yemek kaşığı yulaf</li>
-                                <li>1 tatlı kaşığı keten tohumu</li>
-                                <li>1 çay kaşığı tarçın</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="recipe-instructions">
-                            <h4>Hazırlanışı:</h4>
-                            <p>Hepsini blenderdan geçiriyoruz afiyet olsun 😊😊</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="recipe-card">
-                    <div class="recipe-header">
-                        <h3>PROTEİN DEPOSU KAHVALTI</h3>
-                    </div>
-                    <div class="recipe-content">
-                        <h4>YULAFLI YUMURTA</h4>
-                        
-                        <div class="recipe-ingredients">
-                            <h4>Malzemeler:</h4>
-                            <ul>
-                                <li>2 yumurta</li>
-                                <li>3 yemek kaşığı yulaf</li>
-                                <li>Yarım su bardağı süt</li>
-                                <li>1 çay kaşığı zeytinyağı</li>
-                                <li>İsteğe bağlı baharatlar</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="recipe-instructions">
-                            <h4>Hazırlanışı:</h4>
-                            <p>Tüm malzemeleri karıştırıp tavada pişirin. Yanında bol yeşillik ile servis edin.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="recipe-card">
-                    <div class="recipe-header">
-                        <h3>TOK TUTUCU ARA ÖĞÜN</h3>
-                    </div>
-                    <div class="recipe-content">
-                        <h4>MUZLU YOĞURT</h4>
-                        
-                        <div class="recipe-ingredients">
-                            <h4>Malzemeler:</h4>
-                            <ul>
-                                <li>1 orta boy muz</li>
-                                <li>1 kase yoğurt</li>
-                                <li>1 yemek kaşığı chia tohumu</li>
-                                <li>1 tatlı kaşığı bal (isteğe bağlı)</li>
-                                <li>Tarçın</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="recipe-instructions">
-                            <h4>Hazırlanışı:</h4>
-                            <p>Muzu ezin, yoğurt ve chia tohumu ile karıştırın. Üzerine tarçın serpin.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instagram Section -->
-    <section class="instagram">
-        <div class="container">
-            <div class="section-title">
-                <h2>Instagram'dan</h2>
-            </div>
-            
-            <div class="instagram-grid">
-                <div class="insta-item"></div>
-                <div class="insta-item"></div>
-                <div class="insta-item"></div>
-                <div class="insta-item"></div>
-                <div class="insta-item"></div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="btn" target="_blank">Instagram'da Takip Et</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Youtube Section -->
-    <section id="youtube">
-        <div class="container">
-            <div class="section-title">
-                <h2>Youtube Videoları</h2>
-            </div>
-            
-            <div class="youtube-videos">
-                <div class="video-item">
-                    <div class="video-container">
-                        <iframe src="https://youtube.com/shorts/oloekxx03l8?si=Xw74_Z_tde1TWdgn" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="video-item">
-                    <div class="video-container">
-                        <iframe src="https://youtube.com/shorts/aQxB2PXoaMI?si=L6pI2O8oJY7QZGX8" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="video-item">
-                    <div class="video-container">
-                        <iframe src="https://youtube.com/shorts/YBt7GBfeFC8?si=AAc1mGxDUOvCJTFN" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://www.youtube.com/@dyt.tugbaseker" class="btn" target="_blank">Kanalıma Abone Ol</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>İletişim</h2>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h3>Adres</h3>
-                            <p>Kurtuluş mahallesi demokrasi sokak, Atatürk Cad. Gülbahçesi Sitesi c blok kat 2 no 214, 01010 Seyhan/Adana</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>Telefon</h3>
-                            <p>0507 036 18 59</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>E-posta</h3>
-                            <p>info@tugbasekeragac.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-info-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h3>Çalışma Saatleri</h3>
-                            <p>Pazartesi - Cumartesi: 09:00 - 18:00</p>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px;">
-                        <a href="https://wa.me/905070361859" class="btn" target="_blank" style="background-color: #25D366; font-size: 0.9rem; padding: 10px 20px;">
-                            <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a>
-                        <a href="tel:05070361859" class="btn" style="font-size: 0.9rem; padding: 10px 20px;">
-                            <i class="fas fa-phone"></i> Hemen Ara
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12523.478812978005!2d35.31712493022359!3d36.99448407949828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f3b6d7f2f2f%3A0xf9b8c07b6d5c5b5d!2sSeyhan%2C%20Adana!5e0!3m2!1str!2str!4v1641823907463!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
+            <h2>Size Nasıl Yardımcı Olabilirim?</h2>
+            <p>Sağlıklı beslenme yolculuğunuzda size rehberlik etmek için buradayım.</p>
+            <a href="iletisim.html" class="btn" style="background-color: white; color: var(--primary); margin-top: 20px;">Randevu Al</a>
         </div>
     </section>
 
@@ -1384,18 +784,18 @@
                     <div class="social-links">
                         <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tugbasekeragac.com/ana-sayfa" target="_blank"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Hızlı Bağlantılar</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;"><a href="#home" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#about" style="color: white; text-decoration: none;">Hakkımda</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#services" style="color: white; text-decoration: none;">Hizmetler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#recipes" style="color: white; text-decoration: none;">Tarifler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: white; text-decoration: none;">İletişim</a></li>
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hakkimizda.html" style="color: white; text-decoration: none;">Hakkımda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hizmetlerimiz.html" style="color: white; text-decoration: none;">Hizmetler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="tarifler.html" style="color: white; text-decoration: none;">Tarifler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="iletisim.html" style="color: white; text-decoration: none;">İletişim</a></li>
                     </ul>
                 </div>
                 
@@ -1465,6 +865,3 @@
     </script>
 </body>
 </html>
-
-
-

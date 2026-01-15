@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diyetisyen Tuğba Şeker Ağaç | İletişim</title>
+    <title>İletişim | Diyetisyen Tuğba Şeker Ağaç</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
     <style>
@@ -27,8 +27,7 @@
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--dark);
-            background-color: #f8f9fa;
-            padding-top: 70px; /* Header için boşluk */
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4 {
@@ -38,6 +37,7 @@
         }
 
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -57,23 +57,50 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 10px 20px;
         }
 
-        .logo {
+        /* Logo Container */
+        .logo-container {
             display: flex;
             align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
         }
 
-        .logo h1 {
-            font-size: 1.3rem;
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
             color: var(--primary);
             margin-bottom: 0;
             line-height: 1.2;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--secondary);
+        }
+
+        .logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
         }
 
         nav ul {
@@ -104,6 +131,368 @@
             font-size: 1.5rem;
             color: var(--primary);
             cursor: pointer;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8));
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb li:not(:last-child):after {
+            content: '>';
+            margin-left: 10px;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .whatsapp-btn, .call-btn, .instagram-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Section Common */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        /* Contact Content */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .contact-info {
+            width: 100%;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .contact-info-item div h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .contact-info-item div p {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .contact-info-item div a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info-item div a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            width: 100%;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form-container h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Map Section */
+        .map-container {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Working Hours */
+        .working-hours {
+            background-color: var(--light-gray);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .working-hours h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hours-list .day {
+            font-weight: 500;
+        }
+
+        .hours-list .time {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .closed {
+            color: #dc3545 !important;
+        }
+
+        /* Appointment CTA */
+        .appointment-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .appointment-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            width: 100%;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column p, .footer-column ul li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
         }
 
         /* Mobile Menu */
@@ -141,517 +530,90 @@
             border-bottom: 1px solid var(--light-gray);
         }
 
-        /* Fixed Buttons */
-        .fixed-buttons {
-            position: fixed;
-            right: 15px;
-            bottom: 80px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .whatsapp-btn, .call-btn {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-        }
-
-        .whatsapp-btn {
-            background-color: #25D366;
-        }
-
-        .call-btn {
-            background-color: var(--primary);
-        }
-
-        .whatsapp-btn:hover, .call-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 4px;
-            background-color: var(--secondary);
-            bottom: 0;
-            left: 15%;
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            margin-top: 20px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        /* Contact Info Card */
-        .contact-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(76, 175, 80, 0.1);
-            text-align: center;
-            height: 100%;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-            border-color: var(--primary);
-        }
-
-        .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            color: white;
-            font-size: 2rem;
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
-        }
-
-        .contact-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .contact-card p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            padding: 10px 20px;
-            border-radius: 30px;
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .contact-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        /* Contact Form */
-        .contact-form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            margin-bottom: 60px;
-        }
-
-        .form-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group.full-width {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .required {
-            color: #e53935;
-        }
-
-        input, select, textarea {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--light-gray);
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s;
-            background: white;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-submit {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            gap: 12px;
-            min-width: 250px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(76, 175, 80, 0.4);
-        }
-
-        /* Map Section */
-        .map-section {
-            margin-bottom: 60px;
-        }
-
-        .map-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .map-container {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            height: 450px;
-            position: relative;
-        }
-
-        .map-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .map-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .address-info h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-
-        .address-info p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .map-directions {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 12px 25px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-            transition: all 0.3s;
-        }
-
-        .map-directions:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        /* Business Hours */
-        .hours-section {
-            background: white;
-            border-radius: 20px;
-            padding: 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            margin-bottom: 60px;
-        }
-
-        .hours-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .hours-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .hours-card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            background: rgba(76, 175, 80, 0.05);
-            transition: all 0.3s;
-        }
-
-        .hours-card:hover {
-            transform: translateY(-5px);
-            background: rgba(76, 175, 80, 0.1);
-        }
-
-        .hours-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .hours-card h4 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .hours-list {
-            list-style: none;
-        }
-
-        .hours-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed var(--light-gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hours-list li:last-child {
-            border-bottom: none;
-        }
-
-        .day {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .time {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Emergency Contact */
-        .emergency-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .emergency-title {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .emergency-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .emergency-phone {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 20px 0;
-            display: block;
-        }
-
-        .emergency-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, #25D366, #128C7E);
-            color: white;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-call {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-call:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.4);
-        }
-
-        /* Social Media */
-        .social-section {
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .social-title {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .social-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            background: white;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .social-link:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-            background: var(--primary);
-            color: white;
-        }
-
-        .social-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .social-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .contact-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.8rem;
+            }
+            
+            .logo-img {
+                height: 55px;
+            }
+            
+            nav ul li {
+                margin-left: 25px;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .page-hero {
+                padding: 140px 0 80px;
+            }
+            
+            .page-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .contact-content {
+                flex-direction: row;
+                gap: 50px;
+            }
+            
+            .contact-info {
+                flex: 1;
+            }
+            
+            .contact-form-container {
+                flex: 1;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+            
+            .footer-column {
+                flex: 1;
             }
         }
 
+        /* Desktop Styles */
+        @media (min-width: 992px) {
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.85rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 30px;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        /* Mobile Menu Button */
         @media (max-width: 991px) {
             nav ul {
                 display: none;
@@ -660,197 +622,58 @@
             .mobile-menu-btn {
                 display: block;
             }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
+            
+            .logo-text h1 {
+                font-size: 1rem;
             }
             
-            .contact-section {
-                padding: 50px 0;
+            .logo-text .tagline {
+                display: none;
             }
             
-            .section-title h2 {
-                font-size: 2.2rem;
+            .logo-img {
+                height: 45px;
             }
-            
-            .contact-form-container {
-                padding: 30px 20px;
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-group {
-                margin-bottom: 20px;
-            }
-            
-            .map-container {
-                height: 350px;
-            }
-            
-            .map-overlay {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                right: auto;
-                margin-top: -50px;
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hours-section {
-                padding: 30px 20px;
-            }
-            
-            .emergency-section {
-                padding: 30px 20px;
-            }
-            
-            .emergency-phone {
-                font-size: 2rem;
-            }
-            
-            .emergency-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                min-width: 200px;
-                padding: 15px 30px;
-            }
-            
-            .social-link {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .social-icon {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .contact-card {
-                padding: 25px;
-            }
-            
-            .contact-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-            }
-            
-            .emergency-title {
-                font-size: 1.8rem;
-            }
-            
-            .emergency-phone {
-                font-size: 1.8rem;
-            }
-            
-            .social-grid {
-                gap: 15px;
-            }
-            
-            .social-link {
-                width: 85px;
-                height: 85px;
-            }
-            
-            .social-icon {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .contact-card {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .contact-card:nth-child(1) { animation-delay: 0.1s; }
-        .contact-card:nth-child(2) { animation-delay: 0.2s; }
-        .contact-card:nth-child(3) { animation-delay: 0.3s; }
-        .contact-card:nth-child(4) { animation-delay: 0.4s; }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .emergency-phone {
-            animation: pulse 2s infinite;
-        }
-
-        /* Form Validation Styles */
-        .error-message {
-            color: #e53935;
-            font-size: 0.9rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-color: #e53935;
-        }
-
-        .form-group.error .error-message {
-            display: block;
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, #4CAF50, #388E3C);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeInUp 0.6s ease;
         }
     </style>
 </head>
 <body>
-    <!-- HEADER EKLENDİ -->
+    <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn" title="Ara">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-img">
+                    <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
+                    <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+                    <div class="tagline">Sağlıklı Beslenme, Mutlu Yaşam</div>
+                </div>
             </div>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
             <nav id="desktopNav">
                 <ul id="mainMenu">
-               <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
                 <li><a href="/yorumlar/">Yorumlar</a></li>
@@ -862,8 +685,8 @@
         
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
-            <ul>
-             <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+           <ul>
+                <li><a href="https://www.tugbasekeragac.com//">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
                 <li><a href="/yorumlar/">Yorumlar</a></li>
@@ -873,293 +696,244 @@
         </div>
     </header>
 
-    <!-- Fixed Buttons -->
-    <div class="fixed-buttons">
-        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:05070361859" class="call-btn">
-            <i class="fas fa-phone"></i>
-        </a>
-    </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>İletişim</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li>İletişim</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="container">
-        <section class="contact-section">
+    <!-- Contact Section -->
+    <section>
+        <div class="container">
             <div class="section-title">
-                <h2>İletişim</h2>
-                <p>Diyetisyen Tuğba Şeker Ağaç ile iletişime geçin, sağlıklı yaşam yolculuğunuza birlikte başlayalım</p>
+                <h2>Bana Ulaşın</h2>
+                <p>Randevu ve sorularınız için iletişim bilgilerim</p>
             </div>
-
-            <!-- Contact Cards -->
-            <div class="contact-grid">
-                <!-- Telefon Kartı -->
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Ofis Adresim</h3>
+                            <p>Kurtuluş mahallesi demokrasi sokak, Atatürk Cad. Gülbahçesi Sitesi c blok kat 2 no 214, 01010 Seyhan/Adana</p>
+                            <a href="https://maps.google.com/?q=Adana+Seyhan" target="_blank">Haritada Göster →</a>
+                        </div>
                     </div>
-                    <h3>Telefon</h3>
-                    <p>Randevu ve danışmanlık için bizi arayın. Ücretsiz ön görüşme yapalım.</p>
-                    <a href="tel:05070361859" class="contact-link">
-                        <i class="fas fa-phone"></i> 0507 036 18 59
-                    </a>
-                </div>
-
-                <!-- WhatsApp Kartı -->
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telefon Numaram</h3>
+                            <p>0507 036 18 59</p>
+                            <a href="tel:05070361859">Hemen Ara →</a>
+                        </div>
                     </div>
-                    <h3>WhatsApp</h3>
-                    <p>Mesaj yoluyla hızlı iletişim için WhatsApp'tan yazın. Hemen cevap veriyoruz.</p>
-                    <a href="https://wa.me/905070361859" class="contact-link" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                    </a>
-                </div>
-
-                <!-- E-posta Kartı -->
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>E-posta Adresim</h3>
+                            <p>info@tugbasekeragac.com</p>
+                            <a href="mailto:info@tugbasekeragac.com">E-posta Gönder →</a>
+                        </div>
                     </div>
-                    <h3>E-posta</h3>
-                    <p>Detaylı sorularınız için e-posta gönderin. En kısa sürede dönüş yapıyoruz.</p>
-                    <a href="mailto:info@tugbasekeragac.com" class="contact-link">
-                        <i class="fas fa-envelope"></i> info@tugbasekeragac.com
-                    </a>
-                </div>
-
-                <!-- Adres Kartı -->
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Çalışma Saatlerim</h3>
+                            <p>Pazartesi - Cumartesi: 09:00 - 18:00</p>
+                            <p>Pazar: Kapalı</p>
+                        </div>
                     </div>
-                    <h3>Adres</h3>
-                    <p>Adana Seyhan'da merkezi bir konumda hizmet veriyoruz. Randevu ile görüşebiliriz.</p>
-                    <a href="#map" class="contact-link">
-                        <i class="fas fa-directions"></i> Yol Tarifi Al
-                    </a>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>WhatsApp Randevu</h3>
+                            <p>WhatsApp üzerinden randevu almak için tıklayın:</p>
+                            <a href="https://wa.me/905070361859?text=Merhaba%20Tuğba%20Hanım,%20randevu%20almak%20istiyorum." target="_blank">WhatsApp'tan Mesaj Gönder →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h3>Sosyal Medya</h3>
+                            <p>Instagram'dan bana ulaşabilir, güncel paylaşımlarımı takip edebilirsiniz:</p>
+                            <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank">Instagram Profilim →</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Randevu Formu -->
-            <div class="contact-form-container">
-                <h3 class="form-title">Ücretsiz Ön Görüşme Randevusu Alın</h3>
-                <form id="appointmentForm">
-                    <div class="form-grid">
+                
+                <div class="contact-form-container">
+                    <h3>Randevu Formu</h3>
+                    <form id="appointmentForm">
                         <div class="form-group">
-                            <label for="name">Ad Soyad <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" required placeholder="Adınız ve soyadınız">
-                            <div class="error-message">Lütfen adınızı giriniz</div>
+                            <label for="name">Adınız Soyadınız *</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Telefon <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" required placeholder="05XX XXX XX XX">
-                            <div class="error-message">Lütfen geçerli bir telefon numarası giriniz</div>
+                            <label for="phone">Telefon Numaranız *</label>
+                            <input type="tel" id="phone" name="phone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">E-posta</label>
-                            <input type="email" id="email" name="email" placeholder="email@example.com">
-                            <div class="error-message">Lütfen geçerli bir e-posta adresi giriniz</div>
+                            <label for="email">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email">
                         </div>
                         
                         <div class="form-group">
-                            <label for="service">Hangi Hizmet? <span class="required">*</span></label>
+                            <label for="service">İlgilendiğiniz Hizmet *</label>
                             <select id="service" name="service" required>
                                 <option value="">Seçiniz</option>
                                 <option value="kilo-verme">Kilo Verme Diyeti</option>
                                 <option value="kilo-alma">Kilo Alma Diyeti</option>
-                                <option value="online-diyet">Online Diyet</option>
-                                <option value="hastaliklarda-beslenme">Hastalıklarda Beslenme</option>
-                                <option value="sporcu-beslenmesi">Sporcu Beslenmesi</option>
-                                <option value="hamilelik-beslenmesi">Hamilelik Beslenmesi</option>
-                                <option value="cocuk-beslenmesi">Çocuk Beslenmesi</option>
+                                <option value="online">Online Diyet</option>
+                                <option value="diyabet">Diyabet Diyeti</option>
+                                <option value="insulin">İnsülin Direnci</option>
+                                <option value="pcos">PCOS Beslenmesi</option>
+                                <option value="tiroid">Tiroid Hastalıkları</option>
                                 <option value="diger">Diğer</option>
                             </select>
-                            <div class="error-message">Lütfen bir hizmet seçiniz</div>
                         </div>
                         
-                        <div class="form-group full-width">
+                        <div class="form-group">
+                            <label for="date">Tercih Ettiğiniz Tarih</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="message">Mesajınız</label>
-                            <textarea id="message" name="message" placeholder="Size nasıl yardımcı olabilirim? Özel durumunuz varsa belirtebilirsiniz..."></textarea>
+                            <textarea id="message" name="message" placeholder="Eklemek istediğiniz notlar..."></textarea>
                         </div>
-                    </div>
-                    
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Randevu Talebi Gönder
-                        </button>
-                    </div>
-                    
-                    <div class="success-message" id="successMessage">
-                        <i class="fas fa-check-circle"></i> Randevu talebiniz başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.
-                    </div>
-                </form>
-            </div>
-
-            <!-- Harita Bölümü -->
-            <div class="map-section" id="map">
-                <h3 class="map-title">Ofisimizin Konumu</h3>
-                <div class="map-container">
-                    <iframe class="map-frame" 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12522.478812978005!2d35.31712493022359!3d36.99448407949828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f3b6d7f2f2f%3A0xf9b8c07b6d5c5b5d!2sSeyhan%2C%20Adana!5e0!3m2!1str!2str!4v1641823907463!5m2!1str!2str" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    
-                    <div class="map-overlay">
-                        <div class="address-info">
-                            <h4>Adres</h4>
-                            <p>Kurtuluş mahallesi demokrasi sokak, Atatürk Cad.<br>
-                            Gülbahçesi Sitesi C Blok Kat:2 No:214<br>
-                            01010 Seyhan/Adana</p>
-                        </div>
-                        <a href="https://maps.google.com/maps?q=Kurtuluş+mahallesi+demokrasi+sokak,+Atatürk+Cad.+Gülbahçesi+Sitesi+c+blok+kat+2+no+214,+01010+Seyhan/Adana" 
-                           class="map-directions" target="_blank">
-                            <i class="fas fa-directions"></i> Yol Tarifi Al
-                        </a>
-                    </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Randevu Talebi Gönder</button>
+                    </form>
                 </div>
             </div>
+            
+            <!-- Working Hours -->
+            <div class="working-hours">
+                <h3>Çalışma Saatlerim</h3>
+                <ul class="hours-list">
+                    <li>
+                        <span class="day">Pazartesi</span>
+                        <span class="time">09:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Salı</span>
+                        <span class="time">09:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Çarşamba</span>
+                        <span class="time">09:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Perşembe</span>
+                        <span class="time">09:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Cuma</span>
+                        <span class="time">09:00 - 18:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Cumartesi</span>
+                        <span class="time">09:00 - 14:00</span>
+                    </li>
+                    <li>
+                        <span class="day">Pazar</span>
+                        <span class="time closed">Kapalı</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Map -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12523.478812978005!2d35.31712493022359!3d36.99448407949828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f3b6d7f2f2f%3A0xf9b8c07b6d5c5b5d!2sSeyhan%2C%20Adana!5e0!3m2!1str!2str!4v1641823907463!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-            <!-- Çalışma Saatleri -->
-            <div class="hours-section">
-                <h3 class="hours-title">Çalışma Saatleri</h3>
-                <div class="hours-grid">
-                    <div class="hours-card">
-                        <div class="hours-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h4>Randevu Günleri</h4>
-                        <ul class="hours-list">
-                            <li>
-                                <span class="day">Pazartesi</span>
-                                <span class="time">09:00 - 18:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Salı</span>
-                                <span class="time">09:00 - 18:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Çarşamba</span>
-                                <span class="time">09:00 - 18:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Perşembe</span>
-                                <span class="time">09:00 - 18:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Cuma</span>
-                                <span class="time">09:00 - 18:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Cumartesi</span>
-                                <span class="time">10:00 - 16:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Pazar</span>
-                                <span class="time">Kapalı</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hours-card">
-                        <div class="hours-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h4>Online Görüşme</h4>
-                        <ul class="hours-list">
-                            <li>
-                                <span class="day">Pazartesi - Cuma</span>
-                                <span class="time">19:00 - 21:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Cumartesi</span>
-                                <span class="time">16:00 - 19:00</span>
-                            </li>
-                            <li>
-                                <span class="day">Pazar</span>
-                                <span class="time">Özel Randevu</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="hours-card">
-                        <div class="hours-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h4>İletişim</h4>
-                        <ul class="hours-list">
-                            <li>
-                                <span class="day">Telefon</span>
-                                <span class="time">0507 036 18 59</span>
-                            </li>
-                            <li>
-                                <span class="day">WhatsApp</span>
-                                <span class="time">7/24 Mesaj</span>
-                            </li>
-                            <li>
-                                <span class="day">E-posta</span>
-                                <span class="time">24 saat</span>
-                            </li>
-                            <li>
-                                <span class="day">Acil Durum</span>
-                                <span class="time">7/24 Telefon</span>
-                            </li>
-                        </ul>
+    <!-- Appointment CTA -->
+    <section class="appointment-cta">
+        <div class="container">
+            <h2>Hemen Randevu Alın</h2>
+            <p>Sağlıklı yaşam yolculuğunuzda size rehberlik etmek için buradayım.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                <a href="tel:05070361859" class="btn" style="background-color: white; color: var(--primary);">
+                    <i class="fas fa-phone"></i> Hemen Ara
+                </a>
+                <a href="https://wa.me/905070361859" class="btn" style="background-color: #25D366; color: white;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#appointmentForm" class="btn" style="background-color: white; color: var(--primary);">
+                    <i class="fas fa-calendar-check"></i> Online Randevu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Dyt. Tuğba Şeker Ağaç</h3>
+                    <p>Sağlıklı beslenme, kaliteli yaşam felsefesiyle danışanlarına özel beslenme programları hazırlayan uzman diyetisyen.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Acil İletişim -->
-            <div class="emergency-section">
-                <h3 class="emergency-title">Acil Durumda İletişim</h3>
-                <p class="emergency-subtitle">Önemli sağlık sorunlarında veya acil durumlarda hemen iletişime geçebilirsiniz</p>
                 
-                <span class="emergency-phone">📞 0507 036 18 59</span>
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hakkimizda.html" style="color: white; text-decoration: none;">Hakkımda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="hizmetlerimiz.html" style="color: white; text-decoration: none;">Hizmetler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="tarifler.html" style="color: white; text-decoration: none;">Tarifler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="iletisim.html" style="color: white; text-decoration: none;">İletişim</a></li>
+                    </ul>
+                </div>
                 
-                <div class="emergency-buttons">
-                    <a href="tel:05070361859" class="btn btn-call">
-                        <i class="fas fa-phone"></i> Hemen Ara
-                    </a>
-                    <a href="https://wa.me/905070361859" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz
-                    </a>
+                <div class="footer-column">
+                    <h3>İletişim Bilgileri</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@tugbasekeragac.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Seyhan/Adana</p>
                 </div>
             </div>
-
-            <!-- Sosyal Medya -->
-            <div class="social-section">
-                <h3 class="social-title">Sosyal Medya'da Takip Edin</h3>
-                <div class="social-grid">
-                    <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="social-link" target="_blank">
-                        <i class="fab fa-instagram social-icon"></i>
-                        <span class="social-name">Instagram</span>
-                    </a>
-                    
-                    <a href="https://www.youtube.com/@dyt.tugbaseker" class="social-link" target="_blank">
-                        <i class="fab fa-youtube social-icon"></i>
-                        <span class="social-name">YouTube</span>
-                    </a>
-                    
-                    <a href="https://www.tugbasekeragac.com/ana-sayfa" class="social-link" target="_blank">
-                        <i class="fas fa-globe social-icon"></i>
-                        <span class="social-name">Web Sitesi</span>
-                    </a>
-                    
-                    <a href="mailto:info@tugbasekeragac.com" class="social-link">
-                        <i class="fas fa-envelope social-icon"></i>
-                        <span class="social-name">E-posta</span>
-                    </a>
-                </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
             </div>
-        </section>
-    </div>
+        </div>
+    </footer>
 
+    <!-- JavaScript for Mobile Menu and Form -->
     <script>
-        // Mobile Menu JavaScript
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
@@ -1189,191 +963,59 @@
                 });
             });
             
-            // Form Validasyonu
-            const form = document.getElementById('appointmentForm');
-            const successMessage = document.getElementById('successMessage');
-            
-            if (form) {
-                form.addEventListener('submit', function(e) {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    let isValid = true;
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
                     
-                    // Temizleme
-                    document.querySelectorAll('.form-group').forEach(group => {
-                        group.classList.remove('error');
-                    });
-                    
-                    // Ad Soyad kontrolü
-                    const nameInput = document.getElementById('name');
-                    if (!nameInput.value.trim()) {
-                        nameInput.parentElement.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Telefon kontrolü
-                    const phoneInput = document.getElementById('phone');
-                    const phoneRegex = /^05[0-9]{9}$/;
-                    const phoneValue = phoneInput.value.replace(/\s/g, '');
-                    
-                    if (!phoneRegex.test(phoneValue)) {
-                        phoneInput.parentElement.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // E-posta kontrolü (opsiyonel ama format kontrolü)
-                    const emailInput = document.getElementById('email');
-                    if (emailInput.value.trim()) {
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(emailInput.value)) {
-                            emailInput.parentElement.classList.add('error');
-                            isValid = false;
-                        }
-                    }
-                    
-                    // Hizmet seçimi kontrolü
-                    const serviceSelect = document.getElementById('service');
-                    if (!serviceSelect.value) {
-                        serviceSelect.parentElement.classList.add('error');
-                        isValid = false;
-                    }
-                    
-                    // Eğer form geçerliyse
-                    if (isValid) {
-                        // Form verilerini hazırla
-                        const formData = {
-                            name: nameInput.value,
-                            phone: phoneValue,
-                            email: emailInput.value,
-                            service: serviceSelect.value,
-                            message: document.getElementById('message').value,
-                            timestamp: new Date().toISOString()
-                        };
-                        
-                        // Burada form verilerini gönderebilirsiniz
-                        // Örnek: fetch('/api/appointment', { method: 'POST', body: JSON.stringify(formData) })
-                        
-                        // Başarı mesajını göster
-                        successMessage.classList.add('show');
-                        
-                        // Formu sıfırla
-                        form.reset();
-                        
-                        // Başarı mesajını 5 saniye sonra gizle
-                        setTimeout(() => {
-                            successMessage.classList.remove('show');
-                        }, 5000);
-                        
-                        // WhatsApp mesajı oluştur (opsiyonel)
-                        const whatsappMessage = `Merhaba, randevu talebim var:\nAd Soyad: ${formData.name}\nTelefon: ${formData.phone}\nHizmet: ${serviceSelect.options[serviceSelect.selectedIndex].text}\nMesaj: ${formData.message || 'Yok'}`;
-                        
-                        // Kullanıcıya WhatsApp'tan mesaj gönderme seçeneği sun
-                        console.log('WhatsApp mesajı:', whatsappMessage);
-                        // window.open(`https://wa.me/905070361859?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
                     }
                 });
-                
-                // Real-time validation
-                const inputs = form.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => {
-                    input.addEventListener('input', function() {
-                        if (this.classList.contains('error')) {
-                            this.classList.remove('error');
-                            this.parentElement.classList.remove('error');
-                        }
-                    });
-                });
-                
-                // Telefon formatı
-                const phoneInput = document.getElementById('phone');
-                phoneInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 0) {
-                        value = value.match(/.{1,3}/g).join(' ');
-                        if (value.length > 11) {
-                            value = value.substring(0, 12);
-                        }
-                    }
-                    e.target.value = value;
+            });
+            
+            // Appointment form submission
+            const appointmentForm = document.getElementById('appointmentForm');
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const service = document.getElementById('service').value;
+                    
+                    // Create WhatsApp message
+                    const message = `Merhaba Tuğba Hanım,\n\nRandevu talebim var:\n\nAd Soyad: ${name}\nTelefon: ${phone}\nHizmet: ${service}\n\nTeşekkür ederim.`;
+                    
+                    // Encode message for URL
+                    const encodedMessage = encodeURIComponent(message);
+                    
+                    // Open WhatsApp
+                    window.open(`https://wa.me/905070361859?text=${encodedMessage}`, '_blank');
+                    
+                    // Show success message
+                    alert('Randevu talebiniz WhatsApp üzerinden gönderilecektir. Teşekkür ederiz!');
+                    
+                    // Reset form
+                    appointmentForm.reset();
                 });
             }
             
-            // Contact card hover efektleri
-            const contactCards = document.querySelectorAll('.contact-card');
-            contactCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Social media hover efektleri
-            const socialLinks = document.querySelectorAll('.social-link');
-            socialLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Buton tıklama animasyonları
-            const buttons = document.querySelectorAll('.btn, .contact-link, .map-directions');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Tıklama efekti
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 200);
-                    
-                    // Eğer # link ise sayfayı yenileme
-                    if (this.getAttribute('href') === '#') {
-                        e.preventDefault();
-                    }
-                });
-            });
-            
-            // Harita overlay hover efekti
-            const mapOverlay = document.querySelector('.map-overlay');
-            if (mapOverlay) {
-                mapOverlay.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                    this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.15)';
-                });
-                
-                mapOverlay.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-                });
+            // Set minimum date for appointment date input
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
             }
-            
-            // Hours card hover efekti
-            const hoursCards = document.querySelectorAll('.hours-card');
-            hoursCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
         });
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-

@@ -60,7 +60,6 @@
             padding: 10px 20px;
         }
 
-        /* Logo Container */
         .logo-container {
             display: flex;
             align-items: center;
@@ -71,17 +70,6 @@
         .logo-img {
             height: 50px;
             width: auto;
-        }
-
-        .logo-img img {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
         }
 
         .logo-text h1 {
@@ -103,13 +91,16 @@
             margin-top: 2px;
         }
 
+        /* Masaüstü Navigasyon ve Dropdown */
         nav ul {
             display: flex;
             list-style: none;
+            align-items: center;
         }
 
         nav ul li {
             margin-left: 20px;
+            position: relative; /* Dropdown için gerekli */
         }
 
         nav ul li a {
@@ -118,10 +109,97 @@
             font-weight: 500;
             transition: color 0.3s;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         nav ul li a:hover {
             color: var(--primary);
+        }
+
+        /* Masaüstü Dropdown Menü (Hover ile açılır) */
+        .desktop-submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            border-top: 3px solid var(--primary);
+        }
+
+        nav ul li:hover .desktop-submenu {
+            display: flex;
+        }
+
+        .desktop-submenu li {
+            margin: 0;
+        }
+
+        .desktop-submenu li a {
+            padding: 10px 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .desktop-submenu li:last-child a {
+            border-bottom: none;
+        }
+
+        /* Mobil Navigasyon Tasarımı (Akordiyon) */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: white;
+            padding: 20px;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Mobil Alt Menü (Başlangıçta kapalı) */
+        .mobile-submenu {
+            display: none;
+            background-color: #fcfcfc;
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        /* Açıldığında gösterilecek sınıf */
+        .mobile-submenu.open {
+            display: block;
+        }
+
+        .mobile-submenu li a {
+            font-size: 0.95rem;
+            color: var(--gray);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .mobile-menu-btn {
@@ -133,7 +211,16 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Dönen Ok İkonu */
+        .fa-chevron-down {
+            transition: transform 0.3s;
+            font-size: 0.8rem;
+        }
+        .open-icon .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Diğer Genel Stiller (Mevcut kodun devamı) */
         .page-hero {
             background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8));
             color: white;
@@ -142,10 +229,7 @@
             margin-top: 70px;
         }
 
-        .page-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+        .page-hero h1 { font-size: 2.5rem; }
 
         .breadcrumb {
             display: flex;
@@ -155,41 +239,10 @@
             font-size: 0.9rem;
         }
 
-        .breadcrumb li:not(:last-child):after {
-            content: '>';
-            margin-left: 10px;
-        }
+        .breadcrumb li:not(:last-child):after { content: '>'; margin-left: 10px; }
 
-        .breadcrumb a {
-            color: white;
-            text-decoration: none;
-        }
+        .breadcrumb a { color: white; text-decoration: none; }
 
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #e68900;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Fixed Buttons */
         .fixed-buttons {
             position: fixed;
             right: 15px;
@@ -211,420 +264,41 @@
             color: white;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
         }
 
-        .whatsapp-btn {
-            background-color: #25D366;
-        }
+        .whatsapp-btn { background-color: #25D366; }
+        .call-btn { background-color: var(--primary); }
+        .instagram-btn { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
 
-        .call-btn {
-            background-color: var(--primary);
-        }
+        .services { background-color: var(--light-gray); padding: 60px 0; }
+        .services-list { display: grid; grid-template-columns: 1fr; gap: 20px; }
 
-        .instagram-btn {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-        }
-
-        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* Section Common */
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding: 0 20px;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 3px;
-            background-color: var(--secondary);
-            bottom: -10px;
-            left: 15%;
-        }
-
-        /* Services Section */
-        .services {
-            background-color: var(--light-gray);
-        }
-
-        .services-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .service-item {
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .service-item h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .service-item h3 i {
-            margin-right: 15px;
-            color: var(--secondary);
-            font-size: 1.2rem;
-            width: 40px;
-            height: 40px;
-            background-color: var(--light-gray);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .service-details {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        .service-details ul {
-            list-style-type: none;
-            margin-top: 10px;
-        }
-
-        .service-details li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .service-details li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Price Section */
-        .price-info {
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-top: 20px;
-            border: 2px dashed var(--primary);
-        }
-
-        .price-info h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .price-item:last-child {
-            border-bottom: none;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-
-        /* Consultation Process */
-        .process-steps {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 25px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 auto 20px;
-        }
-
-        .process-step h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        /* Contact CTA */
-        .contact-cta {
-            background-color: var(--primary);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .contact-cta h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 25px;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column {
-            width: 100%;
-        }
-
-        .footer-column h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .footer-column p, .footer-column ul li {
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 1.1rem;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Mobile Menu */
-        .mobile-nav {
-            display: none;
-        }
-
-        .mobile-nav.active {
-            display: block;
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-        }
-
-        .mobile-nav ul li {
-            margin-bottom: 15px;
-        }
-
-        .mobile-nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 1rem;
-            display: block;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        /* Tablet Styles */
-        @media (min-width: 768px) {
-            .logo-text h1 {
-                font-size: 1.4rem;
-            }
-            
-            .logo-text .tagline {
-                font-size: 0.8rem;
-            }
-            
-            .logo-img {
-                height: 55px;
-            }
-            
-            nav ul li {
-                margin-left: 25px;
-            }
-            
-            nav ul li a {
-                font-size: 1rem;
-            }
-            
-            .page-hero {
-                padding: 140px 0 80px;
-            }
-            
-            .page-hero h1 {
-                font-size: 3rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2.3rem;
-            }
-            
-            .services-list {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-            
-            .process-steps {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer-content {
-                flex-direction: row;
-            }
-            
-            .footer-column {
-                flex: 1;
-            }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 992px) {
-            .logo-text h1 {
-                font-size: 1.6rem;
-            }
-            
-            .logo-text .tagline {
-                font-size: 0.85rem;
-            }
-            
-            .logo-img {
-                height: 60px;
-            }
-            
-            nav ul li {
-                margin-left: 30px;
-            }
-            
-            .services-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .mobile-nav {
-                display: none !important;
-            }
-        }
-
-        /* Mobile Menu Button */
         @media (max-width: 991px) {
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .logo-text h1 {
-                font-size: 1rem;
-            }
-            
-            .logo-text .tagline {
-                display: none;
-            }
-            
-            .logo-img {
-                height: 45px;
-            }
+            nav#desktopNav { display: none; }
+            .mobile-menu-btn { display: block; }
+        }
+
+        @media (min-width: 768px) {
+            .services-list { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 992px) {
+            .services-list { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
 <body>
-    <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
+
     <div class="fixed-buttons">
-        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:05070361859" class="call-btn" title="Ara">
-            <i class="fas fa-phone"></i>
-        </a>
-        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
-            <i class="fab fa-instagram"></i>
-        </a>
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:05070361859" class="call-btn"><i class="fas fa-phone"></i></a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
 
-    <!-- Header -->
     <header>
         <div class="container header-container">
-            <!-- Logo Container -->
             <div class="logo-container">
                 <div class="logo-img">
-                    <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
                     <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
                         <i class="fas fa-apple-alt"></i>
                     </div>
@@ -639,28 +313,38 @@
                 <i class="fas fa-bars"></i>
             </button>
             
-           <nav id="desktopNav">
+            <nav id="desktopNav">
                 <ul id="mainMenu">
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-    <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-    <ul class="sub-menu">
-        <li><a href="hizmet-kilo-verme-diyeti.html">Kilo Verme Diyeti</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                    <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/">Hakkımda</a></li>
+                    <li>
+                        <a href="/hizmetlerimiz/">Hizmetler <i class="fas fa-chevron-down"></i></a>
+                        <ul class="desktop-submenu">
+                            <li><a href="/hizmet-kilo-verme-diyeti.html">Kilo Verme Diyeti</a></li>
+                            <li><a href="/hizmet-kilo-alma-diyeti.html">Kilo Alma Diyeti</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/yorumlar/">Yorumlar</a></li>
+                    <li><a href="/tarifler/">Tarifler</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
                 </ul>
             </nav>
         </div>
         
-        <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
             <ul>
-                <li><a href="https://www.tugbasekeragac.com//">Ana Sayfa</a></li>
+                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
-           <li><a href="/hizmetlerimiz/">Hizmetler</a><li>
-    <ul class="sub-menu">
-        <li><a href="hizmet-kilo-verme-diyeti.html">Kilo Verme Diyeti</a></li>
+                <li class="has-mobile-submenu">
+                    <a href="javascript:void(0)" class="mobile-submenu-toggle">
+                        Hizmetlerimiz <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="/hizmet-kilo-verme-diyeti.html">Kilo Verme Diyeti</a></li>
+                        <li><a href="/hizmet-kilo-alma-diyeti.html">Kilo Alma Diyeti</a></li>
+                        <li><a href="/hizmetlerimiz/">Tüm Hizmetler</a></li>
+                    </ul>
+                </li>
                 <li><a href="/yorumlar/">Yorumlar</a></li>
                 <li><a href="/tarifler/">Tarifler</a></li>
                 <li><a href="/iletisim/">İletişim</a></li>
@@ -668,7 +352,6 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Hizmetlerim</h1>
@@ -679,339 +362,43 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Uzmanlık Alanlarım</h2>
-                <p>Size özel hazırladığım beslenme programları ile sağlıklı yaşam yolculuğunuzda yanınızdayım.</p>
-            </div>
-            
             <div class="services-list">
                 <div class="service-item">
                     <h3><i class="fas fa-weight"></i> KİLO VERME DİYETİ</h3>
                     <p>Kişiye özel hazırlanmış beslenme programları ile sağlıklı ve kalıcı kilo verme.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Vücut analizi ve değerlendirme</li>
-                            <li>Metabolizma hızı ölçümü</li>
-                            <li>Kişiye özel beslenme planı</li>
-                            <li>Düzenli takip ve motivasyon</li>
-                        </ul>
-                    </div>
                 </div>
-                
                 <div class="service-item">
                     <h3><i class="fas fa-weight"></i> KİLO ALMA DİYETİ</h3>
                     <p>Sağlıklı bir şekilde kilo almak için özel beslenme programları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Sağlıklı kilo alma stratejileri</li>
-                            <li>Besin yoğunluğu artırma</li>
-                            <li>Kas kütlesi geliştirme</li>
-                            <li>Enerji denge planlaması</li>
-                        </ul>
-                    </div>
                 </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-laptop-house"></i> ONLİNE DİYET DANIŞMANLIĞI</h3>
-                    <p>Ev konforunda online diyet danışmanlığı hizmeti.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Online görüşme</li>
-                            <li>Dijital beslenme takibi</li>
-                            <li>7/24 mesajlaşma desteği</li>
-                            <li>Online ölçüm takibi</li>
-                        </ul>
-                    </div>
                 </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-stethoscope"></i> HASTALIKLARDA BESLENME</h3>
-                    <p>Çeşitli hastalıklara yönelik özel beslenme programları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Diyabet beslenmesi</li>
-                            <li>Hipertansiyon diyeti</li>
-                            <li>Kolesterol düşürücü diyet</li>
-                            <li>Gut hastalığı beslenmesi</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-ban"></i> ELİMİNASYON DİYETİ</h3>
-                    <p>Gıda intoleranslarına yönelik eliminasyon diyet programları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Gıda intolerans testi yorumlama</li>
-                            <li>Eliminasyon diyeti planlama</li>
-                            <li>Re-introduksiyon süreci</li>
-                            <li>Kişiye özel beslenme programı</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-bread-slice"></i> GLUTENSİZ DİYET</h3>
-                    <p>Çölyak ve gluten hassasiyeti için özel beslenme planları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Glutensiz beslenme eğitimi</li>
-                            <li>Güvenli gıda seçimleri</li>
-                            <li>Dışarıda yemek yeme stratejileri</li>
-                            <li>Besin değeri koruma</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-clock"></i> ARALIKLI ORUÇ (IF)</h3>
-                    <p>Intermittent Fasting (Aralıklı Oruç) programları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>IF metodları eğitimi</li>
-                            <li>Kişiye özel zaman planlaması</li>
-                            <li>Beslenme pencere optimizasyonu</li>
-                            <li>Yan etki yönetimi</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-syringe"></i> DİYABET DİYETİ</h3>
-                    <p>Diyabet hastaları için özel beslenme planlaması.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Kan şekeri dengeleme</li>
-                            <li>Karbonhidrat sayımı eğitimi</li>
-                            <li>Glisemik indeks yönetimi</li>
-                            <li>Komplikasyon önleme</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-chart-line"></i> İNSÜLİN DİRENCİ</h3>
-                    <p>İnsülin direnci için etkili beslenme programları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>İnsülin sensitivitesi artırma</li>
-                            <li>Hormonal denge sağlama</li>
-                            <li>Metabolik sendrom yönetimi</li>
-                            <li>Yağ kaybı optimizasyonu</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-tachometer-alt"></i> TİROİD HASTALIKLARI</h3>
-                    <p>Tiroid problemleri için özel beslenme yaklaşımları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Hashimoto beslenmesi</li>
-                            <li>Hipertiroidi yönetimi</li>
-                            <li>İlaç-besin etkileşimleri</li>
-                            <li>Otoimmün diyet yaklaşımları</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-female"></i> PCOS BESLENMESİ</h3>
-                    <p>Polikistik Over Sendromu (PCOS) için özel beslenme tedavisi.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Hormonal denge sağlama</li>
-                            <li>İnsülin direnci yönetimi</li>
-                            <li>Kilo kontrolü</li>
-                            <li>Doğurganlığı destekleme</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="service-item">
-                    <h3><i class="fas fa-heart"></i> KALP DAMAR SAĞLIĞI</h3>
-                    <p>Kalp sağlığını koruyucu beslenme planları.</p>
-                    <div class="service-details">
-                        <ul>
-                            <li>Kolesterol düşürücü diyet</li>
-                            <li>Tansiyon kontrolü</li>
-                            <li>Anti-inflamatuar beslenme</li>
-                            <li>Kalp dostu yağlar</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Consultation Process -->
-    <section>
-        <div class="container">
-            <div class="section-title">
-                <h2>Danışmanlık Sürecim</h2>
-                <p>Size özel danışmanlık sürecim nasıl işliyor?</p>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h4>İlk Görüşme</h4>
-                    <p>Detaylı sağlık öyküsü, beslenme alışkanlıkları ve hedeflerinizin değerlendirilmesi.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h4>Değerlendirme</h4>
-                    <p>Vücut analizi, laboratuvar sonuçları ve yaşam tarzınızın kapsamlı analizi.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h4>Kişisel Plan</h4>
-                    <p>Size özel beslenme programının hazırlanması ve detaylı açıklamalar.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h4>Uygulama</h4>
-                    <p>Planın hayata geçirilmesi ve sürecin başlatılması.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h4>Takip</h4>
-                    <p>Düzenli kontroller, motivasyon ve program güncellemeleri.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <h4>Sonuç</h4>
-                    <p>Hedeflere ulaşma ve sürdürülebilir alışkanlıkların kazanılması.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price Information -->
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Paketler ve Ücretler</h2>
-                <p>Size en uygun paketi seçin, sağlıklı yaşam yolculuğunuza başlayın.</p>
-            </div>
-            
-            <div class="price-info">
-                <h4><i class="fas fa-money-bill-wave"></i> Paket Seçenekleri</h4>
-                
-                <div class="price-item">
-                    <span>İlk Değerlendirme Görüşmesi</span>
-                    <span>1000 TL</span>
-                </div>
-                <div class="price-item">
-                    <span>Aylık Online Danışmanlık</span>
-                    <span>3000 TL</span>
-                </div>
-                <div class="price-item">
-                    <span>3 Aylık Online Paket</span>
-                    <span>8.000 TL</span>
-                </div>
-                <div class="price-item">
-                    <span>6 Aylık Online Paket</span>
-                    <span>15.500 TL</span>
-                </div>
-                <div class="price-item">
-                    <span>Yüzyüze Danışmanlık</span>
-                    <span>1000 TL/Görüşme</span>
-                </div>
-                <div class="price-item">
-                    <span>Kurumsal Beslenme Danışmanlığı</span>
-                    <span>Fiyat Teklifi</span>
-                </div>
-                
-                <div style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
-                    <p><i class="fas fa-info-circle"></i> Not: Fiyatlar kişiye özel program içeriğine göre değişiklik gösterebilir.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="contact-cta">
-        <div class="container">
-            <h2>Size Uygun Paketi Seçmek İster Misiniz?</h2>
-            <p>Hangi hizmetin size uygun olduğunu birlikte değerlendirelim.</p>
-            <a href="https://wa.me/905070361859?text=Merhaba%20Tuğba%20Hanım%2C%20web%20sitenizden%20ulaşıyorum.%20Diyet%20danışmanlığı%20hakkında%20bilgi%20almak%20istiyorum." class="btn" style="background-color: white; color: var(--primary); margin-top: 20px;">Hemen Randevu Al</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Dyt. Tuğba Şeker Ağaç</h3>
-                    <p>Sağlıklı beslenme, kaliteli yaşam felsefesiyle danışanlarına özel beslenme programları hazırlayan uzman diyetisyen.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Hızlı Bağlantılar</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
-                        <li style="margin-bottom: 10px;"><a href="hakkimizda.html" style="color: white; text-decoration: none;">Hakkımda</a></li>
-                        <li style="margin-bottom: 10px;"><a href="hizmetlerimiz.html" style="color: white; text-decoration: none;">Hizmetler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="tarifler.html" style="color: white; text-decoration: none;">Tarifler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="iletisim.html" style="color: white; text-decoration: none;">İletişim</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>İletişim Bilgileri</h3>
-                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
-                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> dyt.tugbasekeragac@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Seyhan/Adana</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for Mobile Menu -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileNav = document.getElementById('mobileNav');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-            
-            // Toggle mobile menu
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileNav.classList.toggle('active');
-                // Change icon
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileNav.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
-            });
-            
-            // Close mobile menu when clicking on a link
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                    const icon = mobileMenuBtn.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                });
-            });
+        // Mobil Menü Aç/Kapat
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Mobil Akordiyon (Hizmetler) Tıklama Kontrolü
+        const submenuToggle = document.querySelector('.mobile-submenu-toggle');
+        const mobileSubmenu = document.querySelector('.mobile-submenu');
+
+        submenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileSubmenu.classList.toggle('open');
+            this.classList.toggle('open-icon');
         });
     </script>
+
 </body>
 </html>

@@ -133,21 +133,51 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section with Video */
         .hero {
-            background: linear-gradient(rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
             color: white;
             padding: 150px 0 80px;
             text-align: center;
             margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .hero h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
@@ -155,6 +185,7 @@
             max-width: 700px;
             margin: 0 auto 30px;
             padding: 0 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -722,6 +753,7 @@
             
             .hero {
                 padding: 180px 0 100px;
+                min-height: 700px;
             }
             
             .hero h2 {
@@ -868,6 +900,11 @@
             .logo-img {
                 height: 45px;
             }
+            
+            .hero {
+                min-height: 500px;
+                height: auto;
+            }
         }
     </style>
 </head>
@@ -933,9 +970,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video -->
     <section class="hero" id="home">
-        <div class="container">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://www.tugbasekeragac.com/images/diyetisyen-tugba-beslenme.webp.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
             <h2>Sağlıklı Beslenme, Mutlu Yaşam</h2>
             <p>Diyetisyen Tuğba Şeker Ağaç ile kişiye özel beslenme programları, sağlıklı tarifler ve kalıcı sonuçlar için buradayım.</p>
             <a href="iletisim.html" class="btn">Randevu Al</a>
@@ -1082,27 +1124,47 @@
         </div>
     </section>
 
-    <!-- Youtube Section -->
+    <!-- YouTube Section - GÜNCELLENMİŞ VİDEO LİNKLERİ -->
     <section id="youtube">
         <div class="container">
             <div class="section-title">
-                <h2>Youtube Videoları</h2>
+                <h2>YouTube Videoları</h2>
             </div>
             
             <div class="youtube-videos">
+                <!-- Video 1: https://www.youtube.com/watch?v=oloekxx03l8&t=1s -->
                 <div class="video-item">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/oloekxx03l8" allowfullscreen title="Youtube Video"></iframe>
+                        <iframe 
+                            src="https://www.youtube.com/embed/oloekxx03l8?start=1" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            title="Diyetisyen Tuğba Şeker Ağaç YouTube Videosu 1">
+                        </iframe>
                     </div>
                 </div>
+                
+                <!-- Video 2: https://www.youtube.com/watch?v=aQxB2PXoaMI -->
                 <div class="video-item">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/aQxB2PXoaMI" allowfullscreen title="Youtube Video"></iframe>
+                        <iframe 
+                            src="https://www.youtube.com/embed/aQxB2PXoaMI" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            title="Diyetisyen Tuğba Şeker Ağaç YouTube Videosu 2">
+                        </iframe>
                     </div>
                 </div>
+                
+                <!-- Video 3: https://www.youtube.com/watch?v=YBt7GBfeFC8 -->
                 <div class="video-item">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/YBt7GBfeFC8" allowfullscreen title="Youtube Video"></iframe>
+                        <iframe 
+                            src="https://www.youtube.com/embed/YBt7GBfeFC8" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen 
+                            title="Diyetisyen Tuğba Şeker Ağaç YouTube Videosu 3">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -1200,10 +1262,25 @@
                     }
                 });
             });
+            
+            // Video fallback for autoplay issues
+            const heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                heroVideo.muted = true;
+                heroVideo.setAttribute('playsinline', '');
+                heroVideo.setAttribute('webkit-playsinline', '');
+                heroVideo.setAttribute('muted', '');
+                
+                // Try to play the video
+                const playPromise = heroVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Video autoplay failed:", error);
+                        // Fallback to showing a play button or just let it be
+                    });
+                }
+            }
         });
     </script>
 </body>
 </html>
-
-
-

@@ -133,20 +133,49 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
-        .page-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.tugbasekeragac.com/images/hakkimda2-diyetisyen-beslenme.webp.mp4');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-            margin-top: 70px;
+        /* Video Hero Section */
+        .video-hero {
             position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            margin-top: 70px;
+            overflow: hidden;
         }
 
-        .page-hero h1 {
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            z-index: 3;
+            max-width: 800px;
+        }
+
+        .video-content h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -172,6 +201,33 @@
 
         .breadcrumb a:hover {
             text-decoration: underline;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 3;
+            display: flex;
+            gap: 10px;
+        }
+
+        .video-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .video-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .btn {
@@ -501,11 +557,12 @@
                 font-size: 1rem;
             }
             
-            .page-hero {
-                padding: 140px 0 80px;
+            .video-hero {
+                height: 80vh;
+                min-height: 600px;
             }
             
-            .page-hero h1 {
+            .video-content h1 {
                 font-size: 3rem;
             }
             
@@ -602,6 +659,32 @@
             .logo-img {
                 height: 45px;
             }
+            
+            .video-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .video-content h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 576px) {
+            .video-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .video-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-controls {
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
@@ -665,14 +748,30 @@
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <h1>Hakkımda</h1>
-            <ul class="breadcrumb">
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li>Hakkımda</li>
-            </ul>
+    <!-- Video Hero Section -->
+    <section class="video-hero">
+        <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
+            <source src="https://www.tugbasekeragac.com/images/hakkimda2-diyetisyen-beslenme.webp.mp4" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+        
+        <div class="video-overlay">
+            <div class="video-content">
+                <h1>Hakkımda</h1>
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li>Hakkımda</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="video-controls">
+            <button class="video-btn" id="playPauseBtn" title="Video Kontrolü">
+                <i class="fas fa-pause" id="playPauseIcon"></i>
+            </button>
+            <button class="video-btn" id="muteBtn" title="Ses Aç/Kapat">
+                <i class="fas fa-volume-up" id="muteIcon"></i>
+            </button>
         </div>
     </section>
 
@@ -817,12 +916,19 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- JavaScript for Mobile Menu and Video Controls -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Video elements
+            const heroVideo = document.getElementById('heroVideo');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const playPauseIcon = document.getElementById('playPauseIcon');
+            const muteBtn = document.getElementById('muteBtn');
+            const muteIcon = document.getElementById('muteIcon');
             
             // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', function() {
@@ -865,8 +971,77 @@
                     }
                 });
             });
+            
+            // Video Controls
+            if (heroVideo && playPauseBtn) {
+                // Play/Pause button
+                playPauseBtn.addEventListener('click', function() {
+                    if (heroVideo.paused) {
+                        heroVideo.play();
+                        playPauseIcon.classList.remove('fa-play');
+                        playPauseIcon.classList.add('fa-pause');
+                    } else {
+                        heroVideo.pause();
+                        playPauseIcon.classList.remove('fa-pause');
+                        playPauseIcon.classList.add('fa-play');
+                    }
+                });
+                
+                // Mute button
+                muteBtn.addEventListener('click', function() {
+                    heroVideo.muted = !heroVideo.muted;
+                    if (heroVideo.muted) {
+                        muteIcon.classList.remove('fa-volume-up');
+                        muteIcon.classList.add('fa-volume-mute');
+                    } else {
+                        muteIcon.classList.remove('fa-volume-mute');
+                        muteIcon.classList.add('fa-volume-up');
+                    }
+                });
+                
+                // Update play/pause icon based on video state
+                heroVideo.addEventListener('play', function() {
+                    playPauseIcon.classList.remove('fa-play');
+                    playPauseIcon.classList.add('fa-pause');
+                });
+                
+                heroVideo.addEventListener('pause', function() {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                });
+                
+                // Mobile optimization: reduce video quality on mobile if needed
+                function optimizeVideoForMobile() {
+                    if (window.innerWidth <= 768) {
+                        // Video is already optimized with object-fit: cover
+                        // Add any mobile-specific optimizations here
+                    }
+                }
+                
+                // Run on load and resize
+                optimizeVideoForMobile();
+                window.addEventListener('resize', optimizeVideoForMobile);
+            }
+            
+            // Pause video when user scrolls away (optional - for performance)
+            let isVideoPlaying = true;
+            window.addEventListener('scroll', function() {
+                const videoSection = document.querySelector('.video-hero');
+                const videoRect = videoSection.getBoundingClientRect();
+                
+                // If video is less than 50% visible, pause it
+                if (videoRect.top < -videoRect.height * 0.5 || videoRect.bottom < window.innerHeight * 0.5) {
+                    if (!heroVideo.paused) {
+                        heroVideo.pause();
+                        isVideoPlaying = false;
+                    }
+                } else if (!isVideoPlaying) {
+                    // If video comes back into view and was playing before, resume
+                    heroVideo.play();
+                    isVideoPlaying = true;
+                }
+            });
         });
     </script>
 </body>
 </html>
-

@@ -362,6 +362,261 @@
             font-size: 1rem;
         }
 
+        /* Blog Section */
+        .blog-section {
+            background-color: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-date i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .blog-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Sağlıklı Beslenme Bölümü */
+        .healthy-eating-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .healthy-eating-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .healthy-eating-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .healthy-eating-img {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .healthy-eating-img {
+                flex: 1;
+            }
+        }
+
+        .healthy-eating-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .healthy-eating-text {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .healthy-eating-text {
+                flex: 1;
+                padding-left: 40px;
+            }
+        }
+
+        .healthy-eating-text h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        /* Metabolizma Hızı Bölümü */
+        .metabolism-section {
+            padding: 60px 0;
+            background-color: var(--light-gray);
+        }
+
+        .metabolism-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .metabolism-content {
+                flex-direction: row-reverse;
+                align-items: center;
+            }
+        }
+
+        .metabolism-img {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .metabolism-img {
+                flex: 1;
+            }
+        }
+
+        .metabolism-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .metabolism-text {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .metabolism-text {
+                flex: 1;
+                padding-right: 40px;
+            }
+        }
+
+        .metabolism-text h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        /* Glutensiz Beslenme Bölümü */
+        .glutenfree-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .glutenfree-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .glutenfree-content {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .glutenfree-img {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        @media (min-width: 768px) {
+            .glutenfree-img {
+                flex: 1;
+            }
+        }
+
+        .glutenfree-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .glutenfree-text {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .glutenfree-text {
+                flex: 1;
+                padding-left: 40px;
+            }
+        }
+
+        .glutenfree-text h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
         /* Testimonials Section */
         .testimonials-grid {
             display: grid;
@@ -503,123 +758,6 @@
             border-radius: 8px;
             margin-top: 15px;
             font-size: 0.95rem;
-        }
-
-        /* Blog Section */
-        .blog-section {
-            background-color: var(--light-gray);
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .blog-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .blog-img {
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .blog-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .blog-card:hover .blog-img img {
-            transform: scale(1.05);
-        }
-
-        .blog-content {
-            padding: 20px;
-        }
-
-        .blog-date {
-            display: flex;
-            align-items: center;
-            color: var(--gray);
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .blog-date i {
-            margin-right: 5px;
-            color: var(--primary);
-        }
-
-        .blog-content h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-
-        .blog-excerpt {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            color: var(--gray);
-        }
-
-        .read-more {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .read-more i {
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .read-more:hover i {
-            transform: translateX(5px);
-        }
-
-        /* Instagram Section */
-        .instagram {
-            background-color: var(--light-gray);
-        }
-
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .insta-item {
-            border-radius: 10px;
-            overflow: hidden;
-            height: 150px;
-            position: relative;
-            background-color: #ddd;
-        }
-
-        .insta-item:after {
-            content: '\f16d';
-            font-family: 'Font Awesome 6 Brands';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-size: 1rem;
-            opacity: 0.8;
         }
 
         /* Youtube Section */
@@ -888,11 +1026,6 @@
                 gap: 30px;
             }
             
-            .instagram-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 15px;
-            }
-            
             .youtube-videos {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
@@ -951,10 +1084,6 @@
             
             .blog-grid {
                 grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .instagram-grid {
-                grid-template-columns: repeat(5, 1fr);
             }
             
             .youtube-videos {
@@ -1019,9 +1148,6 @@
             <!-- Logo Container -->
             <div class="logo-container">
                 <div class="logo-img">
-                    <!-- LOGO RESMİNİ BURAYA EKLEYİN -->
-                    <!-- Örnek: <img src="LOGO_URL_NIZ" alt="Diyetisyen Tuğba Şeker Ağaç Logo"> -->
-                    <!-- Logo yoksa placeholder kullan -->
                     <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
                         <i class="fas fa-apple-alt"></i>
                     </div>
@@ -1117,6 +1243,40 @@
         </div>
     </section>
 
+    <!-- Sağlıklı Beslenme Bölümü -->
+    <section class="healthy-eating-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sağlıklı Beslenme Nedir?</h2>
+            </div>
+            
+            <div class="healthy-eating-content">
+                <div class="healthy-eating-img">
+                    <img src="https://www.tugbasekeragac.com/images/saglikli-beslenme-diyetisyen.webp.png" alt="Sağlıklı Beslenme ve Diyetisyen" loading="lazy">
+                </div>
+                
+                <div class="healthy-eating-text">
+                    <h3>Sağlıklı Beslenmenin Temel Prensipleri</h3>
+                    <p>Sağlıklı beslenme, vücudun ihtiyaç duyduğu tüm besin öğelerini yeterli ve dengeli şekilde almak demektir. Bu sadece kilo kontrolü için değil, genel sağlık durumunun iyileştirilmesi için de gereklidir.</p>
+                    
+                    <p>Doğru beslenme ile şu hastalıkların riskini azaltabilirsiniz:</p>
+                    
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Kalp-damar hastalıkları</li>
+                        <li>Tip 2 diyabet</li>
+                        <li>Hipertansiyon</li>
+                        <li>Obezite</li>
+                        <li>Bazı kanser türleri</li>
+                    </ul>
+                    
+                    <p>Sağlıklı beslenme konusunda kişiye özel danışmanlık almak, sürdürülebilir bir yaşam tarzı değişikliği için en etkili yoldur.</p>
+                    
+                    <a href="/blog/saglikli-beslenme-nedir/" class="btn" style="margin-top: 20px;">Detaylı Bilgi Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
@@ -1158,6 +1318,75 @@
             
             <div style="text-align: center; margin-top: 30px;">
                 <a href="/hizmetlerimiz/" class="btn">Tüm Hizmetlerim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metabolizma Hızı Bölümü -->
+    <section class="metabolism-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Metabolizma Hızı ve Kilo Kontrolü</h2>
+            </div>
+            
+            <div class="metabolism-content">
+                <div class="metabolism-img">
+                    <img src="https://www.tugbasekeragac.com/images/metabolizma-hizi-diyet.webp.png" alt="Metabolizma Hızı ve Diyet" loading="lazy">
+                </div>
+                
+                <div class="metabolism-text">
+                    <h3>Metabolizma Hızını Doğal Yollarla Artırma</h3>
+                    <p>Metabolizma hızı, vücudun dinlenme durumunda bile kalori yakma kapasitesini belirler. Yavaş bir metabolizma kilo alımına, hızlı bir metabolizma ise daha kolay kilo vermeye yardımcı olur.</p>
+                    
+                    <p>Metabolizma hızını etkileyen faktörler:</p>
+                    
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Yaş (metabolizma yaşla birlikte yavaşlar)</li>
+                        <li>Cinsiyet (erkeklerde genellikle daha hızlıdır)</li>
+                        <li>Kas kütlesi (kaslar yağdan daha fazla enerji harcar)</li>
+                        <li>Genetik faktörler</li>
+                        <li>Hormonal durum</li>
+                    </ul>
+                    
+                    <p>Metabolizma hızını doğal yollarla artırmak için düzenli egzersiz, yeterli protein alımı ve dengeli beslenme önemlidir.</p>
+                    
+                    <a href="/blog/metabolizma-hizi-artirma/" class="btn" style="margin-top: 20px;">Metabolizma Hakkında Bilgi Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glutensiz Beslenme Bölümü -->
+    <section class="glutenfree-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Çölyak Hastalığı ve Glutensiz Beslenme</h2>
+            </div>
+            
+            <div class="glutenfree-content">
+                <div class="glutenfree-img">
+                    <img src="https://www.tugbasekeragac.com/images/glutensiz-beslenme-colyak.webp.jfif" alt="Glutensiz Beslenme ve Çölyak Hastalığı" loading="lazy">
+                </div>
+                
+                <div class="glutenfree-text">
+                    <h3>Glutensiz Yaşam: Çölyak ve Gluten Hassasiyeti</h3>
+                    <p>Çölyak hastalığı, gluten proteinine karşı gelişen otoimmün bir hastalıktır. Gluten içeren gıdaların tüketilmesi, bağırsaklarda hasara ve besin emilim bozukluğuna neden olur.</p>
+                    
+                    <p>Çölyak hastalığının belirtileri:</p>
+                    
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Karın ağrısı ve şişkinlik</li>
+                        <li>İshal veya kabızlık</li>
+                        <li>Kilo kaybı</li>
+                        <li>Yorgunluk ve halsizlik</li>
+                        <li>Demir eksikliği anemisi</li>
+                        <li>Deri döküntüleri (dermatitis herpetiformis)</li>
+                    </ul>
+                    
+                    <p>Glutensiz beslenme, çölyak hastaları için tek tedavi yöntemidir. Bu diyet, buğday, arpa, çavdar ve yulaftan kaçınmayı gerektirir.</p>
+                    
+                    <a href="/blog/gluten-hassasiyeti-colyak/" class="btn" style="margin-top: 20px;">Glutensiz Beslenme Rehberi</a>
+                </div>
             </div>
         </div>
     </section>

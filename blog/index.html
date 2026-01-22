@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diyetisyen Tuğba Şeker Ağaç | Sağlıklı Beslenme Blogu</title>
+    <meta name="description" content="Diyetisyen Tuğba Şeker Ağaç'tan sağlıklı beslenme, kilo yönetimi, beslenme psikolojisi ve fonksiyonel tıp hakkında güncel bilgiler ve makaleler.">
+    <meta name="keywords" content="diyetisyen blog, sağlıklı beslenme, kilo verme, beslenme psikolojisi, fonksiyonel tıp, diyet önerileri, beslenme bilimi, metabolizma">
+    <meta name="author" content="Dyt. Tuğba Şeker Ağaç">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Diyetisyen Tuğba Şeker Ağaç | Sağlıklı Beslenme Blogu">
+    <meta property="og:description" content="Beslenme ve diyetetik alanında uzman görüşler, bilimsel makaleler ve pratik öneriler.">
+    <meta property="og:image" content="https://www.tugbasekeragac.com/images/blog-cover.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diyetisyen Tuğba Şeker Ağaç | Sağlıklı Beslenme Blogu">
+    <meta name="twitter:description" content="Beslenme ve diyetetik alanında uzman görüşler, bilimsel makaleler ve pratik öneriler.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 10px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        nav ul li a.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -5px;
+            left: 0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .whatsapp-btn, .call-btn, .instagram-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Blog Hero */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 140px 0 60px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .blog-hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Blog Layout */
+        .blog-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        @media (min-width: 992px) {
+            .blog-container {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* Featured Article */
+        .featured-article {
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 40px;
+        }
+
+        .featured-img {
+            width: 100%;
+            height: 400px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .featured-article:hover .featured-img img {
+            transform: scale(1.03);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .article-meta i {
+            color: var(--primary);
+        }
+
+        .read-time {
+            background-color: var(--light-gray);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (min-width: 768px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .article-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .article-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .article-card:hover .article-img img {
+            transform: scale(1.05);
+        }
+
+        .article-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .article-category.kilo-yonetimi {
+            background-color: #4CAF50;
+        }
+
+        .article-category.beslenme-psikolojisi {
+            background-color: #2196F3;
+        }
+
+        .article-category.fonksiyonel-tip {
+            background-color: #9C27B0;
+        }
+
+        .article-category.spor-beslenmesi {
+            background-color: #FF9800;
+        }
+
+        .article-category.hastaliklarda-beslenme {
+            background-color: #F44336;
+        }
+
+        .article-category.anne-cocuk-beslenmesi {
+            background-color: #00BCD4;
+        }
+
+        .article-excerpt {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: gap 0.3s;
+            align-self: flex-start;
+        }
+
+        .read-more-btn:hover {
+            gap: 12px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .pagination a:hover,
+        .pagination a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+            position: relative;
+        }
+
+        .sidebar-section h3:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -2px;
+            left: 0;
+        }
+
+        /* Search */
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Categories */
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .categories-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+
+        .category-count {
+            background-color: var(--light-gray);
+            color: var(--gray);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Popular Posts */
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .popular-post:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .popular-post-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .popular-post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .popular-post-content h4 {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .popular-post-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Newsletter */
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column p, .footer-column ul li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-links i {
+            font-size: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-text .tagline {
+                display: none;
+            }
+            
+            .logo-img {
+                height: 45px;
+            }
+            
+            .blog-hero {
+                padding: 120px 0 40px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 25px;
+            }
+            
+            .sidebar {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-img {
+                height: 250px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn" title="Ara">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-img">
+                    <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+                    <div class="tagline">Sağlıklı Beslenme, Mutlu Yaşam</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul id="mainMenu">
+                    <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/">Hakkımda</a></li>
+                    <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                    <li><a href="/tarifler/">Tarifler</a></li>
+                    <li><a href="/yorumlar/">Yorumlar</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                <li><a href="/hakkimizda/">Hakkımda</a></li>
+                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
+                <li><a href="/blog/" class="active">Blog</a></li>
+                <li><a href="/tarifler/">Tarifler</a></li>
+                <li><a href="/yorumlar/">Yorumlar</a></li>
+                <li><a href="/iletisim/">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Sağlıklı Beslenme Blogu</h1>
+            <p>Beslenme ve diyetetik alanında en güncel bilgiler, bilimsel araştırmalar ve uzman görüşleri</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <main class="container blog-container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Featured Article -->
+            <article class="featured-article">
+                <div class="featured-img">
+                    <img src="https://www.tugbasekeragac.com/images/featured-blog.jpg" alt="Sağlıklı Beslenmenin Bilimi" loading="lazy">
+                </div>
+                <div class="article-meta">
+                    <span><i class="far fa-calendar"></i> 20 Mart 2024</span>
+                    <span><i class="far fa-user"></i> Dyt. Tuğba Şeker Ağaç</span>
+                    <span class="read-time">10 dk okuma</span>
+                </div>
+                <span class="article-category kilo-yonetimi">Kilo Yönetimi</span>
+                <h2>Metabolizma Hızını Doğal Yollarla Artırmanın 10 Bilimsel Yöntemi</h2>
+                <p class="article-excerpt">Metabolizma hızı, vücudun dinlenme durumunda bile kalori yakma kapasitesini belirler. Yavaş bir metabolizma kilo alımına, hızlı bir metabolizma ise daha kolay kilo vermeye yardımcı olur. Bu yazıda, bilimsel araştırmalarla desteklenen metabolizma hızını doğal yollarla artırmanın 10 etkili yöntemini bulacaksınız.</p>
+                <a href="/blog/metabolizma-hizi-artirma/" class="read-more-btn">
+                    Devamını Oku <i class="fas fa-arrow-right"></i>
+                </a>
+            </article>
+
+            <!-- Article Grid -->
+            <div class="article-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog1.jpg" alt="Gut Sağlığı ve Mikrobiyota" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category fonksiyonel-tip">Fonksiyonel Tıp</span>
+                        <h3>Bağırsak Sağlığı ve Mikrobiyota: İkinci Beynimiz</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 18 Mart 2024</span>
+                            <span class="read-time">8 dk</span>
+                        </div>
+                        <p class="article-excerpt">Bağırsak mikrobiyotasının genel sağlık üzerindeki etkileri, probiyotikler ve prebiyotiklerin önemi, leaky gut sendromu ve beslenme ile ilişkisi.</p>
+                        <a href="/blog/bagirsak-sagligi/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog2.jpg" alt="Duygusal Yeme" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category beslenme-psikolojisi">Beslenme Psikolojisi</span>
+                        <h3>Duygusal Yeme ve Stres İlişkisi: Nasıl Kontrol Edilir?</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 15 Mart 2024</span>
+                            <span class="read-time">12 dk</span>
+                        </div>
+                        <p class="article-excerpt">Duygusal yeme davranışının psikolojik temelleri, stresle başa çıkma stratejileri ve sağlıklı alternatifler. Bilişsel davranışçı yaklaşımlar.</p>
+                        <a href="/blog/duygusal-yeme/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog3.jpg" alt="İnflamasyon" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category hastaliklarda-beslenme">Hastalıklarda Beslenme</span>
+                        <h3>Kronik İnflamasyon: Sessiz Katil ve Beslenme ile İlişkisi</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 12 Mart 2024</span>
+                            <span class="read-time">15 dk</span>
+                        </div>
+                        <p class="article-excerpt">Kronik inflamasyonun hastalıklarla ilişkisi, anti-inflamatuar beslenme prensipleri, omega-3 yağ asitlerinin önemi ve besin takviyeleri.</p>
+                        <a href="/blog/inflamasyon/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog4.jpg" alt="Sporda Beslenme" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category spor-beslenmesi">Spor Beslenmesi</span>
+                        <h3>Sporcu Beslenmesi: Performansı Maksimize Eden Yaklaşımlar</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 10 Mart 2024</span>
+                            <span class="read-time">14 dk</span>
+                        </div>
+                        <p class="article-excerpt">Antrenman öncesi ve sonrası beslenme, karbonhidrat yükleme, protein timing, hidrasyon stratejileri ve supplement kullanımı.</p>
+                        <a href="/blog/sporcu-beslenmesi/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog5.jpg" alt="Gebelikte Beslenme" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category anne-cocuk-beslenmesi">Anne-Çocuk Beslenmesi</span>
+                        <h3>Gebelik ve Emzirme Döneminde Optimal Beslenme Rehberi</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 8 Mart 2024</span>
+                            <span class="read-time">18 dk</span>
+                        </div>
+                        <p class="article-excerpt">Gebelikte artan besin ihtiyaçları, folik asit ve DHA'nın önemi, emziren anneler için beslenme önerileri ve lohusa diyeti.</p>
+                        <a href="/blog/gebelik-beslenmesi/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card">
+                    <div class="article-img">
+                        <img src="https://www.tugbasekeragac.com/images/blog6.jpg" alt="Bitkisel Beslenme" loading="lazy">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-category kilo-yonetimi">Kilo Yönetimi</span>
+                        <h3>Bitkisel Bazlı (Plant-Based) Beslenme: Bilimsel Gerçekler</h3>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 5 Mart 2024</span>
+                            <span class="read-time">11 dk</span>
+                        </div>
+                        <p class="article-excerpt">Vejetaryen ve vegan beslenmenin sağlık üzerine etkileri, eksik besin öğeleri, protein kaynakları ve dengeli bitkisel beslenme planı.</p>
+                        <a href="/blog/bitkisel-beslenme/" class="read-more-btn">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Search Box -->
+            <div class="sidebar-section">
+                <h3>Blogda Ara</h3>
+                <div class="search-box">
+                    <input type="text" placeholder="Makale ara...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-section">
+                <h3>Kategoriler</h3>
+                <ul class="categories-list">
+                    <li>
+                        <a href="/blog/kategori/kilo-yonetimi/">
+                            Kilo Yönetimi
+                            <span class="category-count">24</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/kategori/beslenme-psikolojisi/">
+                            Beslenme Psikolojisi
+                            <span class="category-count">18</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/kategori/fonksiyonel-tip/">
+                            Fonksiyonel Tıp
+                            <span class="category-count">22</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/kategori/spor-beslenmesi/">
+                            Spor Beslenmesi
+                            <span class="category-count">15</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/kategori/hastaliklarda-beslenme/">
+                            Hastalıklarda Beslenme
+                            <span class="category-count">28</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/kategori/anne-cocuk-beslenmesi/">
+                            Anne-Çocuk Beslenmesi
+                            <span class="category-count">12</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Popular Posts -->
+            <div class="sidebar-section">
+                <h3>Popüler Yazılar</h3>
+                <div class="popular-post">
+                    <div class="popular-post-img">
+                        <img src="https://www.tugbasekeragac.com/images/popular1.jpg" alt="Intermittent Fasting" loading="lazy">
+                    </div>
+                    <div class="popular-post-content">
+                        <h4>Aralıklı Oruç (Intermittent Fasting) Gerçekleri</h4>
+                        <div class="popular-post-date">28 Şubat 2024</div>
+                    </div>
+                </div>
+                <div class="popular-post">
+                    <div class="popular-post-img">
+                        <img src="https://www.tugbasekeragac.com/images/popular2.jpg" alt="Insulin Direnci" loading="lazy">
+                    </div>
+                    <div class="popular-post-content">
+                        <h4>İnsülin Direnci: Beslenme ile Tedavi Edilebilir mi?</h4>
+                        <div class="popular-post-date">25 Şubat 2024</div>
+                    </div>
+                </div>
+                <div class="popular-post">
+                    <div class="popular-post-img">
+                        <img src="https://www.tugbasekeragac.com/images/popular3.jpg" alt="Gıda İntoleransı" loading="lazy">
+                    </div>
+                    <div class="popular-post-content">
+                        <h4>Gıda İntolerans Testleri: Bilimsel Yaklaşım</h4>
+                        <div class="popular-post-date">22 Şubat 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="sidebar-section">
+                <h3>Bültenimize Abone Olun</h3>
+                <p>Yeni blog yazılarından ve beslenme ipuçlarından haberdar olun.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="E-posta adresiniz" required>
+                    <button type="submit" class="newsletter-btn">Abone Ol</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Dyt. Tuğba Şeker Ağaç</h3>
+                    <p>Sağlıklı beslenme, kaliteli yaşam felsefesiyle danışanlarına özel beslenme programları hazırlayan uzman diyetisyen.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.tugbasekeragac.com/"><i class="fas fa-chevron-right"></i> Ana Sayfa</a></li>
+                        <li><a href="/hakkimizda/"><i class="fas fa-chevron-right"></i> Hakkımda</a></li>
+                        <li><a href="/hizmetlerimiz/"><i class="fas fa-chevron-right"></i> Hizmetler</a></li>
+                        <li><a href="/blog/"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="/tarifler/"><i class="fas fa-chevron-right"></i> Tarifler</a></li>
+                        <li><a href="/iletisim/"><i class="fas fa-chevron-right"></i> İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim Bilgileri</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> dyt.tugbasekeragac@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Seyhan/Adana</p>
+                    <p><i class="far fa-clock" style="margin-right: 10px;"></i> Pazartesi-Cumartesi: 09:00-18:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Bu sitedeki içerikler bilgilendirme amaçlıdır. Tanı ve tedavi için lütfen doktorunuza başvurun.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-box button');
+            
+            searchButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    alert(`"${searchTerm}" için arama yapılıyor...\n\nBu özellik tam işlevsel bir blogda backend entegrasyonu gerektirir.`);
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    searchButton.click();
+                }
+            });
+            
+            // Newsletter subscription
+            const newsletterForm = document.querySelector('.newsletter-form');
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[type="email"]');
+                const email = emailInput.value.trim();
+                
+                if (email) {
+                    alert(`Teşekkürler! ${email} adresine bülten aboneliğiniz kaydedildi.`);
+                    emailInput.value = '';
+                }
+            });
+            
+            // Article card hover effects
+            const articleCards = document.querySelectorAll('.article-card');
+            articleCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('.article-img img');
+                    img.style.transform = 'scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const img = this.querySelector('.article-img img');
+                    img.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

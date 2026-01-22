@@ -417,11 +417,6 @@
             margin-top: 30px;
         }
 
-        .success-story h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
         .success-metrics {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -508,6 +503,93 @@
             border-radius: 8px;
             margin-top: 15px;
             font-size: 0.95rem;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            background-color: var(--light-gray);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-date i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .blog-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .read-more {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
         }
 
         /* Instagram Section */
@@ -801,6 +883,11 @@
                 gap: 30px;
             }
             
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
             .instagram-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 15px;
@@ -859,6 +946,10 @@
             }
             
             .recipes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .blog-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
             
@@ -945,26 +1036,28 @@
                 <i class="fas fa-bars"></i>
             </button>
             
-           <nav id="desktopNav">
+            <nav id="desktopNav">
                 <ul id="mainMenu">
-                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
-                <li><a href="/hakkimizda/">Hakkımda</a></li>
-                <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
-                <li><a href="/tarifler/">Tarifler</a></li>
-                <li><a href="/iletisim/">İletişim</a></li>
+                    <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/">Hakkımda</a></li>
+                    <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/tarifler/">Tarifler</a></li>
+                    <li><a href="/yorumlar/">Yorumlar</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
                 </ul>
             </nav>
         </div>
         
         <!-- Mobile Navigation -->
         <div class="mobile-nav" id="mobileNav">
-           <ul>
-                <li><a href="https://www.tugbasekeragac.com//">Ana Sayfa</a></li>
+            <ul>
+                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
                 <li><a href="/hakkimizda/">Hakkımda</a></li>
                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
-                <li><a href="/yorumlar/">Yorumlar</a></li>
+                <li><a href="/blog/">Blog</a></li>
                 <li><a href="/tarifler/">Tarifler</a></li>
+                <li><a href="/yorumlar/">Yorumlar</a></li>
                 <li><a href="/iletisim/">İletişim</a></li>
             </ul>
         </div>
@@ -1069,6 +1162,69 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Blog</h2>
+            </div>
+            
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://www.tugbasekeragac.com/images/saglikli-beslenme-blog.jpg" alt="Sağlıklı Beslenme" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i> 15 Mart 2024
+                        </div>
+                        <h3>Sağlıklı Beslenme Nedir?</h3>
+                        <p class="blog-excerpt">Sağlıklı beslenme, vücudun ihtiyaç duyduğu tüm besin öğelerini yeterli ve dengeli şekilde almak demektir. Peki sağlıklı beslenme nasıl olmalı?</p>
+                        <a href="/blog/saglikli-beslenme-nedir/" class="read-more">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://www.tugbasekeragac.com/images/metabolizma-hizi-blog.jpg" alt="Metabolizma Hızı" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i> 10 Mart 2024
+                        </div>
+                        <h3>Metabolizma Hızını Artırmanın 10 Yolu</h3>
+                        <p class="blog-excerpt">Metabolizma hızınızı artırarak daha kolay kilo verebilir ve enerjinizi yükseltebilirsiniz. İşte metabolizma hızını artırmanın 10 etkili yolu...</p>
+                        <a href="/blog/metabolizma-hizini-artirma/" class="read-more">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://www.tugbasekeragac.com/images/gluten-hassasiyeti-blog.jpg" alt="Gluten Hassasiyeti" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar"></i> 5 Mart 2024
+                        </div>
+                        <h3>Gluten Hassasiyeti ve Çölyak Hastalığı</h3>
+                        <p class="blog-excerpt">Gluten hassasiyeti nedir? Çölyak hastalığından farkı ne? Glutensiz beslenme nasıl olmalı? Tüm bu soruların cevapları yazımızda...</p>
+                        <a href="/blog/gluten-hassasiyeti-colyak/" class="read-more">
+                            Devamını Oku <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="/blog/" class="btn">Tüm Blog Yazıları</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials">
         <div class="container">
@@ -1119,7 +1275,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="yorumlar.html" class="btn">Tüm Yorumları Gör</a>
+                <a href="/yorumlar/" class="btn">Tüm Yorumları Gör</a>
             </div>
         </div>
     </section>
@@ -1172,11 +1328,12 @@
                 <div class="footer-column">
                     <h3>Hızlı Bağlantılar</h3>
                     <ul style="list-style: none;">
-                        <li style="margin-bottom: 10px;"><a href="index.html" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
-                        <li style="margin-bottom: 10px;"><a href="hakkimizda.html" style="color: white; text-decoration: none;">Hakkımda</a></li>
-                        <li style="margin-bottom: 10px;"><a href="hizmetlerimiz.html" style="color: white; text-decoration: none;">Hizmetler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="tarifler.html" style="color: white; text-decoration: none;">Tarifler</a></li>
-                        <li style="margin-bottom: 10px;"><a href="iletisim.html" style="color: white; text-decoration: none;">İletişim</a></li>
+                        <li style="margin-bottom: 10px;"><a href="https://www.tugbasekeragac.com/" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/hakkimizda/" style="color: white; text-decoration: none;">Hakkımda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/hizmetlerimiz/" style="color: white; text-decoration: none;">Hizmetler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/blog/" style="color: white; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/tarifler/" style="color: white; text-decoration: none;">Tarifler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/iletisim/" style="color: white; text-decoration: none;">İletişim</a></li>
                     </ul>
                 </div>
                 
@@ -1264,4 +1421,3 @@
     </script>
 </body>
 </html>
-

@@ -180,6 +180,7 @@
             border-radius: 50%;
         }
 
+        /* Logo video text (hoverda görünen) */
         .logo-video-text {
             background-color: white;
             padding: 12px 20px;
@@ -213,8 +214,8 @@
             border-color: transparent white transparent transparent;
         }
 
-        /* Logo Video Popup Overlay */
-        .logo-video-popup {
+        /* Video açıkken etrafında dönen butonlar */
+        .logo-video-popup-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -227,105 +228,204 @@
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
         }
 
-        .logo-video-popup.active {
+        .logo-video-popup-overlay.active {
             opacity: 1;
             visibility: visible;
         }
 
-        .logo-video-popup-content {
-            background-color: white;
-            border-radius: 15px;
-            padding: 25px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
+        .video-popup-center {
             position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .logo-video-popup.active .logo-video-popup-content {
-            transform: scale(1);
+        .video-popup-center video {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 5px solid var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            position: relative;
         }
 
-        .logo-video-popup-close {
+        .popup-close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--gray);
+            font-size: 1.8rem;
+            color: white;
             cursor: pointer;
-            transition: color 0.3s;
+            z-index: 2001;
+            transition: transform 0.3s;
         }
 
-        .logo-video-popup-close:hover {
-            color: var(--primary);
+        .popup-close-btn:hover {
+            transform: scale(1.1);
         }
 
-        .logo-video-popup-title {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+        /* Dönen butonlar */
+        .popup-action-buttons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateButtons 20s linear infinite;
         }
 
-        .logo-video-popup-buttons {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 25px;
+        @keyframes rotateButtons {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
-        .logo-video-popup-btn {
+        .popup-action-btn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 15px 10px;
-            border-radius: 10px;
-            background-color: var(--light-gray);
+            color: white;
             text-decoration: none;
-            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s;
+            transform-origin: center;
+            z-index: 1;
+            font-size: 1.3rem;
         }
 
-        .logo-video-popup-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .logo-video-popup-btn.whatsapp {
+        .popup-action-btn.whatsapp {
             background-color: #25D366;
-            color: white;
+            top: -30px;
+            left: calc(50% - 30px);
         }
 
-        .logo-video-popup-btn.call {
+        .popup-action-btn.call {
             background-color: var(--primary);
-            color: white;
+            top: calc(50% - 30px);
+            right: -30px;
         }
 
-        .logo-video-popup-btn.instagram {
+        .popup-action-btn.instagram {
             background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-            color: white;
+            bottom: -30px;
+            left: calc(50% - 30px);
         }
 
-        .logo-video-popup-btn.location {
+        .popup-action-btn.location {
             background-color: var(--secondary);
-            color: white;
+            top: calc(50% - 30px);
+            left: -30px;
         }
 
-        .logo-video-popup-btn i {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
+        .popup-action-btn:hover {
+            transform: scale(1.1);
+            z-index: 3;
         }
 
-        .logo-video-popup-btn span {
-            font-size: 0.85rem;
+        /* Buton etiketleri */
+        .popup-action-btn span {
+            position: absolute;
+            background-color: white;
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            pointer-events: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-action-btn.whatsapp span {
+            top: 100%;
+            margin-top: 10px;
+        }
+
+        .popup-action-btn.call span {
+            right: 100%;
+            margin-right: 10px;
+            top: 50%;
+            transform: translateY(-50%) translateX(10px);
+        }
+
+        .popup-action-btn.instagram span {
+            bottom: 100%;
+            margin-bottom: 10px;
+        }
+
+        .popup-action-btn.location span {
+            left: 100%;
+            margin-left: 10px;
+            top: 50%;
+            transform: translateY(-50%) translateX(-10px);
+        }
+
+        .popup-action-btn:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .popup-action-btn.call:hover span {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .popup-action-btn.location:hover span {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Mobilde her zaman görünen yazı */
+        .logo-video-text-mobile {
+            display: none;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            max-width: 200px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.85rem;
+            line-height: 1.3;
+            position: relative;
+            margin-right: 10px;
+            animation: pulseText 3s infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .logo-video-text-mobile:after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent white;
         }
 
         /* Hero Section with Video */
@@ -1335,6 +1435,7 @@
             .logo-video-btn-container {
                 left: 15px;
                 bottom: 15px;
+                flex-direction: row-reverse;
             }
             
             .logo-video-btn {
@@ -1342,8 +1443,62 @@
                 height: 70px;
             }
             
+            /* Mobilde her zaman görünen yazı */
+            .logo-video-text-mobile {
+                display: block;
+            }
+            
+            /* Desktop yazısını mobilde gizle */
             .logo-video-text {
                 display: none;
+            }
+            
+            /* Video popup mobil için düzenlemeler */
+            .video-popup-center {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .video-popup-center video {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .popup-action-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+            
+            .popup-action-btn.whatsapp {
+                top: -25px;
+                left: calc(50% - 25px);
+            }
+            
+            .popup-action-btn.call {
+                top: calc(50% - 25px);
+                right: -25px;
+            }
+            
+            .popup-action-btn.instagram {
+                bottom: -25px;
+                left: calc(50% - 25px);
+            }
+            
+            .popup-action-btn.location {
+                top: calc(50% - 25px);
+                left: -25px;
+            }
+        }
+        
+        /* Desktop yazı stilleri */
+        @media (min-width: 992px) {
+            .logo-video-text-mobile {
+                display: none;
+            }
+            
+            .logo-video-text {
+                display: block;
             }
         }
         
@@ -1359,47 +1514,80 @@
                 left: 10px;
                 bottom: 10px;
             }
+            
+            .logo-video-text-mobile {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                max-width: 160px;
+            }
+            
+            .video-popup-center {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .video-popup-center video {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .popup-action-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .popup-action-btn span {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Logo Video Butonu -->
+    <!-- Logo Video Butonu ve Mobil Yazı -->
     <div class="logo-video-btn-container" id="logoVideoBtnContainer">
+        <div class="logo-video-text-mobile" id="logoVideoTextMobile">
+            Benimle diyete başlamaya ne dersin? 🥗
+        </div>
+        <div class="logo-video-text" id="logoVideoText">
+            Benimle diyete başlamaya ne dersin? 🥗<br>
+            Haydi, sağlıklı bir başlangıç yapalım!
+        </div>
         <div class="logo-video-btn" id="logoVideoBtn">
             <video autoplay muted loop playsinline>
                 <source src="https://www.tugbasekeragac.com/images/dyt-seker-agac-tugba.webp.mp4" type="video/mp4">
                 Tarayıcınız video etiketini desteklemiyor.
             </video>
         </div>
-        <div class="logo-video-text" id="logoVideoText">
-            Benimle diyete başlamaya ne dersin? 🥗<br>
-            Haydi, sağlıklı bir başlangıç yapalım!
-        </div>
     </div>
 
-    <!-- Logo Video Popup -->
-    <div class="logo-video-popup" id="logoVideoPopup">
-        <div class="logo-video-popup-content">
-            <button class="logo-video-popup-close" id="logoVideoPopupClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 class="logo-video-popup-title">Benimle iletişime geçin!</h3>
-            <p>Hemen iletişim kurarak sağlıklı beslenme yolculuğunuza başlayın.</p>
+    <!-- Video Popup Overlay (Dönen Butonlar ile) -->
+    <div class="logo-video-popup-overlay" id="logoVideoPopupOverlay">
+        <button class="popup-close-btn" id="popupCloseBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="video-popup-center">
+            <video id="popupVideo" autoplay muted loop playsinline>
+                <source src="https://www.tugbasekeragac.com/images/dyt-seker-agac-tugba.webp.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
             
-            <div class="logo-video-popup-buttons">
-                <a href="https://wa.me/905070361859" class="logo-video-popup-btn whatsapp" target="_blank">
+            <div class="popup-action-buttons">
+                <a href="https://wa.me/905070361859" class="popup-action-btn whatsapp" target="_blank" title="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                     <span>WhatsApp</span>
                 </a>
-                <a href="tel:05070361859" class="logo-video-popup-btn call">
+                <a href="tel:05070361859" class="popup-action-btn call" title="Ara">
                     <i class="fas fa-phone"></i>
                     <span>Ara</span>
                 </a>
-                <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="logo-video-popup-btn instagram" target="_blank">
+                <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="popup-action-btn instagram" target="_blank" title="Instagram">
                     <i class="fab fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
-                <a href="https://goo.gl/maps/example" class="logo-video-popup-btn location" target="_blank">
+                <a href="https://goo.gl/maps/9cMbzVaUQh3vTnvV6" class="popup-action-btn location" target="_blank" title="Konum">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Konum</span>
                 </a>
@@ -1530,7 +1718,7 @@
             
             <div class="healthy-eating-content">
                 <div class="healthy-eating-img">
-                    <img src="https://www.tugbasekeragac.com/images/saglikli-beslenme-diyetisyen.webp.png" alt="Sağlıklı Beslenme ve Diyetisyen" loading="lazy">
+                    <img src="https://www.tugbasekeragac.com/images/saglikli-diyet-beslenme.webp.png" alt="Sağlıklı Beslenme ve Diyetisyen" loading="lazy">
                 </div>
                 
                 <div class="healthy-eating-text">
@@ -1848,7 +2036,7 @@
                     <h3>İletişim Bilgileri</h3>
                     <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
                     <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> dyt.tugbasekeragac@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Seyhan/Adana</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kurtuluş Mah. Demokrasi Sokak, Atatürk Cad. Gülbahçesi Sitesi C Blok Kat 2 No 214, 01010 Seyhan/Adana</p>
                 </div>
             </div>
             
@@ -1868,9 +2056,11 @@
             // Logo Video Button Elements
             const logoVideoBtn = document.getElementById('logoVideoBtn');
             const logoVideoBtnContainer = document.getElementById('logoVideoBtnContainer');
-            const logoVideoPopup = document.getElementById('logoVideoPopup');
-            const logoVideoPopupClose = document.getElementById('logoVideoPopupClose');
-            const logoVideoText = document.getElementById('logoVideoText');
+            const logoVideoPopupOverlay = document.getElementById('logoVideoPopupOverlay');
+            const popupCloseBtn = document.getElementById('popupCloseBtn');
+            const logoVideoTextMobile = document.getElementById('logoVideoTextMobile');
+            const logoVideoTextDesktop = document.getElementById('logoVideoText');
+            const popupVideo = document.getElementById('popupVideo');
             
             // Array of funny/interesting messages for the logo button
             const messages = [
@@ -1887,39 +2077,63 @@
             // Change message every 5 seconds
             let messageIndex = 0;
             function changeMessage() {
-                if (logoVideoText) {
-                    logoVideoText.innerHTML = messages[messageIndex];
-                    messageIndex = (messageIndex + 1) % messages.length;
+                const newMessage = messages[messageIndex];
+                
+                if (logoVideoTextMobile) {
+                    logoVideoTextMobile.innerHTML = newMessage;
                 }
+                
+                if (logoVideoTextDesktop) {
+                    logoVideoTextDesktop.innerHTML = newMessage;
+                }
+                
+                messageIndex = (messageIndex + 1) % messages.length;
             }
             
             // Start changing messages
-            if (logoVideoText) {
+            if (logoVideoTextMobile || logoVideoTextDesktop) {
+                changeMessage(); // Initial message
                 setInterval(changeMessage, 5000);
             }
             
             // Open logo video popup
             if (logoVideoBtn) {
                 logoVideoBtn.addEventListener('click', function() {
-                    logoVideoPopup.classList.add('active');
+                    logoVideoPopupOverlay.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                    
+                    // Play video in popup
+                    if (popupVideo) {
+                        popupVideo.currentTime = 0;
+                        popupVideo.play();
+                    }
                 });
             }
             
             // Close logo video popup
-            if (logoVideoPopupClose) {
-                logoVideoPopupClose.addEventListener('click', function() {
-                    logoVideoPopup.classList.remove('active');
+            if (popupCloseBtn) {
+                popupCloseBtn.addEventListener('click', function() {
+                    logoVideoPopupOverlay.classList.remove('active');
                     document.body.style.overflow = 'auto';
+                    
+                    // Pause video when closing
+                    if (popupVideo) {
+                        popupVideo.pause();
+                    }
                 });
             }
             
             // Close popup when clicking outside
-            if (logoVideoPopup) {
-                logoVideoPopup.addEventListener('click', function(e) {
-                    if (e.target === logoVideoPopup) {
-                        logoVideoPopup.classList.remove('active');
+            if (logoVideoPopupOverlay) {
+                logoVideoPopupOverlay.addEventListener('click', function(e) {
+                    if (e.target === logoVideoPopupOverlay) {
+                        logoVideoPopupOverlay.classList.remove('active');
                         document.body.style.overflow = 'auto';
+                        
+                        // Pause video when closing
+                        if (popupVideo) {
+                            popupVideo.pause();
+                        }
                     }
                 });
             }

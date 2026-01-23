@@ -133,6 +133,201 @@
             cursor: pointer;
         }
 
+        /* Logo Video Button Styles */
+        .logo-video-btn-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo-video-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo-video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary);
+        }
+
+        .logo-video-btn video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        .logo-video-text {
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            max-width: 250px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .logo-video-btn-container:hover .logo-video-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .logo-video-text:after {
+            content: '';
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Logo Video Popup Overlay */
+        .logo-video-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .logo-video-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .logo-video-popup-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-video-popup.active .logo-video-popup-content {
+            transform: scale(1);
+        }
+
+        .logo-video-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .logo-video-popup-close:hover {
+            color: var(--primary);
+        }
+
+        .logo-video-popup-title {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .logo-video-popup-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .logo-video-popup-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 10px;
+            border-radius: 10px;
+            background-color: var(--light-gray);
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+
+        .logo-video-popup-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-video-popup-btn.whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .logo-video-popup-btn.call {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .logo-video-popup-btn.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .logo-video-popup-btn.location {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .logo-video-popup-btn i {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .logo-video-popup-btn span {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
         /* Hero Section with Video */
         .hero {
             position: relative;
@@ -1046,6 +1241,11 @@
             .success-metrics {
                 grid-template-columns: repeat(4, 1fr);
             }
+            
+            .logo-video-btn {
+                width: 90px;
+                height: 90px;
+            }
         }
 
         /* Desktop Styles */
@@ -1097,6 +1297,11 @@
             .mobile-nav {
                 display: none !important;
             }
+            
+            .logo-video-btn {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         /* Mobile Menu Button */
@@ -1125,10 +1330,83 @@
                 min-height: 500px;
                 height: auto;
             }
+            
+            /* Logo Video Button Mobile Styles */
+            .logo-video-btn-container {
+                left: 15px;
+                bottom: 15px;
+            }
+            
+            .logo-video-btn {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-video-text {
+                display: none;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .logo-video-btn {
+                width: 60px;
+                height: 60px;
+                border-width: 2px;
+            }
+            
+            .logo-video-btn-container {
+                left: 10px;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Logo Video Butonu -->
+    <div class="logo-video-btn-container" id="logoVideoBtnContainer">
+        <div class="logo-video-btn" id="logoVideoBtn">
+            <video autoplay muted loop playsinline>
+                <source src="https://www.tugbasekeragac.com/images/dyt-seker-agac-tugba.webp.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+        <div class="logo-video-text" id="logoVideoText">
+            Benimle diyete başlamaya ne dersin? 🥗<br>
+            Haydi, sağlıklı bir başlangıç yapalım!
+        </div>
+    </div>
+
+    <!-- Logo Video Popup -->
+    <div class="logo-video-popup" id="logoVideoPopup">
+        <div class="logo-video-popup-content">
+            <button class="logo-video-popup-close" id="logoVideoPopupClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="logo-video-popup-title">Benimle iletişime geçin!</h3>
+            <p>Hemen iletişim kurarak sağlıklı beslenme yolculuğunuza başlayın.</p>
+            
+            <div class="logo-video-popup-buttons">
+                <a href="https://wa.me/905070361859" class="logo-video-popup-btn whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:05070361859" class="logo-video-popup-btn call">
+                    <i class="fas fa-phone"></i>
+                    <span>Ara</span>
+                </a>
+                <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="logo-video-popup-btn instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://goo.gl/maps/example" class="logo-video-popup-btn location" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Konum</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Sabit WhatsApp, Arama ve Instagram Butonları -->
     <div class="fixed-buttons">
         <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
@@ -1580,12 +1858,71 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- JavaScript for Mobile Menu and Logo Video Button -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Logo Video Button Elements
+            const logoVideoBtn = document.getElementById('logoVideoBtn');
+            const logoVideoBtnContainer = document.getElementById('logoVideoBtnContainer');
+            const logoVideoPopup = document.getElementById('logoVideoPopup');
+            const logoVideoPopupClose = document.getElementById('logoVideoPopupClose');
+            const logoVideoText = document.getElementById('logoVideoText');
+            
+            // Array of funny/interesting messages for the logo button
+            const messages = [
+                "Benimle diyete başlamaya ne dersin? 🥗",
+                "Haydi, sağlıklı bir başlangıç yapalım!",
+                "Diyet değil, sağlıklı yaşam tarzı! 🌿",
+                "Kilo vermek sandığın kadar zor değil! 💪",
+                "Sağlıklı beslen, mutlu yaşa! 😊",
+                "Diyet = Lezzetten ödün vermek DEĞİL! 🍎",
+                "Yaza formda girmek için son şans! ⏳",
+                "Diyetisyen desteği ile başarı garantili! ✅"
+            ];
+            
+            // Change message every 5 seconds
+            let messageIndex = 0;
+            function changeMessage() {
+                if (logoVideoText) {
+                    logoVideoText.innerHTML = messages[messageIndex];
+                    messageIndex = (messageIndex + 1) % messages.length;
+                }
+            }
+            
+            // Start changing messages
+            if (logoVideoText) {
+                setInterval(changeMessage, 5000);
+            }
+            
+            // Open logo video popup
+            if (logoVideoBtn) {
+                logoVideoBtn.addEventListener('click', function() {
+                    logoVideoPopup.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+            
+            // Close logo video popup
+            if (logoVideoPopupClose) {
+                logoVideoPopupClose.addEventListener('click', function() {
+                    logoVideoPopup.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+            
+            // Close popup when clicking outside
+            if (logoVideoPopup) {
+                logoVideoPopup.addEventListener('click', function(e) {
+                    if (e.target === logoVideoPopup) {
+                        logoVideoPopup.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
             
             // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', function() {
@@ -1646,11 +1983,24 @@
                     });
                 }
             }
+            
+            // Logo video fallback
+            const logoVideo = document.querySelector('#logoVideoBtn video');
+            if (logoVideo) {
+                logoVideo.muted = true;
+                logoVideo.setAttribute('playsinline', '');
+                logoVideo.setAttribute('webkit-playsinline', '');
+                logoVideo.setAttribute('muted', '');
+                
+                // Try to play the video
+                const logoPlayPromise = logoVideo.play();
+                if (logoPlayPromise !== undefined) {
+                    logoPlayPromise.catch(error => {
+                        console.log("Logo video autoplay failed:", error);
+                    });
+                }
+            }
         });
     </script>
 </body>
 </html>
-
-
-
-

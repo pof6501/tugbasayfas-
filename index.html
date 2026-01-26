@@ -1244,6 +1244,99 @@
             border-bottom: 1px solid var(--light-gray);
         }
 
+        /* Metabolizma Hızı Hesaplayıcı */
+        .metabolism-calculator {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .metabolism-calculator h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, .form-group select {
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+        }
+
+        .calculate-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .calculate-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            display: none;
+        }
+
+        .result-box.active {
+            display: block;
+        }
+
+        .result-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .result-box p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+        }
+
+        .result-note {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
         /* Tablet Styles */
         @media (min-width: 768px) {
             .logo-text h1 {
@@ -1345,6 +1438,10 @@
             .logo-video-btn {
                 width: 90px;
                 height: 90px;
+            }
+            
+            .calculator-form {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1737,7 +1834,7 @@
                     
                     <p>Sağlıklı beslenme konusunda kişiye özel danışmanlık almak, sürdürülebilir bir yaşam tarzı değişikliği için en etkili yoldur.</p>
                     
-                    <a href="/blog/saglikli-beslenme-nedir/" class="btn" style="margin-top: 20px;">Detaylı Bilgi Al</a>
+                    <a href="https://www.tugbasekeragac.com/blog/saglikli-beslenme.html" class="btn" style="margin-top: 20px;">Detaylı Bilgi Al</a>
                 </div>
             </div>
         </div>
@@ -1816,7 +1913,56 @@
                     
                     <p>Metabolizma hızını doğal yollarla artırmak için düzenli egzersiz, yeterli protein alımı ve dengeli beslenme önemlidir.</p>
                     
-                    <a href="/blog/metabolizma-hizi-artirma/" class="btn" style="margin-top: 20px;">Metabolizma Hakkında Bilgi Al</a>
+                    <a href="https://www.tugbasekeragac.com/blog/metabolizma-hizi-kilo-kontrolu.html" class="btn" style="margin-top: 20px;">Metabolizma Hakkında Bilgi Al</a>
+                </div>
+            </div>
+            
+            <!-- Metabolizma Hızı Hesaplayıcı -->
+            <div class="metabolism-calculator">
+                <h3>Metabolizma Hızı Hesaplayıcı</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="gender">Cinsiyet:</label>
+                        <select id="gender">
+                            <option value="male">Erkek</option>
+                            <option value="female">Kadın</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Yaş:</label>
+                        <input type="number" id="age" min="15" max="100" value="30">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="weight">Kilo (kg):</label>
+                        <input type="number" id="weight" min="30" max="200" value="70">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="height">Boy (cm):</label>
+                        <input type="number" id="height" min="120" max="250" value="170">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="activity">Aktivite Seviyesi:</label>
+                        <select id="activity">
+                            <option value="1.2">Hareketsiz (az veya hiç egzersiz)</option>
+                            <option value="1.375">Hafif aktif (hafif egzersiz/haftada 1-3 gün)</option>
+                            <option value="1.55">Orta aktif (orta egzersiz/haftada 3-5 gün)</option>
+                            <option value="1.725">Çok aktif (ağır egzersiz/haftada 6-7 gün)</option>
+                            <option value="1.9">Ekstra aktif (çok ağır egzersiz/fiziksel iş)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="calculate-btn" id="calculateBtn">Metabolizma Hızını Hesapla</button>
+                </div>
+                
+                <div class="result-box" id="resultBox">
+                    <h4>Metabolizma Hızı Sonucunuz:</h4>
+                    <p>Bazal Metabolizma Hızınız (BMR): <span class="result-value" id="bmrResult">0</span> kcal/gün</p>
+                    <p>Günlük Kalori İhtiyacınız: <span class="result-value" id="calorieResult">0</span> kcal/gün</p>
+                    <p class="result-note">* Bu değerler tahmini olup, kişiye özel beslenme programı için diyetisyeninize danışınız.</p>
                 </div>
             </div>
         </div>
@@ -1851,7 +1997,7 @@
                     
                     <p>Glutensiz beslenme, çölyak hastaları için tek tedavi yöntemidir. Bu diyet, buğday, arpa, çavdar ve yulaftan kaçınmayı gerektirir.</p>
                     
-                    <a href="/blog/gluten-hassasiyeti-colyak/" class="btn" style="margin-top: 20px;">Glutensiz Beslenme Rehberi</a>
+                    <a href="https://www.tugbasekeragac.com/blog/glutensiz-beslenme.html" class="btn" style="margin-top: 20px;">Glutensiz Beslenme Rehberi</a>
                 </div>
             </div>
         </div>
@@ -1875,7 +2021,7 @@
                         </div>
                         <h3>Sağlıklı Beslenme Nedir?</h3>
                         <p class="blog-excerpt">Sağlıklı beslenme, vücudun ihtiyaç duyduğu tüm besin öğelerini yeterli ve dengeli şekilde almak demektir. Peki sağlıklı beslenme nasıl olmalı?</p>
-                        <a href="/blog/saglikli-beslenme-nedir/" class="read-more">
+                        <a href="https://www.tugbasekeragac.com/blog/saglikli-beslenme.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1889,9 +2035,9 @@
                         <div class="blog-date">
                             <i class="far fa-calendar"></i> 10 Mart 2024
                         </div>
-                        <h3>Metabolizma Hızını Artırmanın 10 Yolu</h3>
-                        <p class="blog-excerpt">Metabolizma hızınızı artırarak daha kolay kilo verebilir ve enerjinizi yükseltebilirsiniz. İşte metabolizma hızını artırmanın 10 etkili yolu...</p>
-                        <a href="/blog/metabolizma-hizini-artirma/" class="read-more">
+                        <h3>Metabolizma Hızı ve Kilo Kontrolü</h3>
+                        <p class="blog-excerpt">Metabolizma hızınızı artırarak daha kolay kilo verebilir ve enerjinizi yükseltebilirsiniz. İşte metabolizma hızı hakkında bilmeniz gerekenler...</p>
+                        <a href="https://www.tugbasekeragac.com/blog/metabolizma-hizi-kilo-kontrolu.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1905,9 +2051,9 @@
                         <div class="blog-date">
                             <i class="far fa-calendar"></i> 5 Mart 2024
                         </div>
-                        <h3>Gluten Hassasiyeti ve Çölyak Hastalığı</h3>
+                        <h3>Glutensiz Beslenme Rehberi</h3>
                         <p class="blog-excerpt">Gluten hassasiyeti nedir? Çölyak hastalığından farkı ne? Glutensiz beslenme nasıl olmalı? Tüm bu soruların cevapları yazımızda...</p>
-                        <a href="/blog/gluten-hassasiyeti-colyak/" class="read-more">
+                        <a href="https://www.tugbasekeragac.com/blog/glutensiz-beslenme.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -2062,6 +2208,12 @@
             const logoVideoTextDesktop = document.getElementById('logoVideoText');
             const popupVideo = document.getElementById('popupVideo');
             
+            // Metabolizma Hızı Hesaplayıcı
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultBox = document.getElementById('resultBox');
+            const bmrResult = document.getElementById('bmrResult');
+            const calorieResult = document.getElementById('calorieResult');
+            
             // Array of funny/interesting messages for the logo button
             const messages = [
                 "Benimle diyete başlamaya ne dersin? 🥗",
@@ -2095,6 +2247,46 @@
                 changeMessage(); // Initial message
                 setInterval(changeMessage, 5000);
             }
+            
+            // Metabolizma Hızı Hesaplayıcı Fonksiyonu
+            function calculateMetabolism() {
+                const gender = document.getElementById('gender').value;
+                const age = parseInt(document.getElementById('age').value);
+                const weight = parseFloat(document.getElementById('weight').value);
+                const height = parseFloat(document.getElementById('height').value);
+                const activity = parseFloat(document.getElementById('activity').value);
+                
+                // BMR hesaplama (Harris-Benedict formülü)
+                let bmr;
+                if (gender === 'male') {
+                    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+                } else {
+                    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+                }
+                
+                // Günlük kalori ihtiyacı
+                const dailyCalories = Math.round(bmr * activity);
+                
+                // Sonuçları göster
+                bmrResult.textContent = Math.round(bmr);
+                calorieResult.textContent = dailyCalories;
+                resultBox.classList.add('active');
+                
+                // Sayfayı sonuca kaydır
+                resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            
+            // Hesaplama butonuna tıklama olayı
+            if (calculateBtn) {
+                calculateBtn.addEventListener('click', calculateMetabolism);
+            }
+            
+            // Enter tuşuna basıldığında da hesaplama yap
+            document.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && (e.target.id === 'age' || e.target.id === 'weight' || e.target.id === 'height')) {
+                    calculateMetabolism();
+                }
+            });
             
             // Open logo video popup
             if (logoVideoBtn) {

@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çölyak Hastalığı ve Glutensiz Beslenme | Diyetisyen Tuğba Şeker Ağaç</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #388E3C;
+            --secondary: #FF9800;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles - AYNEN ANA SAYFA İLE AYNI */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        /* Logo Container */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-img img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .logo-text .tagline {
+            font-size: 0.7rem;
+            color: var(--gray);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Logo Video Button Styles - AYNEN ANA SAYFA İLE AYNI */
+        .logo-video-btn-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: floatUpDown 4s ease-in-out infinite;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .logo-video-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .logo-video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: var(--secondary);
+        }
+
+        .logo-video-btn video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+
+        /* Logo video text (hoverda görünen) */
+        .logo-video-text {
+            background-color: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            max-width: 250px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            position: relative;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .logo-video-btn-container:hover .logo-video-text {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .logo-video-text:after {
+            content: '';
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent white transparent transparent;
+        }
+
+        /* Video açıkken etrafında dönen butonlar */
+        .logo-video-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .logo-video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-center {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-popup-center video {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 5px solid var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            position: relative;
+        }
+
+        .popup-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            z-index: 2001;
+            transition: transform 0.3s;
+        }
+
+        .popup-close-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dönen butonlar */
+        .popup-action-buttons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotateButtons 20s linear infinite;
+        }
+
+        @keyframes rotateButtons {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .popup-action-btn {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            transform-origin: center;
+            z-index: 1;
+            font-size: 1.3rem;
+        }
+
+        .popup-action-btn.whatsapp {
+            background-color: #25D366;
+            top: -30px;
+            left: calc(50% - 30px);
+        }
+
+        .popup-action-btn.call {
+            background-color: var(--primary);
+            top: calc(50% - 30px);
+            right: -30px;
+        }
+
+        .popup-action-btn.instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            bottom: -30px;
+            left: calc(50% - 30px);
+        }
+
+        .popup-action-btn.location {
+            background-color: var(--secondary);
+            top: calc(50% - 30px);
+            left: -30px;
+        }
+
+        .popup-action-btn:hover {
+            transform: scale(1.1);
+            z-index: 3;
+        }
+
+        /* Buton etiketleri */
+        .popup-action-btn span {
+            position: absolute;
+            background-color: white;
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            pointer-events: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup-action-btn.whatsapp span {
+            top: 100%;
+            margin-top: 10px;
+        }
+
+        .popup-action-btn.call span {
+            right: 100%;
+            margin-right: 10px;
+            top: 50%;
+            transform: translateY(-50%) translateX(10px);
+        }
+
+        .popup-action-btn.instagram span {
+            bottom: 100%;
+            margin-bottom: 10px;
+        }
+
+        .popup-action-btn.location span {
+            left: 100%;
+            margin-left: 10px;
+            top: 50%;
+            transform: translateY(-50%) translateX(-10px);
+        }
+
+        .popup-action-btn:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .popup-action-btn.call:hover span {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .popup-action-btn.location:hover span {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Mobilde her zaman görünen yazı */
+        .logo-video-text-mobile {
+            display: none;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            max-width: 200px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.85rem;
+            line-height: 1.3;
+            position: relative;
+            margin-right: 10px;
+            animation: pulseText 3s infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .logo-video-text-mobile:after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent transparent white;
+        }
+
+        /* Fixed Buttons - AYNEN ANA SAYFA İLE AYNI */
+        .fixed-buttons {
+            position: fixed;
+            right: 15px;
+            bottom: 15px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .whatsapp-btn, .call-btn, .instagram-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+        }
+
+        .call-btn {
+            background-color: var(--primary);
+        }
+
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .whatsapp-btn:hover, .call-btn:hover, .instagram-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Hero Section for Celiac Page */
+        .celiac-hero {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(56, 142, 60, 0.9)), url('https://www.tugbasekeragac.com/images/glutensiz-beslenme-colyak.webp.jfif');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+
+        .celiac-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .celiac-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .celiac-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Section Common */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 15%;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Main Content Styles */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-intro {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .content-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .content-block {
+            margin-bottom: 40px;
+        }
+
+        .content-block h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-block h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .content-block p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .content-block ul, .content-block ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content-block li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .warning-box {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .content-image {
+            width: 100%;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            font-style: italic;
+            color: var(--gray);
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Symptoms Grid */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        @media (min-width: 768px) {
+            .symptoms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .symptom-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .symptom-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .symptom-item h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .symptom-item h4 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        /* Food Lists */
+        .food-lists {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        @media (min-width: 768px) {
+            .food-lists {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .food-list {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .food-list.allowed {
+            border-top: 4px solid var(--primary);
+        }
+
+        .food-list.forbidden {
+            border-top: 4px solid #DC3545;
+        }
+
+        .food-list h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .food-list.forbidden h4 {
+            color: #DC3545;
+        }
+
+        .food-list h4 i {
+            margin-right: 10px;
+        }
+
+        /* Gluten-Free Diet Plan */
+        .diet-plan-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .diet-plan-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .diet-plan-day {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .diet-plan-day:last-child {
+            border-bottom: none;
+        }
+
+        .diet-plan-day h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .meal-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .meal-time {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 100px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+            border-bottom: 1px solid transparent;
+        }
+
+        .faq-question.active {
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .cta-buttons .btn:hover {
+            background-color: var(--light);
+        }
+
+        .cta-buttons .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-buttons .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        /* Footer - AYNEN ANA SAYFA İLE AYNI */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            width: 100%;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column p, .footer-column ul li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .logo-text h1 {
+                font-size: 1.4rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.8rem;
+            }
+            
+            .logo-img {
+                height: 55px;
+            }
+            
+            nav ul li {
+                margin-left: 25px;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .celiac-hero {
+                min-height: 500px;
+            }
+            
+            .celiac-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .footer-content {
+                flex-direction: row;
+            }
+            
+            .footer-column {
+                flex: 1;
+            }
+            
+            .logo-video-btn {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 992px) {
+            .logo-text h1 {
+                font-size: 1.6rem;
+            }
+            
+            .logo-text .tagline {
+                font-size: 0.85rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 30px;
+            }
+            
+            .celiac-hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: none !important;
+            }
+            
+            .logo-video-btn {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Mobile Menu Button */
+        @media (max-width: 991px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-text .tagline {
+                display: none;
+            }
+            
+            .logo-img {
+                height: 45px;
+            }
+            
+            /* Logo Video Button Mobile Styles */
+            .logo-video-btn-container {
+                left: 15px;
+                bottom: 15px;
+                flex-direction: row-reverse;
+            }
+            
+            .logo-video-btn {
+                width: 70px;
+                height: 70px;
+            }
+            
+            /* Mobilde her zaman görünen yazı */
+            .logo-video-text-mobile {
+                display: block;
+            }
+            
+            /* Desktop yazısını mobilde gizle */
+            .logo-video-text {
+                display: none;
+            }
+            
+            /* Video popup mobil için düzenlemeler */
+            .video-popup-center {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .video-popup-center video {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .popup-action-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.1rem;
+            }
+            
+            .popup-action-btn.whatsapp {
+                top: -25px;
+                left: calc(50% - 25px);
+            }
+            
+            .popup-action-btn.call {
+                top: calc(50% - 25px);
+                right: -25px;
+            }
+            
+            .popup-action-btn.instagram {
+                bottom: -25px;
+                left: calc(50% - 25px);
+            }
+            
+            .popup-action-btn.location {
+                top: calc(50% - 25px);
+                left: -25px;
+            }
+        }
+        
+        /* Desktop yazı stilleri */
+        @media (min-width: 992px) {
+            .logo-video-text-mobile {
+                display: none;
+            }
+            
+            .logo-video-text {
+                display: block;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .logo-video-btn {
+                width: 60px;
+                height: 60px;
+                border-width: 2px;
+            }
+            
+            .logo-video-btn-container {
+                left: 10px;
+                bottom: 10px;
+            }
+            
+            .logo-video-text-mobile {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+                max-width: 160px;
+            }
+            
+            .video-popup-center {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .video-popup-center video {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .popup-action-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .popup-action-btn span {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+            
+            .celiac-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .diet-plan-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Video Butonu ve Mobil Yazı - AYNEN ANA SAYFA İLE AYNI -->
+    <div class="logo-video-btn-container" id="logoVideoBtnContainer">
+        <div class="logo-video-text-mobile" id="logoVideoTextMobile">
+            Glutensiz yaşam için destek ister misin? 🌾
+        </div>
+        <div class="logo-video-text" id="logoVideoText">
+            Glutensiz yaşam için destek ister misin? 🌾<br>
+            Çölyak dostu beslenme programları ile yanındayım!
+        </div>
+        <div class="logo-video-btn" id="logoVideoBtn">
+            <video autoplay muted loop playsinline>
+                <source src="https://www.tugbasekeragac.com/images/dyt-seker-agac-tugba.webp.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+    </div>
+
+    <!-- Video Popup Overlay (Dönen Butonlar ile) - AYNEN ANA SAYFA İLE AYNI -->
+    <div class="logo-video-popup-overlay" id="logoVideoPopupOverlay">
+        <button class="popup-close-btn" id="popupCloseBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="video-popup-center">
+            <video id="popupVideo" autoplay muted loop playsinline>
+                <source src="https://www.tugbasekeragac.com/images/dyt-seker-agac-tugba.webp.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            
+            <div class="popup-action-buttons">
+                <a href="https://wa.me/905070361859" class="popup-action-btn whatsapp" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:05070361859" class="popup-action-btn call" title="Ara">
+                    <i class="fas fa-phone"></i>
+                    <span>Ara</span>
+                </a>
+                <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="popup-action-btn instagram" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://goo.gl/maps/9cMbzVaUQh3vTnvV6" class="popup-action-btn location" target="_blank" title="Konum">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Konum</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sabit WhatsApp, Arama ve Instagram Butonları - AYNEN ANA SAYFA İLE AYNI -->
+    <div class="fixed-buttons">
+        <a href="https://wa.me/905070361859" class="whatsapp-btn" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:05070361859" class="call-btn" title="Ara">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/dyt.tugbasekeragac/" class="instagram-btn" target="_blank" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Header - AYNEN ANA SAYFA İLE AYNI -->
+    <header>
+        <div class="container header-container">
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <div class="logo-img">
+                    <div style="width: 50px; height: 50px; background-color: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <h1>Dyt. Tuğba <span>Şeker Ağaç</span></h1>
+                    <div class="tagline">Sağlıklı Beslenme, Mutlu Yaşam</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul id="mainMenu">
+                    <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                    <li><a href="/hakkimizda/">Hakkımda</a></li>
+                    <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/tarifler/">Tarifler</a></li>
+                    <li><a href="/yorumlar/">Yorumlar</a></li>
+                    <li><a href="/iletisim/">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="https://www.tugbasekeragac.com/">Ana Sayfa</a></li>
+                <li><a href="/hakkimizda/">Hakkımda</a></li>
+                 <li><a href="/hizmetlerimiz/">Hizmetler</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/tarifler/">Tarifler</a></li>
+                <li><a href="/yorumlar/">Yorumlar</a></li>
+                <li><a href="/iletisim/">İletişim</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section for Celiac Page -->
+    <section class="celiac-hero">
+        <div class="container celiac-hero-content">
+            <h1>Çölyak Hastalığı ve Glutensiz Beslenme</h1>
+            <p>Çölyak hastalığı hakkında bilmeniz gerekenler, glutensiz beslenme rehberi ve sağlıklı bir yaşam için ipuçları</p>
+            <a href="#content-start" class="btn">Keşfetmeye Başla</a>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="content-section" id="content-start">
+        <div class="container content-container">
+            <div class="content-intro">
+                <p>Çölyak hastalığı, gluten proteinine karşı gelişen otoimmün bir hastalıktır. Gluten içeren gıdaların tüketilmesi, bağırsaklarda hasara ve besin emilim bozukluğuna neden olur. Çölyak hastalığı için tek tedavi yöntemi ömür boyu glutensiz beslenmektir. Bu sayfada çölyak hastalığı hakkında bilmeniz gereken her şeyi ve glutensiz beslenme rehberini bulacaksınız.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-stethoscope"></i> Çölyak Hastalığı Nedir?</h3>
+                <p>Çölyak hastalığı, genetik yatkınlığı olan bireylerde buğday, arpa, çavdar ve yulafta bulunan gluten proteinine karşı gelişen kronik bir ince bağırsak hastalığıdır. Hastalık, gluten tüketimi ile tetiklenir ve ince bağırsakta villus adı verilen yapıların tahrip olmasına neden olur. Bu durum besinlerin emilimini bozar ve çeşitli semptomlara yol açar.</p>
+                
+                <div class="content-image">
+                    <img src="https://www.tugbasekeragac.com/images/glutensiz-beslenme-colyak.webp.jfif" alt="Çölyak Hastalığı ve Bağırsak Yapısı" loading="lazy">
+                    <div class="image-caption">Çölyak hastalığı ince bağırsak villuslarında hasara neden olur</div>
+                </div>
+                
+                <p>Çölyak hastalığı otoimmün bir hastalıktır, yani bağışıklık sisteminin kendi vücut dokularına saldırması sonucu ortaya çıkar. Hastalık her yaşta ortaya çıkabilir ve yaşam boyu sürer. Türkiye'de çölyak hastalığı görülme sıklığı %1 civarındadır, ancak birçok vaka teşhis edilmemiş olabilir.</p>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-exclamation-triangle"></i> Çölyak Hastalığı Belirtileri</h3>
+                
+                <div class="symptoms-grid">
+                    <div class="symptom-item">
+                        <h4><i class="fas fa-belly"></i> Sindirim Sistemi Belirtileri</h4>
+                        <p>• Kronik ishal veya kabızlık<br>
+                           • Karın ağrısı ve şişkinlik<br>
+                           • Gaz ve hazımsızlık<br>
+                           • Bulantı ve kusma<br>
+                           • Açıklanamayan kilo kaybı</p>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <h4><i class="fas fa-user-injured"></i> Genel Belirtiler</h4>
+                        <p>• Sürekli yorgunluk ve halsizlik<br>
+                           • Demir eksikliği anemisi<br>
+                           • Kemik ağrıları ve osteoporoz<br>
+                           • Büyüme geriliği (çocuklarda)<br>
+                           • Depresyon ve sinirlilik</p>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <h4><i class="fas fa-allergies"></i> Diğer Belirtiler</h4>
+                        <p>• Dermatitis herpetiformis (cilt döküntüsü)<br>
+                           • Aftöz ülserler (ağız yaraları)<br>
+                           • Diş mine defektleri<br>
+                           • Eklem ağrıları<br>
+                           • Adet düzensizlikleri</p>
+                    </div>
+                    
+                    <div class="symptom-item">
+                        <h4><i class="fas fa-dna"></i> Sessiz Çölyak</h4>
+                        <p>Bazı hastalarda herhangi bir belirti görülmez veya belirtiler hafiftir. Bu durum "sessiz çölyak" olarak adlandırılır. Sessiz çölyak da bağırsak hasarına neden olur ve uzun vadede komplikasyon riski taşır.</p>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h4><i class="fas fa-exclamation-circle"></i> Önemli Uyarı</h4>
+                    <p>Bu belirtilerden birkaçını gözlemliyorsanız, kesin teşhis için bir gastroenteroloji uzmanına başvurmalısınız. Kendi kendinize glutensiz diyet uygulamaya başlamadan önce mutlaka teşhis konulmalıdır, çünkü glutensiz diyet test sonuçlarını etkileyebilir.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-vial"></i> Çölyak Hastalığı Teşhisi</h3>
+                
+                <div class="highlight-box">
+                    <h4>Teşhis Süreci:</h4>
+                    <p><strong>1. Kan Testleri:</strong> Anti-tTG (doku transglutaminaz antikoru), Anti-EMA (endomisyum antikoru) ve Anti-DGP (deamine gliadin peptit antikoru) testleri yapılır.</p>
+                    <p><strong>2. Endoskopi ve Biyopsi:</strong> Kesin teşhis için ince bağırsak biyopsisi gereklidir. Endoskopi ile ince bağırsaktan doku örneği alınır ve patolojik inceleme yapılır.</p>
+                    <p><strong>3. Genetik Testler:</strong> HLA-DQ2 ve HLA-DQ8 genleri araştırılır. Bu genleri taşımamak çölyak hastalığını neredeyse tamamen ekarte ettirir.</p>
+                    <p><strong>4. Glutensiz Diyet Tepkisi:</strong> Teşhisten sonra glutensiz diyete başlanır ve semptomların düzelip düzelmediği gözlemlenir.</p>
+                </div>
+            </div>
+
+            <div class="diet-plan-section">
+                <div class="section-title">
+                    <h2>Glutensiz Beslenme Rehberi</h2>
+                </div>
+                
+                <div class="diet-plan-container">
+                    <p style="text-align: center; margin-bottom: 20px;">Çölyak hastalığında tek tedavi yöntemi ömür boyu glutensiz beslenmedir. İşte glutensiz beslenmenin temel kuralları:</p>
+                    
+                    <div class="food-lists">
+                        <div class="food-list allowed">
+                            <h4><i class="fas fa-check-circle"></i> Tüketilebilen Gıdalar</h4>
+                            <p>• Mısır, pirinç, patates<br>
+                               • Karabuğday, kinoa, amarant<br>
+                               • Nohut, mercimek, fasulye<br>
+                               • Tüm sebze ve meyveler<br>
+                               • Et, tavuk, balık, yumurta<br>
+                               • Süt, yoğurt, peynir (sade)<br>
+                               • Kuruyemişler ve tohumlar<br>
+                               • Glutensiz etiketli özel ürünler</p>
+                        </div>
+                        
+                        <div class="food-list forbidden">
+                            <h4><i class="fas fa-ban"></i> Yasaklı Gıdalar</h4>
+                            <p>• Buğday, arpa, çavdar, yulaf*<br>
+                               • Ekmek, makarna, bulgur<br>
+                               • Kek, börek, pasta, kurabiye<br>
+                               • İrmik, şehriye, un çorbaları<br>
+                               • Hazır çorbalar, bulyonlar<br>
+                               • Bazı soslar ve baharat karışımları<br>
+                               • Malt içeren içecekler (bira)<br>
+                               • İşlenmiş et ürünleri (sosis, salam)</p>
+                            <p style="font-size: 0.85rem; margin-top: 10px;"><em>*Yulaf kontamine olmadığı sürece bazı çölyak hastaları tarafından tolere edilebilir.</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box" style="margin-top: 30px;">
+                        <h4><i class="fas fa-lightbulb"></i> Önemli İpuçları</h4>
+                        <p><strong>Çapraz Bulaşma:</strong> Glutensiz gıdalar, glutenli gıdalarla aynı ortamda hazırlanmamalı veya saklanmamalıdır.</p>
+                        <p><strong>Etiket Okuma:</strong> Tüm paketli ürünlerin etiketleri dikkatlice okunmalıdır. "Glutensiz" ibaresi olmayan ürünler riskli olabilir.</p>
+                        <p><strong>Dışarıda Yemek:</strong> Restoranlarda yemek yerken mutlaka glutensiz seçenekler sorulmalı ve çapraz bulaşma riski hatırlatılmalıdır.</p>
+                        <p><strong>Vitamin Takviyesi:</strong> Çölyak hastalarında demir, B12 vitamini, D vitamini ve kalsiyum eksiklikleri sık görülür. Doktor kontrolünde takviye alınmalıdır.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-utensils"></i> Örnek Glutensiz Beslenme Programı</h3>
+                
+                <div class="highlight-box">
+                    <h4>1 Günlük Örnek Menü</h4>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Kahvaltı</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">08:00</div>
+                            <div class="meal-description">Glutensiz ekmek ile peynir, zeytin, domates, salatalık, yeşillikler + 1 adet haşlanmış yumurta</div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Ara Öğün</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">10:30</div>
+                            <div class="meal-description">1 porsiyon meyve + 10 adet badem veya ceviz</div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Öğle Yemeği</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">13:00</div>
+                            <div class="meal-description">Izgara tavuk veya balık + pirinç pilavı veya patates + bol yeşil salata (glutensiz sos ile)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Ara Öğün</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">16:00</div>
+                            <div class="meal-description">1 kase yoğurt + 1 yemek kaşığı kinoa veya karabuğday</div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Akşam Yemeği</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">19:00</div>
+                            <div class="meal-description">Zeytinyağlı sebze yemeği + 1 kase mercimek çorbası (glutensiz un ile) + 1 kase yoğurt</div>
+                        </div>
+                    </div>
+                    
+                    <div class="diet-plan-day">
+                        <h4>Gece</h4>
+                        <div class="meal-item">
+                            <div class="meal-time">21:30</div>
+                            <div class="meal-description">1 bardak süt veya 1 porsiyon meyve</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 20px;"><strong>Not:</strong> Bu örnek menü genel bilgi amaçlıdır. Kişiye özel beslenme programı için mutlaka bir diyetisyene danışın.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3><i class="fas fa-shield-alt"></i> Glutensiz Beslenmede Dikkat Edilmesi Gerekenler</h3>
+                
+                <div class="highlight-box">
+                    <h4>Gizli Gluten Kaynakları</h4>
+                    <p>Gluten sadece ekmek ve makarnada değil, birçok hazır gıdada gizli olarak bulunabilir:</p>
+                    
+                    <ul>
+                        <li><strong>Soslar:</strong> Ketçap, mayonez, soya sosu, salata sosları</li>
+                        <li><strong>Baharat Karışımları:</strong> Hazır köfte, tavuk, et baharatları</li>
+                        <li><strong>İşlenmiş Et Ürünleri:</strong> Sosis, salam, sucuk, pastırma</li>
+                        <li><strong>Çorbalar:</strong> Hazır çorbalar, bulyonlar</li>
+                        <li><strong>Tatlandırıcılar:</strong> Bazı tatlandırıcılar gluten içerebilir</li>
+                        <li><strong>İlaçlar ve Takviyeler:</strong> Bazı ilaçların kapsülleri gluten içerebilir</li>
+                        <li><strong>Kozmetik Ürünler:</strong> Ruj, diş macunu, dudak kremi</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>Dışarıda Yemek Yerken</h4>
+                    <p>Restoranlarda yemek yerken dikkat edilmesi gerekenler:</p>
+                    
+                    <ul>
+                        <li>Restoran personeline çölyak hastası olduğunuzu mutlaka bildirin</li>
+                        <li>Glutensiz menü seçeneklerini sorun</li>
+                        <li>Kızartma yağlarının daha önce glutenli ürünlerde kullanılıp kullanılmadığını sorun</li>
+                        <li>Ekmek kızartma makinesi, tost makinesi gibi ortak kullanılan aletlerden kaçının</li>
+                        <li>Salata barlarında çapraz bulaşma riski yüksektir, dikkatli olun</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sıkça Sorulan Sorular</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Çölyak hastalığı ile gluten hassasiyeti arasındaki fark nedir?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Çölyak Hastalığı:</strong> Otoimmün bir hastalıktır. Gluten tüketimi bağırsaklarda kalıcı hasara neden olur. Teşhis için kan testleri ve biyopsi gereklidir. Ömür boyu kesin glutensiz diyet şarttır.</p>
+                        <p><strong>Gluten Hassasiyeti (İntoleransı):</strong> Otoimmün değildir. Bağırsak hasarı yoktur ancak semptomlar benzerdir. Teşhisi için özel bir test yoktur, çölyak ve alerji ekarte edildikten sonra gluten eliminasyonu ile teşhis konur. Diyet daha esnek olabilir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Çölyak hastalığı tedavi edilebilir mi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Çölyak hastalığı için kesin bir tedavi yoktur. Tek tedavi yöntemi ömür boyu glutensiz beslenmedir. Glutensiz diyet uygulandığında semptomlar genellikle birkaç hafta içinde düzelir ve bağırsaklar 6-24 ay içinde iyileşir. Diyete tam uyum sağlandığında çölyak hastaları normal, sağlıklı bir yaşam sürebilirler.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Glutensiz diyet uygularken hangi vitamin ve minerallere dikkat etmeliyim?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Çölyak hastalarında besin emilim bozukluğu nedeniyle bazı vitamin ve mineral eksiklikleri sık görülür. Özellikle dikkat edilmesi gerekenler:</p>
+                        <ul>
+                            <li><strong>Demir:</strong> Kırmızı et, yeşil yapraklı sebzeler, kuruyemişler</li>
+                            <li><strong>B12 Vitamini:</strong> Et, balık, yumurta, süt ürünleri</li>
+                            <li><strong>D Vitamini:</strong> Yağlı balıklar, yumurta sarısı, güneş</li>
+                            <li><strong>Kalsiyum:</strong> Süt, yoğurt, peynir, brokoli, badem</li>
+                            <li><strong>Folik Asit:</strong> Yeşil yapraklı sebzeler, baklagiller</li>
+                            <li><strong>Çinko:</strong> Et, kabuklu deniz ürünleri, kuruyemişler</li>
+                        </ul>
+                        <p>Eksiklikler için doktor kontrolünde takviye alınmalıdır.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Çölyak hastalığı genetik midir? Çocuğuma geçer mi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Evet, çölyak hastalığı genetik yatkınlık gerektirir. Hastalıkla ilişkili HLA-DQ2 ve HLA-DQ8 genleri vardır. Birinci derece akrabalarda (anne, baba, kardeş, çocuk) çölyak hastalığı görülme riski %10-15'tir. Ebeveynlerden birinde çölyak hastalığı varsa, çocuklarında da olma ihtimali yaklaşık %10'dur. Ancak genetik yatkınlık tek başına hastalığın ortaya çıkması için yeterli değildir; çevresel faktörler de rol oynar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Glutensiz Yaşamınıza Profesyonel Destek Alın</h2>
+            <p>Çölyak hastalığı ile mücadelede en önemli adım doğru beslenmedir. Kişiye özel glutensiz beslenme programı ile sağlıklı ve lezzetli bir yaşam sürün.</p>
+            
+            <div class="cta-buttons">
+                <a href="/iletisim/" class="btn">Glutensiz Beslenme Danışmanlığı Al</a>
+                <a href="https://wa.me/905070361859" class="btn btn-secondary" target="_blank">WhatsApp'tan Bilgi Al</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - AYNEN ANA SAYFA İLE AYNI -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Dyt. Tuğba Şeker Ağaç</h3>
+                    <p>Sağlıklı beslenme, kaliteli yaşam felsefesiyle danışanlarına özel beslenme programları hazırlayan uzman diyetisyen.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/dyt.tugbasekeragac/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@dyt.tugbaseker" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tugbasekeragac.com" target="_blank"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 10px;"><a href="https://www.tugbasekeragac.com/" style="color: white; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/hakkimizda/" style="color: white; text-decoration: none;">Hakkımda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/hizmetlerimiz/" style="color: white; text-decoration: none;">Hizmetler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/blog/" style="color: white; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/tarifler/" style="color: white; text-decoration: none;">Tarifler</a></li>
+                        <li style="margin-bottom: 10px;"><a href="/iletisim/" style="color: white; text-decoration: none;">İletişim</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>İletişim Bilgileri</h3>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> 0507 036 18 59</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> dyt.tugbasekeragac@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Kurtuluş Mah. Demokrasi Sokak, Atatürk Cad. Gülbahçesi Sitesi C Blok Kat 2 No 214, 01010 Seyhan/Adana</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript - AYNEN ANA SAYFA İLE AYNI -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            // Logo Video Button Elements
+            const logoVideoBtn = document.getElementById('logoVideoBtn');
+            const logoVideoBtnContainer = document.getElementById('logoVideoBtnContainer');
+            const logoVideoPopupOverlay = document.getElementById('logoVideoPopupOverlay');
+            const popupCloseBtn = document.getElementById('popupCloseBtn');
+            const logoVideoTextMobile = document.getElementById('logoVideoTextMobile');
+            const logoVideoTextDesktop = document.getElementById('logoVideoText');
+            const popupVideo = document.getElementById('popupVideo');
+            
+            // Array of messages for the logo button
+            const messages = [
+                "Glutensiz yaşam için destek ister misin? 🌾",
+                "Çölyak dostu beslenme programları ile yanındayım!",
+                "Glutensiz ama lezzetsiz değil! 🍽️",
+                "Çölyak hastalığı ile sağlıklı yaşam mümkün! 💚",
+                "Glutensiz beslenme rehberi ile tanışın! 📘",
+                "Çapraz bulaşmaya dikkat! 🚫",
+                "Glutensiz ürünler, sınırsız lezzetler! 😋",
+                "Çölyak hastaları için özel beslenme planları! ✅"
+            ];
+            
+            // Change message every 5 seconds
+            let messageIndex = 0;
+            function changeMessage() {
+                const newMessage = messages[messageIndex];
+                
+                if (logoVideoTextMobile) {
+                    logoVideoTextMobile.innerHTML = newMessage;
+                }
+                
+                if (logoVideoTextDesktop) {
+                    logoVideoTextDesktop.innerHTML = newMessage;
+                }
+                
+                messageIndex = (messageIndex + 1) % messages.length;
+            }
+            
+            // Start changing messages
+            if (logoVideoTextMobile || logoVideoTextDesktop) {
+                changeMessage(); // Initial message
+                setInterval(changeMessage, 5000);
+            }
+            
+            // Open logo video popup
+            if (logoVideoBtn) {
+                logoVideoBtn.addEventListener('click', function() {
+                    logoVideoPopupOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Play video in popup
+                    if (popupVideo) {
+                        popupVideo.currentTime = 0;
+                        popupVideo.play();
+                    }
+                });
+            }
+            
+            // Close logo video popup
+            if (popupCloseBtn) {
+                popupCloseBtn.addEventListener('click', function() {
+                    logoVideoPopupOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Pause video when closing
+                    if (popupVideo) {
+                        popupVideo.pause();
+                    }
+                });
+            }
+            
+            // Close popup when clicking outside
+            if (logoVideoPopupOverlay) {
+                logoVideoPopupOverlay.addEventListener('click', function(e) {
+                    if (e.target === logoVideoPopupOverlay) {
+                        logoVideoPopupOverlay.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                        
+                        // Pause video when closing
+                        if (popupVideo) {
+                            popupVideo.pause();
+                        }
+                    }
+                });
+            }
+            
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Logo video fallback
+            const logoVideo = document.querySelector('#logoVideoBtn video');
+            if (logoVideo) {
+                logoVideo.muted = true;
+                logoVideo.setAttribute('playsinline', '');
+                logoVideo.setAttribute('webkit-playsinline', '');
+                logoVideo.setAttribute('muted', '');
+                
+                // Try to play the video
+                const logoPlayPromise = logoVideo.play();
+                if (logoPlayPromise !== undefined) {
+                    logoPlayPromise.catch(error => {
+                        console.log("Logo video autoplay failed:", error);
+                    });
+                }
+            }
+        });
+        
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other FAQ answers
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it was closed
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -51,6 +51,411 @@
             padding: 0 20px;
         }
 
+        /* Kapı Açılış Animasyonu Stilleri */
+        .door-animation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .door-animation-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 80vh;
+            display: flex;
+            perspective: 1500px;
+        }
+
+        .door-left, .door-right {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(145deg, #8B4513 0%, #A0522D 30%, #8B4513 100%);
+            border: 15px solid #5D4037;
+            border-radius: 10px 0 0 10px;
+            box-shadow: 
+                inset 0 0 30px rgba(0, 0, 0, 0.5),
+                0 10px 40px rgba(0, 0, 0, 0.7);
+            transition: transform 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .door-left {
+            left: 0;
+            transform-origin: left center;
+            border-right: 5px solid #3E2723;
+        }
+
+        .door-right {
+            right: 0;
+            transform-origin: right center;
+            border-left: 5px solid #3E2723;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Kapı tahta deseni */
+        .door-left:before, .door-right:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            background-size: 200% 100%;
+            animation: woodGrain 3s infinite linear;
+        }
+
+        @keyframes woodGrain {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Kapı içeriği */
+        .door-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1.5s ease 1s;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .door-animation-container.open .door-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .door-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+            margin-bottom: 25px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.5); }
+            100% { box-shadow: 0 0 40px rgba(76, 175, 80, 0.8); }
+        }
+
+        .door-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .door-text {
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+        }
+
+        .door-text h1 {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6); }
+        }
+
+        .door-text h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .door-text h2:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .door-subtitles {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .door-subtitles span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .door-subtitles span:nth-child(1) { animation-delay: 0.2s; }
+        .door-subtitles span:nth-child(2) { animation-delay: 0.4s; }
+        .door-subtitles span:nth-child(3) { animation-delay: 0.6s; }
+        .door-subtitles span:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .door-subtitles span:hover {
+            background: rgba(76, 175, 80, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .door-subtitles i {
+            color: #FFD700;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .enter-btn {
+            background: linear-gradient(45deg, #FF9800, #FF5722);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: buttonPulse 1.5s infinite alternate;
+        }
+
+        @keyframes buttonPulse {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(255, 87, 34, 0.4); }
+            100% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 87, 34, 0.6); }
+        }
+
+        .enter-btn:hover {
+            background: linear-gradient(45deg, #FF5722, #FF9800);
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.7);
+        }
+
+        .enter-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* Kapı kolu */
+        .door-knob {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            width: 60px;
+            height: 60px;
+            transform: translateY(-50%);
+        }
+
+        .left-knob {
+            right: -30px;
+        }
+
+        .right-knob {
+            left: -30px;
+        }
+
+        .knob {
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, #C0C0C0, #808080, #404040);
+            border-radius: 50%;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .knob:before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: radial-gradient(circle at 40% 40%, #E8E8E8, #A0A0A0);
+            border-radius: 50%;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .knob:after {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 10px;
+            height: 10px;
+            background: #606060;
+            border-radius: 50%;
+        }
+
+        .knob:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Arka plan yıldızları */
+        .door-animation-overlay:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(2px 2px at 50px 160px, #ddd, transparent),
+                radial-gradient(2px 2px at 90px 40px, #fff, transparent),
+                radial-gradient(2px 2px at 130px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 120px, #ddd, transparent);
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: starsMove 50s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 200px; }
+        }
+
+        /* Işık huzmeleri */
+        .door-animation-overlay:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(76, 175, 80, 0.2), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 152, 0, 0.2), transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 215, 0, 0.2), transparent 50%);
+            animation: lightBeams 10s infinite alternate;
+        }
+
+        @keyframes lightBeams {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Responsive Tasarım - Kapı Animasyonu */
+        @media (max-width: 768px) {
+            .door-animation-container {
+                height: 90vh;
+            }
+            
+            .door-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .door-text h2 {
+                font-size: 1.5rem;
+            }
+            
+            .door-image {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .door-subtitles span {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+            
+            .enter-btn {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .door-left, .door-right {
+                border-width: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .door-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .door-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .door-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .door-subtitles {
+                gap: 8px;
+            }
+            
+            .door-subtitles span {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            
+            .enter-btn {
+                padding: 10px 25px;
+                font-size: 1rem;
+            }
+        }
+
         /* Header Styles */
         header {
             background-color: white;
@@ -1749,6 +2154,42 @@
     </style>
 </head>
 <body>
+    <!-- Kapı Açılış Animasyonu -->
+    <div class="door-animation-overlay" id="doorAnimation">
+        <div class="door-animation-container">
+            <div class="door-left"></div>
+            <div class="door-right"></div>
+            
+            <div class="door-content">
+                <div class="door-image">
+                    <img src="https://www.tugbasekeragac.com/images/tugba-dyt-reklam.webp.jpg" alt="Diyetisyen Tuğba Şeker Ağaç">
+                </div>
+                
+                <div class="door-text">
+                    <h1>Diyetisyen Tuğba Şeker Ağaç</h1>
+                    <h2>Hizmetlerimiz</h2>
+                    <div class="door-subtitles">
+                        <span><i class="fas fa-check-circle"></i> Kişiye Özel Diyet Programları</span>
+                        <span><i class="fas fa-check-circle"></i> Online Danışmanlık</span>
+                        <span><i class="fas fa-check-circle"></i> Fonksiyonel Tıp Yaklaşımı</span>
+                        <span><i class="fas fa-check-circle"></i> Sağlıklı Yaşam Koçluğu</span>
+                    </div>
+                    
+                    <button class="enter-btn" id="enterSiteBtn">
+                        <i class="fas fa-door-open"></i> Sayfaya Gir
+                    </button>
+                </div>
+            </div>
+            
+            <div class="door-knob left-knob">
+                <div class="knob"></div>
+            </div>
+            <div class="door-knob right-knob">
+                <div class="knob"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Logo Video Butonu ve Mobil Yazı -->
     <div class="logo-video-btn-container" id="logoVideoBtnContainer">
         <div class="logo-video-text-mobile" id="logoVideoTextMobile">
@@ -2321,6 +2762,13 @@
             const bmrResult = document.getElementById('bmrResult');
             const calorieResult = document.getElementById('calorieResult');
             
+            // Kapı animasyonu için elementler
+            const doorAnimation = document.getElementById('doorAnimation');
+            const enterSiteBtn = document.getElementById('enterSiteBtn');
+            const doorContainer = document.querySelector('.door-animation-container');
+            const doorLeft = document.querySelector('.door-left');
+            const doorRight = document.querySelector('.door-right');
+            
             // Array of funny/interesting messages for the logo button
             const messages = [
                 "Benimle diyete başlamaya ne dersin? 🥗",
@@ -2394,6 +2842,61 @@
                     calculateMetabolism();
                 }
             });
+            
+            // Kapı Animasyonu İşlevleri
+            // Sadece Hizmetlerimiz sayfasında göster
+            if (window.location.pathname.includes('/hizmetlerimiz/') || 
+                window.location.pathname.includes('/hizmetler')) {
+                
+                // Animasyonu başlat
+                setTimeout(() => {
+                    doorContainer.classList.add('open');
+                    
+                    // Kapıları aç
+                    doorLeft.style.transform = 'rotateY(-100deg)';
+                    doorRight.style.transform = 'rotateY(100deg)';
+                    
+                    // Kapı kollarına tıklama animasyonu
+                    document.querySelectorAll('.knob').forEach(knob => {
+                        knob.addEventListener('click', function() {
+                            this.style.transform = 'rotate(90deg)';
+                            setTimeout(() => {
+                                this.style.transform = 'rotate(0deg)';
+                            }, 300);
+                        });
+                    });
+                }, 500);
+                
+                // "Sayfaya Gir" butonu işlevi
+                enterSiteBtn.addEventListener('click', function() {
+                    // Kapıları kapat
+                    doorLeft.style.transform = 'rotateY(0)';
+                    doorRight.style.transform = 'rotateY(0)';
+                    doorContainer.classList.remove('open');
+                    
+                    // Overlay'i kaldır
+                    setTimeout(() => {
+                        doorAnimation.style.opacity = '0';
+                        setTimeout(() => {
+                            doorAnimation.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 500);
+                    }, 800);
+                });
+                
+                // Eğer 10 saniye içinde tıklanmazsa otomatik kapanma
+                setTimeout(() => {
+                    if (doorAnimation.style.display !== 'none') {
+                        enterSiteBtn.click();
+                    }
+                }, 10000);
+                
+            } else {
+                // Diğer sayfalarda gösterilmesin
+                if (doorAnimation) {
+                    doorAnimation.style.display = 'none';
+                }
+            }
             
             // Open logo video popup
             if (logoVideoBtn) {

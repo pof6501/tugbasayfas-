@@ -21,6 +21,8 @@
             --dark: #343a40;
             --gray: #6c757d;
             --light-gray: #e9ecef;
+            --aprivex-blue: #1A2C4E; /* Aprivex koyu mavi */
+            --aprivex-light: #2A3F6E; /* Daha açık mavi */
         }
 
         body {
@@ -520,6 +522,15 @@
             background-color: #e68900;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Aprivex Buton Stili */
+        .btn-aprivex {
+            background-color: var(--aprivex-blue);
+            color: white;
+        }
+        .btn-aprivex:hover {
+            background-color: var(--aprivex-light);
         }
 
         /* Fixed Buttons */
@@ -1243,6 +1254,90 @@
             margin-bottom: 10px;
         }
 
+        /* Aprivex Ürün Kartları */
+        .aprivex-products {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 40px 0 20px;
+            width: 100%;
+        }
+
+        .aprivex-card {
+            background: linear-gradient(145deg, var(--aprivex-blue), var(--aprivex-light));
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .aprivex-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .aprivex-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .aprivex-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .aprivex-card p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .aprivex-badge {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .blog-aprivex-banner {
+            background-color: var(--aprivex-blue);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .blog-aprivex-banner a {
+            color: white;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .blog-aprivex-banner a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-sponsor {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .footer-sponsor a {
+            color: var(--secondary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .footer-sponsor a:hover {
+            text-decoration: underline;
+        }
+
         /* Mobile Menu */
         .mobile-nav {
             display: none;
@@ -1485,6 +1580,10 @@
             
             .calculator-form {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .aprivex-products {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1944,6 +2043,31 @@
                     <a href="https://www.tugbasekeragac.com/blog/saglikli-beslenme.html" class="btn" style="margin-top: 20px;">Detaylı Bilgi Al</a>
                 </div>
             </div>
+
+            <!-- Aprivex Önerilen Ürünler -->
+            <div class="aprivex-products">
+                <div class="aprivex-card">
+                    <i class="fas fa-capsules"></i>
+                    <span class="aprivex-badge">Aprivex Öneriyor</span>
+                    <h4>Vitamin & Mineral Destekleri</h4>
+                    <p>Bağışıklık sisteminizi güçlendirmek ve enerjinizi artırmak için özel formülasyonlar.</p>
+                    <a href="https://tici.mx/u0fhoynm" class="btn btn-aprivex" style="background-color: var(--secondary);" target="_blank">İncele <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="aprivex-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <span class="aprivex-badge">Aprivex Öneriyor</span>
+                    <h4>Kolajen Takviyeleri</h4>
+                    <p>Cilt, saç ve eklem sağlığınız için yüksek kaliteli kolajen ürünleri.</p>
+                    <a href="https://tici.mx/u0fhoynm" class="btn btn-aprivex" style="background-color: var(--secondary);" target="_blank">İncele <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="aprivex-card">
+                    <i class="fas fa-bolt"></i>
+                    <span class="aprivex-badge">Aprivex Öneriyor</span>
+                    <h4>Probiyotik & Sindirim</h4>
+                    <p>Sağlıklı bir bağırsak florası ve güçlü sindirim sistemi için probiyotikler.</p>
+                    <a href="https://tici.mx/u0fhoynm" class="btn btn-aprivex" style="background-color: var(--secondary);" target="_blank">İncele <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2071,6 +2195,13 @@
                     <p>Günlük Kalori İhtiyacınız: <span class="result-value" id="calorieResult">0</span> kcal/gün</p>
                     <p class="result-note">* Bu değerler tahmini olup, kişiye özel beslenme programı için diyetisyeninize danışınız.</p>
                 </div>
+
+                <!-- Aprivex Metabolizma Desteği -->
+                <div style="margin-top: 25px; background-color: var(--aprivex-light); padding: 15px; border-radius: 8px; color: white;">
+                    <p style="margin-bottom: 10px;"><i class="fas fa-fire"></i> <strong>Metabolizmanı desteklemeye ne dersin?</strong></p>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Aprivex'in yeşil çay ekstraktı ve krom içeren takviyeleri ile metabolizma hızını doğal yollarla destekleyebilirsin.</p>
+                    <a href="https://tici.mx/u0fhoynm" class="btn" style="background-color: var(--secondary);" target="_blank">Ürünleri İncele <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -2131,6 +2262,10 @@
                         <a href="https://www.tugbasekeragac.com/blog/saglikli-beslenme.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
+                        <!-- Aprivex Blog Banner -->
+                        <div class="blog-aprivex-banner">
+                            <i class="fas fa-capsules"></i> Aprivex önerir: <a href="https://tici.mx/u0fhoynm" target="_blank">Bağışıklık Güçlendirici Set</a> ile sağlığını destekle!
+                        </div>
                     </div>
                 </div>
                 
@@ -2147,6 +2282,10 @@
                         <a href="https://www.tugbasekeragac.com/blog/metabolizma-hizi-kilo-kontrolu.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
+                        <!-- Aprivex Blog Banner -->
+                        <div class="blog-aprivex-banner">
+                            <i class="fas fa-bolt"></i> Aprivex önerir: <a href="https://tici.mx/u0fhoynm" target="_blank">Enerji ve Metabolizma Destek Paketi</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -2163,6 +2302,10 @@
                         <a href="https://www.tugbasekeragac.com/blog/glutensiz-beslenme.html" class="read-more">
                             Devamını Oku <i class="fas fa-arrow-right"></i>
                         </a>
+                        <!-- Aprivex Blog Banner -->
+                        <div class="blog-aprivex-banner">
+                            <i class="fas fa-hand-holding-heart"></i> Aprivex önerir: <a href="https://tici.mx/u0fhoynm" target="_blank">Sindirim Sistemi Dostu Probiyotikler</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2295,6 +2438,11 @@
             
             <div class="copyright">
                 <p>&copy; 2024 Diyetisyen Tuğba Şeker Ağaç. Tüm hakları saklıdır.</p>
+            </div>
+
+            <!-- Footer Sponsor - Aprivex -->
+            <div class="footer-sponsor">
+                <p>Sağlıklı yaşam yolculuğunda ihtiyacın olan takviyeler <a href="https://tici.mx/u0fhoynm" target="_blank">Aprivex'te seni bekliyor <i class="fas fa-external-link-alt"></i></a></p>
             </div>
         </div>
     </footer>
